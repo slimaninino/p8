@@ -1,0 +1,110 @@
+<div class="container">
+  <!-- Header/Navigation -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="assets/images/logo.jpg" alt="NoahSwitch Logo" class="logo">
+    </div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="assets/images/logo-principal.jpg" alt="NoahSwitch" class="hero-logo">
+      <h1 class="hero-title">Driving Innovation in Technology</h1>
+      <p class="hero-subtitle">
+        A dynamic and forward-thinking brand dedicated to setting new standards 
+        and pushing boundaries in technology training and services
+      </p>
+      <button class="cta-button" (click)="scrollToContact()">Get Started</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2 class="section-title">About NoahSwitch</h2>
+    <div class="about-content">
+      <p>
+        NoahSwitch is more than just a provider of technology training and services; 
+        it is a movement that aspires to make a lasting impact. At the core lies a 
+        team of experts who are passionate about their craft and committed to excellence.
+      </p>
+      <p>
+        With a commitment to transparency and a willingness to adapt, NoahSwitch is 
+        constantly evolving, embracing new concepts that align with its core values 
+        of expertise, dedication, forward-thinking, and inclusivity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <div class="contact-item">
+          <span class="contact-label">📧 Email:</span>
+          <a href="mailto:cs@noahswitch.com">cs&#64;noahswitch.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">📱 WhatsApp:</span>
+          <a href="https://wa.me/33678415751" target="_blank">+33 6 78 41 57 51</a>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/noah_.switch?igsh=MXR4Mmg2NHVtM3UyMw==" 
+             target="_blank" 
+             class="social-link">
+            📷 Instagram
+          </a>
+          <a href="https://www.tiktok.com/@noahswitch?_r=1&_t=ZS-91uYERD82p3" 
+             target="_blank" 
+             class="social-link">
+            🎵 TikTok
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h3>Send us a Message</h3>
+        <form action="https://submit-form.com/9Q29PPSTH" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; {{ currentYear }} NoahSwitch. All rights reserved.</p>
+    <p>Empowering individuals and organizations to unlock their full potential</p>
+  </footer>
+</div>
