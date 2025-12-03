@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/noahswitch-website/browser",
+  "framework": "angular",
+  "installCommand": "npm install"
+}
