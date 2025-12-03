@@ -3,5 +3,15 @@
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "dist/noahswitch-website/browser",
   "framework": "angular",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
