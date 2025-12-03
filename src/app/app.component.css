@@ -65,22 +65,19 @@
   transform: translateY(-2px);
 }
 
-/* ============================================================
-   HERO SECTION - White to color gradient (as requested!)
-   ============================================================ */
+/* Hero Section */
 .hero {
   background: linear-gradient(180deg, #ffffff 0%, #e8f4f8 40%, #d1ebf5 70%, #47bfd8 100%);
   padding: 100px 5% 120px;
   text-align: center;
   position: relative;
 }
-
 .hero-content {
   position: relative;
   z-index: 1;
 }
 
-/* Hero logo with white background card */
+
 .hero-logo {
   max-width: 450px;
   width: 100%;
@@ -92,7 +89,6 @@
   box-shadow: 0 8px 32px rgba(18, 65, 145, 0.15);
   transition: transform 0.4s, box-shadow 0.4s;
 }
-
 .hero-logo:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 48px rgba(18, 65, 145, 0.25);
@@ -116,25 +112,21 @@
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #124191 0%, #1267a8 100%);
-  color: white;
-  padding: 1.2rem 3.5rem;
+  background: white;
+  color: #2989d8;
+  padding: 1rem 3rem;
   border: none;
   border-radius: 50px;
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 16px rgba(18, 65, 145, 0.3);
-  letter-spacing: 0.5px;
 }
 
 .cta-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(18, 65, 145, 0.4);
-  background: linear-gradient(135deg, #1267a8 0%, #47bfd8 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
 
 /* About Section */
 .about {
