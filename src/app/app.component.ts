@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -49,11 +49,5 @@ export class AppComponent {
   scrollToContact() {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   }
-  // Add this to handle form submission
-  onFormSubmit(form: any) {
-    if (form.valid) {
-      // Let the browser's native form submission handle it
-      form.nativeElement.submit();
-    }
-  }
+
 }
