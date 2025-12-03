@@ -55,4 +55,5 @@ export class AppComponent {
       // Let the browser's native form submission handle it
       form.nativeElement.submit();
     }
+  }
 }
