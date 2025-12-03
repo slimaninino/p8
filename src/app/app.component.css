@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  background: linear-gradient(135deg, #124191 0%, #1267a8 50%, #47bfd8 100%);
+  background: linear-gradient(135deg, #48BFD9 100%, #1267a8 50%, #47bfd8 0%);
   box-shadow: 0 4px 12px rgba(18, 65, 145, 0.15);
   position: sticky;
   top: 0;
@@ -24,7 +24,7 @@
 }
 
 .logo-container {
-  background: white;
+  background: #48BFD9;
   padding: 0.6rem 1.2rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
