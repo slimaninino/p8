@@ -1,5 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/noahswitch-website",
+  "outputDirectory": "dist/noahswitch-website/browser",
   "framework": "angular"
 }
