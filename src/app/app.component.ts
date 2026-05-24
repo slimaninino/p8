@@ -50,7 +50,6 @@
 //   }
 
 // }
-
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Splide from '@splidejs/splide';
@@ -68,34 +67,34 @@ export class AppComponent implements AfterViewInit {
 
   services = [
     {
-      icon: '...',
+      icon: '🎯',
       title: 'Brand Strategy',
-      description: 'Developing cohesive branding strategies that resonate with your target audience.'
+      description: 'Developing cohesive branding strategies that resonate with your target audience'
     },
     {
-      icon: '...',
+      icon: '🎨',
       title: 'Brand ID Systems',
-      description: 'Crafting compelling brand identities that set you apart from the competition.'
+      description: 'Crafting compelling brand identities that set you apart from the competition'
     },
     {
-      icon: '...',
+      icon: '📝',
       title: 'Brand Content',
-      description: 'Creating captivating content that engages and inspires your audience.'
+      description: 'Creating captivating content that engages and inspires your audience'
     },
     {
-      icon: '...',
+      icon: '💡',
       title: 'Creative Concepts',
-      description: 'Conceptualizing innovative digital solutions for modern challenges.'
+      description: 'Conceptualizing innovative digital solutions for modern challenges'
     },
     {
-      icon: '...',
+      icon: '💻',
       title: 'Digital Expertise',
-      description: 'Website development, marketing, and international marketing excellence.'
+      description: 'Website development, marketing, and international marketing excellence'
     },
     {
-      icon: '...',
+      icon: '🚀',
       title: 'Technology Training',
-      description: 'Cutting-edge training programs to empower individuals and organizations.'
+      description: 'Cutting-edge training programs to empower individuals and organizations'
     }
   ];
 
@@ -113,17 +112,7 @@ export class AppComponent implements AfterViewInit {
       arrows: true,
       pagination: true,
       drag: true,
-      lazyLoad: 'nearby',
-      rewind: true,
-      breakpoints: {
-        768: {
-          gap: '0.75rem'
-        }
-      }
+      rewind: true
     }).mount();
-  }
-
-  scrollToContact(): void {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   }
 }
