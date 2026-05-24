@@ -52,6 +52,7 @@
 // }
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import Splide from '@splidejs/splide';
 
 @Component({
   selector: 'app-root',
@@ -102,6 +103,24 @@ export class AppComponent {
     { name: 'Demo 2', src: 'assets/Index/index-2.html' },
     { name: 'Demo 3', src: 'assets/Index/index-3.html' }
   ];
+
+  ngAfterViewInit(): void {
+    new Splide('#demos-slider', {
+      perPage: 1,
+      perMove: 1,
+      gap: '1rem',
+      arrows: true,
+      pagination: true,
+      drag: true,
+      rewind: true,
+      lazyLoad: 'nearby',
+      breakpoints: {
+        768: {
+          gap: '0.75rem'
+        }
+      }
+    }).mount();
+  }
 
   scrollToContact(): void {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
