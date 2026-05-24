@@ -97,6 +97,12 @@ export class AppComponent {
     }
   ];
 
+  demos = [
+    { name: 'Demo 1', src: 'assets/Index/index-1.html' },
+    { name: 'Demo 2', src: 'assets/Index/index-2.html' },
+    { name: 'Demo 3', src: 'assets/Index/index-3.html' }
+  ];
+
   scrollToContact(): void {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   }
