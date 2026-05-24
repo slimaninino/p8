@@ -53,6 +53,41 @@
       </div>
     </div>
   </section>
+ <!-- Demos Section -->
+<section id="demos" class="demos">
+  <h2 class="section-title">Themes & Demos</h2>
+
+  <p class="demos-intro">
+    Browse the website demos below. Each slide loads a different HTML file from the assets folder.
+  </p>
+
+  <div id="demos-slider" class="splide" aria-label="Website demos carousel">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide" *ngFor="let demo of demos; let i = index">
+          <div class="demo-card">
+            <div class="demo-frame">
+              <iframe
+                [attr.src]="demo.src"
+                [attr.title]="demo.name"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+              </iframe>
+            </div>
+
+            <div class="demo-footer">
+              <span class="demo-name">{{ demo.name }}</span>
+              <a class="demo-link" [href]="demo.src" target="_blank" rel="noopener">
+                Open in new tab
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
