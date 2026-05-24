@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Voice Lounge</title>
+  <meta name="description" content="Premium private karaoke lounge homepage concept with refined typography, VIP rooms, elegant packages, and private event reservations." />
+  <meta name="theme-color" content="#171312" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #120f10;
+      --bg-soft: #1b1618;
+      --panel: #1e1819;
+      --panel-soft: #261f21;
+      --line: rgba(214, 185, 125, 0.18);
+      --gold: #d5b06c;
+      --gold-soft: #f1dfb6;
+      --burgundy: #6d2035;
+      --text: #f5ede6;
+      --muted: #c6b6aa;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      --container: 1160px;
+      --radius: 30px;
+      --radius-md: 22px;
+      --header-h: 84px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background: linear-gradient(180deg, #120f10 0%, #171314 45%, #0f0c0d 100%);
+      color: var(--text);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(213,176,108,0.08), transparent 28%),
+        radial-gradient(circle at 80% 15%, rgba(109,32,53,0.12), transparent 24%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: white;
+      color: black;
+      z-index: 999;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(18,15,16,0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav {
+      min-height: var(--header-h);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      color: var(--gold-soft);
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(213,176,108,0.35);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(213,176,108,0.08), rgba(213,176,108,0.02));
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a { position: relative; padding: 0.25rem 0; }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.1rem;
+      width: 100%;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--gold);
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .btn, .btn-outline {
+      min-height: 48px;
+      padding: 0 1.3rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+    .btn:hover, .btn-outline:hover { transform: translateY(-2px); }
+    .btn {
+      background: linear-gradient(135deg, #e2c488, #c29a59);
+      color: #1b1411;
+      box-shadow: 0 18px 40px rgba(194,154,89,0.18);
+    }
+    .btn-outline {
+      border: 1px solid rgba(213,176,108,0.28);
+      color: var(--gold-soft);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .menu-toggle { display: none; }
+
+    .hero {
+      padding: 2rem 0 1rem;
+    }
+
+    .hero-shell {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .quote-card, .detail-card, .hero-main, .service-card, .package-card, .review-card, .booking-panel {
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(31,24,25,0.95), rgba(20,16,17,0.98));
+      border: 1px solid rgba(213,176,108,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-card, .detail-card { padding: 1.6rem; }
+    .quote-card small, .detail-card small, .service-card small, .package-card small {
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+    }
+
+    .quote-card p {
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hero-main {
+      overflow: hidden;
+      min-height: 720px;
+      display: grid;
+      align-content: end;
+      padding: clamp(2rem, 4vw, 3.4rem);
+      background:
+        linear-gradient(180deg, rgba(15,12,13,0.14), rgba(15,12,13,0.86)),
+        url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=80') center/cover;
+      position: relative;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 1.2rem;
+      border: 1px solid rgba(213,176,108,0.22);
+      border-radius: calc(var(--radius) - 8px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 40rem;
+    }
+
+    .hero-content h1 {
+      margin: 0.9rem 0 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.6rem, 7vw, 6.2rem);
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-content p {
+      color: #e0d1c7;
+      font-size: 1.05rem;
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+    .section {
+      padding: 2.5rem 0 4rem;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-top: 0.5rem;
+    }
+
+    .intro-grid h2, .section-heading h2, .booking-panel h2 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .intro-copy p, .section-heading p { color: var(--muted); font-size: 1.02rem; }
+
+    .service-rail {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .service-card {
+      padding: 1.5rem;
+      min-height: 240px;
+      display: grid;
+      align-content: start;
+      gap: 0.65rem;
+    }
+
+    .service-card h3, .package-card h3, .review-card h3 { margin: 0; font-size: 1.35rem; }
+    .service-card p, .package-card p, .review-card p { color: var(--muted); }
+
+    .package-layout {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 1rem;
+    }
+
+    .package-showcase {
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 530px;
+      background:
+        linear-gradient(180deg, rgba(22,17,18,0.16), rgba(18,15,16,0.88)),
+        url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.8rem;
+      border: 1px solid rgba(213,176,108,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .package-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .package-card {
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .price {
+      color: var(--gold-soft);
+      font-size: 1.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .showcase-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .showcase-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      min-height: 220px;
+      position: relative;
+      border: 1px solid rgba(213,176,108,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .showcase-card img { width: 100%; height: 100%; object-fit: cover; }
+    .showcase-card::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(16,12,13,0.72);
+      border: 1px solid rgba(213,176,108,0.2);
+      color: var(--gold-soft);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .showcase-card.large { grid-column: span 7; }
+    .showcase-card.small { grid-column: span 5; }
+
+    .reviews-layout {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .review-card { padding: 1.6rem; }
+    .review-card .stars { color: var(--gold); letter-spacing: 0.12em; margin-bottom: 0.85rem; }
+
+    .booking-panel {
+      padding: clamp(1.8rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.4rem;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(33,25,27,0.98), rgba(18,15,16,0.96));
+    }
+
+    .booking-list {
+      display: grid;
+      gap: 0.8rem;
+      color: var(--muted);
+    }
+
+    .booking-list div {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(213,176,108,0.1);
+    }
+
+    .footer {
+      padding: 1.2rem 0 2.8rem;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1020px) {
+      .hero-shell, .intro-grid, .package-layout, .booking-panel, .service-rail, .reviews-layout { grid-template-columns: 1fr; }
+      .showcase-card.large, .showcase-card.small { grid-column: span 12; }
+      .hero-main { min-height: 620px; }
+    }
+
+    @media (max-width: 760px) {
+      .nav { grid-template-columns: auto auto; justify-content: space-between; padding: 0.9rem 0; }
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        border: 1px solid rgba(213,176,108,0.22);
+        color: var(--gold-soft);
+      }
+      .nav-links {
+        display: none;
+        grid-column: 1 / -1;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 0.4rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav .btn { display: none; }
+      .hero-main { min-height: 540px; }
+      .hero-content h1 { font-size: clamp(3rem, 16vw, 4.8rem); }
+      .package-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Private Voice Lounge home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c1.7 0 3 1.3 3 3v5c0 1.7-1.3 3-3 3s-3-1.3-3-3V6c0-1.7 1.3-3 3-3Z"></path>
+            <path d="M6 10.5c0 3.4 2.6 5.9 6 5.9s6-2.5 6-5.9"></path>
+            <path d="M12 16.4V21"></path>
+            <path d="M8.5 21h7"></path>
+          </svg>
+        </span>
+        Private Voice Lounge
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#gallery">Rooms</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" href="#reserve">Reserve a Suite</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-shell reveal">
+        <aside class="hero-aside">
+          <article class="quote-card">
+            <small>Refined social singing</small>
+            <p>An intimate karaoke concept designed for private groups that want excellent service, premium interiors, and a quieter form of nightlife luxury.</p>
+          </article>
+          <article class="detail-card">
+            <small>Evenings designed well</small>
+            <h2 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; margin:0.65rem 0 0.5rem; font-weight:600;">Private rooms, polished hosting, and room-service style comfort.</h2>
+            <p style="color:var(--muted); margin:0;">From corporate receptions to birthdays and discreet celebrations, each suite is prepared with tailored playlists, beverage pairings, and guest support.</p>
+          </article>
+        </aside>
+
+        <article class="hero-main" aria-label="Hero image and introduction">
+          <div class="hero-content">
+            <small style="color:var(--gold-soft); letter-spacing:0.18em; text-transform:uppercase;">Premium private karaoke lounge</small>
+            <h1>Where karaoke becomes a private occasion.</h1>
+            <p>Private Voice Lounge offers elegant suites for small groups, hosts, and special events, combining fine-room atmosphere with the joy of singing in complete comfort.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#reserve">Reserve premium</a>
+              <a class="btn-outline" href="#packages">View packages</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container reveal">
+        <div class="intro-grid">
+          <div>
+            <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.16em;">About the lounge</small>
+            <h2>Thoughtful hospitality, not just another party room.</h2>
+          </div>
+          <div class="intro-copy">
+            <p>Each booking is shaped around privacy, comfort, and elevated hosting. Guests move from welcome drinks to curated room service and seamless song access without the noise and chaos of an open karaoke bar.</p>
+            <p>That makes the concept ideal for executive gatherings, anniversaries, premium birthdays, and social groups who want exclusivity without losing the fun.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container reveal">
+        <div class="section-heading">
+          <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.16em;">Services</small>
+          <h2>High-touch details across the evening</h2>
+          <p>Rather than stacking generic features, the lounge experience is presented as a series of premium service moments from arrival to final encore.</p>
+        </div>
+        <div class="service-rail">
+          <article class="service-card">
+            <small>Arrival</small>
+            <h3>Hosted room welcome</h3>
+            <p>Guests are received with a prepared suite, cold towels, and a beverage-first start that feels closer to a lounge than a late-night venue.</p>
+          </article>
+          <article class="service-card">
+            <small>During service</small>
+            <h3>Curated food and drinks</h3>
+            <p>Champagne, wine, signature cocktails, and share plates arrive tableside without interrupting the session flow.</p>
+          </article>
+          <article class="service-card">
+            <small>Personalization</small>
+            <h3>Song and event tailoring</h3>
+            <p>Personal title screens, mood lighting, and custom song queues help private events feel bespoke instead of pre-packaged.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container reveal">
+        <div class="section-heading">
+          <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.16em;">Packages</small>
+          <h2>VIP suites and reservation packages</h2>
+          <p>Choose a package built around your guest count, occasion, and preferred service level, from intimate evenings to larger private celebrations.</p>
+        </div>
+        <div class="package-layout">
+          <div class="package-showcase">
+            <div>
+              <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.14em;">Signature suite</small>
+              <h3 style="margin:0.6rem 0; font-size:2rem;">The Burgundy Salon</h3>
+              <p style="color:var(--muted); max-width:26rem;">A velvet-accent private room for up to ten guests with curated bottle presentation, dimmable scenes, and dedicated service.</p>
+            </div>
+          </div>
+          <div class="package-grid">
+            <article class="package-card">
+              <div>
+                <small>Classic private</small>
+                <h3>Two-hour suite experience</h3>
+                <p>For smaller groups seeking elegant interiors, premium acoustics, and hosted table service.</p>
+              </div>
+              <div class="price">From 190</div>
+            </article>
+            <article class="package-card">
+              <div>
+                <small>Celebration</small>
+                <h3>Birthday and milestone evenings</h3>
+                <p>Includes custom room messaging, celebratory drinks, dessert service, and a longer reservation window.</p>
+              </div>
+              <div class="price">From 320</div>
+            </article>
+            <article class="package-card">
+              <div>
+                <small>Corporate private event</small>
+                <h3>Executive hosting package</h3>
+                <p>Best for client entertainment, team appreciation, or private receptions with a premium but relaxed tone.</p>
+              </div>
+              <div class="price">Custom</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container reveal">
+        <div class="section-heading">
+          <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.16em;">Showcase</small>
+          <h2>A quieter, richer room language</h2>
+          <p>Warm surfaces, velvet seating, low lighting, and private configurations create a distinctly upscale experience from the first impression onward.</p>
+        </div>
+        <div class="showcase-grid">
+          <figure class="showcase-card large" data-label="Lounge reception"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=80" alt="Elegant interior mood suitable for a premium karaoke lounge" loading="lazy"></figure>
+          <figure class="showcase-card small" data-label="Private suite"><img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80" alt="Luxury-style room with warm ambient seating" loading="lazy"></figure>
+          <figure class="showcase-card small" data-label="Table service"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" alt="Premium drinks and service presentation" loading="lazy"></figure>
+          <figure class="showcase-card large" data-label="Private event mood"><img src="https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?auto=format&fit=crop&w=1400&q=80" alt="Sophisticated evening event atmosphere with guests" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <div class="section-heading">
+          <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.16em;">Guest impressions</small>
+          <h2>Praised for privacy, service, and atmosphere</h2>
+          <p>Reviews center less on loud spectacle and more on comfort, curation, and the feeling of a fully hosted private evening.</p>
+        </div>
+        <div class="reviews-layout">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Elegant without feeling stiff</h3>
+            <p>“It felt exclusive but still joyful. The room design and service level made the whole night feel intentional.”</p>
+            <small>— Sofia, anniversary reservation</small>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Ideal for client hosting</h3>
+            <p>“Private enough for conversation, fun enough to be memorable. It worked beautifully for our small executive event.”</p>
+            <small>— James, corporate booking</small>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Service that really stands out</h3>
+            <p>“The team adjusted everything around our timing, food requests, and playlist preferences with zero friction.”</p>
+            <small>— Nina, birthday host</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reserve">
+      <div class="container reveal">
+        <div class="booking-panel">
+          <div>
+            <small style="color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.16em;">Reservations</small>
+            <h2>Reserve a room that feels prepared before you arrive.</h2>
+            <p style="color:var(--muted); max-width:35rem;">Arrange your suite, guest count, drinks service, and event notes in advance for a premium karaoke evening with less noise and more care.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.9rem; margin-top:1.2rem;">
+              <a class="btn" href="mailto:reservations@privatevoicelounge.com">Reserve premium</a>
+              <a class="btn-outline" href="tel:+123456789">Speak to concierge</a>
+            </div>
+          </div>
+          <div class="booking-list">
+            <div>Private suites for 4 to 14 guests.</div>
+            <div>Tailored birthday, anniversary, and client-hosting packages.</div>
+            <div>Evening concierge support for timing, menus, and room personalization.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>Private Voice Lounge · Premium karaoke suites and events</div>
+      <div>Suite reservations · Private celebrations · Corporate evenings</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (menuButton && nav) {
+      menuButton.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    const sections = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.18 });
+    sections.forEach(section => io.observe(section));
+  </script>
+</body>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Night Karaoke</title>
+  <meta name="description" content="Neon Night Karaoke homepage concept for a vibrant nightlife karaoke venue with neon visuals, events, rooms, drinks, and reservations." />
+  <meta name="theme-color" content="#0b0820" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090611;
+      --bg-alt: #120b22;
+      --surface: rgba(17, 13, 34, 0.82);
+      --surface-strong: rgba(22, 16, 46, 0.94);
+      --border: rgba(154, 110, 255, 0.22);
+      --text: #f8f3ff;
+      --muted: #b7a9d8;
+      --pink: #ff43d0;
+      --violet: #9557ff;
+      --cyan: #3fd8ff;
+      --lime: #c7ff6f;
+      --shadow: 0 24px 80px rgba(8, 6, 25, 0.56);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1180px;
+      --header-h: 86px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 67, 208, 0.16), transparent 20%),
+        radial-gradient(circle at 85% 15%, rgba(63, 216, 255, 0.18), transparent 22%),
+        radial-gradient(circle at 65% 70%, rgba(149, 87, 255, 0.16), transparent 24%),
+        linear-gradient(180deg, #06040d 0%, #0b0820 45%, #070510 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.45), transparent 85%);
+      opacity: 0.35;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      padding: 0.8rem 1rem;
+      background: #fff;
+      color: #000;
+      border-radius: 999px;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 6, 20, 0.64);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(255,67,208,0.24), rgba(63,216,255,0.16));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 25px rgba(255,67,208,0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn, .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 1.25rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn {
+      color: #0b0820;
+      background: linear-gradient(135deg, var(--lime), #fff48c);
+      box-shadow: 0 12px 30px rgba(199,255,111,0.28);
+    }
+
+    .btn:hover, .ghost-btn:hover { transform: translateY(-2px); }
+    .btn:hover { box-shadow: 0 18px 36px rgba(199,255,111,0.38); }
+
+    .ghost-btn {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .hero-copy, .hero-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(17,13,34,0.88), rgba(10,7,20,0.92));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      padding: clamp(2rem, 5vw, 4rem);
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      width: fit-content;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: #ded2ff;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.88rem;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.2rem, 8vw, 6.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      margin: 1.2rem 0 1rem;
+      text-shadow: 0 0 18px rgba(255, 67, 208, 0.45), 0 0 34px rgba(63, 216, 255, 0.24);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff 0%, #ff90e5 36%, #78f0ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy p {
+      font-size: 1.06rem;
+      max-width: 34rem;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions, .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .hero-stats {
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    .stat-pill {
+      min-width: 135px;
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-size: 1.4rem;
+      color: white;
+    }
+
+    .hero-panel {
+      padding: 1.1rem;
+      display: grid;
+      gap: 1rem;
+      align-content: stretch;
+    }
+
+    .panel-main {
+      border-radius: 24px;
+      min-height: 310px;
+      padding: 1.5rem;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,7,20,0.16), rgba(10,7,20,0.78));
+    }
+
+    .panel-label {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .panel-label span { color: #ffd6f4; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.76rem; }
+    .panel-label strong { font-size: 1.9rem; }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .mini-card {
+      padding: 1.2rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mini-card strong { display: block; margin-top: 0.4rem; font-size: 1.15rem; }
+    .mini-card small { color: var(--muted); }
+
+    .section {
+      padding: 1.5rem 0 4rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0;
+    }
+
+    .section-title p { color: var(--muted); max-width: 34rem; }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .event-card, .feature-card, .review-card, .cta-banner, .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(17,13,34,0.82), rgba(12,9,24,0.94));
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .event-card:hover, .feature-card:hover, .review-card:hover, .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(63,216,255,0.35);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    }
+
+    .event-card.large {
+      min-height: 320px;
+      padding: 1.4rem;
+      display: flex;
+      align-items: end;
+      background:
+        linear-gradient(180deg, rgba(14,10,31,0.06), rgba(10,7,20,0.88)),
+        url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .event-card.small { padding: 1.25rem; min-height: 320px; display: grid; align-content: space-between; }
+    .date-chip {
+      display: inline-flex;
+      width: fit-content;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,67,208,0.14);
+      color: #ffd0f2;
+      font-size: 0.84rem;
+      border: 1px solid rgba(255,67,208,0.28);
+    }
+
+    .event-card h3, .feature-card h3, .review-card h3 { margin: 0.7rem 0 0.5rem; font-size: 1.3rem; }
+    .event-card p, .feature-card p, .review-card p { color: var(--muted); }
+
+    .features-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .feature-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-card { padding: 1.4rem; }
+
+    .room-showcase {
+      min-height: 100%;
+      padding: 1.4rem;
+      display: grid;
+      gap: 1rem;
+      align-content: end;
+      background:
+        linear-gradient(180deg, rgba(17,13,34,0.18), rgba(10,7,20,0.9)),
+        url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    .room-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .room-badges span {
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.86rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      grid-auto-rows: 220px;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-card.tall { grid-row: span 2; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .review-card { padding: 1.5rem; }
+    .stars { color: #ffe06c; letter-spacing: 0.15em; }
+
+    .cta-banner {
+      margin-top: 1rem;
+      padding: clamp(1.6rem, 4vw, 2.4rem);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1rem;
+      align-items: center;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(255,67,208,0.18), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(63,216,255,0.18), transparent 26%),
+        linear-gradient(135deg, rgba(20,12,40,0.98), rgba(10,7,20,0.96));
+    }
+
+    .footer {
+      padding: 1.5rem 0 3rem;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.25rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .menu-toggle { display: none; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .features-layout, .events-grid, .cta-banner, .reviews-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid { grid-auto-rows: 220px; }
+      .gallery-card.tall { grid-row: span 1; }
+      .hero-copy { min-height: unset; }
+    }
+
+    @media (max-width: 760px) {
+      .nav { flex-wrap: wrap; padding: 0.9rem 0; }
+      .menu-toggle {
+        display: inline-flex;
+        min-width: 44px;
+        min-height: 44px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        color: var(--text);
+        align-items: center;
+        justify-content: center;
+      }
+      .nav-links {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 0 0.25rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav .btn { display: none; }
+      h1 { font-size: clamp(2.6rem, 17vw, 4.4rem); }
+      .mini-grid { grid-template-columns: 1fr; }
+      .hero-copy, .hero-panel, .event-card.small, .review-card, .feature-card { border-radius: 22px; }
+      .section-title { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Neon Night Karaoke home">
+        <span class="logo-badge" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v9"/>
+            <path d="M9 5.5h6"/>
+            <path d="M10 13a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+            <path d="M16 14.5c1.8 0 3 1.1 3 3.1V20"/>
+          </svg>
+        </span>
+        Neon Night
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#events">Events</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#drinks">Drinks</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" href="#reserve">Reserve Tonight</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid reveal">
+        <article class="hero-copy">
+          <div>
+            <div class="eyebrow">Open until 3 AM · Downtown karaoke & cocktails</div>
+            <h1><span class="gradient-text">Sing loud.</span><br>Glow later.</h1>
+            <p>Neon Night Karaoke turns every reservation into a full nightlife experience with private rooms, themed party slots, crafted drinks, and a dance-floor energy that starts the moment your group walks in.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#reserve">Book a Room</a>
+              <a class="ghost-btn" href="#events">See upcoming nights</a>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-pill"><strong>7</strong><span>Private themed rooms</span></div>
+            <div class="stat-pill"><strong>40k+</strong><span>Tracks on queue</span></div>
+            <div class="stat-pill"><strong>4.9/5</strong><span>Guest rating this season</span></div>
+          </div>
+        </article>
+
+        <aside class="hero-panel" aria-label="Highlights">
+          <div class="panel-main">
+            <div class="panel-label">
+              <span>Featured room</span>
+              <strong>Tokyo Afterglow Suite</strong>
+              <p>LED walls, bottle service, and a full-scene light show synced to your set list.</p>
+            </div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <small>Thursday</small>
+              <strong>Throwback Hit Night</strong>
+              <small>90s and 2000s chart icons with bonus group prizes.</small>
+            </div>
+            <div class="mini-card">
+              <small>House favorite</small>
+              <strong>Lychee Neon Spritz</strong>
+              <small>Signature cocktail menu curated for late bookings.</small>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="container reveal">
+        <div class="section-title">
+          <div>
+            <h2>Upcoming nights</h2>
+          </div>
+          <p>From after-work mic sessions to full weekend party bookings, the calendar is built for repeat guests, birthday crews, and last-minute plans.</p>
+        </div>
+        <div class="events-grid">
+          <article class="event-card large">
+            <div>
+              <span class="date-chip">Friday · 11 PM headline slot</span>
+              <h3>City Lights Mega Mix</h3>
+              <p>Reserved-stage performances, roaming photographers, and a live DJ bridge between karaoke rounds.</p>
+            </div>
+          </article>
+          <article class="event-card small">
+            <div>
+              <span class="date-chip">Saturday</span>
+              <h3>Duet Rush</h3>
+              <p>Pair up, request spotlight tracks, and compete for midnight drink upgrades.</p>
+            </div>
+            <a class="ghost-btn" href="#reserve">Claim a table</a>
+          </article>
+          <article class="event-card small">
+            <div>
+              <span class="date-chip">Late night special</span>
+              <h3>After Midnight Happy Hour</h3>
+              <p>Discounted room extension, snack trays, and crowd-favorite song bundles from 12:30 AM.</p>
+            </div>
+            <a class="ghost-btn" href="#drinks">View menu</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rooms">
+      <div class="container reveal">
+        <div class="section-title">
+          <div><h2>Rooms, drinks, and extras</h2></div>
+          <p>Mix private-room bookings with drinks service, host support, and themed atmosphere upgrades for groups that want more than standard karaoke.</p>
+        </div>
+        <div class="features-layout">
+          <div class="feature-stack">
+            <article class="feature-card">
+              <small>Reservations</small>
+              <h3>Fast group booking</h3>
+              <p>Choose room size, time slot, and add-ons in minutes. Ideal for spontaneous weekend plans and office parties.</p>
+            </article>
+            <article class="feature-card" id="drinks">
+              <small>Bar service</small>
+              <h3>Nightlife drink menu</h3>
+              <p>Bright cocktails, premium bottles, share platters, and low-ABV options for longer singing sessions.</p>
+            </article>
+            <article class="feature-card">
+              <small>Venue energy</small>
+              <h3>Reactive lighting scenes</h3>
+              <p>Accent lights and glow effects shift between warm-up, chorus, and celebration modes throughout the night.</p>
+            </article>
+          </div>
+          <article class="event-card room-showcase">
+            <div>
+              <span class="date-chip">Most booked room</span>
+              <h3>Skyline room collection</h3>
+              <p>Designed for friend groups, birthday circles, and bold celebrations with immersive screens and plush seating.</p>
+            </div>
+            <div class="room-badges">
+              <span>6–8 guests</span>
+              <span>10–14 guests</span>
+              <span>VIP bottle setup</span>
+              <span>Custom playlist intro</span>
+            </div>
+            <a class="btn" href="#reserve">Book a room package</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container reveal">
+        <div class="section-title">
+          <div><h2>Inside the glow</h2></div>
+          <p>Use the venue gallery to preview room atmosphere, signature lighting, and the energy guests can expect before arrival.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card tall"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80" alt="Crowd enjoying a vibrant concert-style karaoke atmosphere" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Stage lighting and performance mood for a nightlife venue" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80" alt="Private lounge seating with moody ambient light" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=900&q=80" alt="Cocktails served in a glowing nightlife setting" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=900&q=80" alt="Friends celebrating and singing together at night" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <div class="section-title">
+          <div><h2>What guests remember</h2></div>
+          <p>The strongest reviews mention the room design, smooth hosting, and how easy it is to turn a simple booking into a real night out.</p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Birthday energy without the stress</h3>
+            <p>“The lighting, service, and music flow felt curated for our group. It looked premium but still wild enough to feel like a proper party.”</p>
+            <small>— Mira, 12-person birthday booking</small>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Perfect post-dinner plan</h3>
+            <p>“We booked one room and ended up extending for another hour because the setup made it too easy to keep going.”</p>
+            <small>— Daniel, Friday reservation</small>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Best mix of private and social</h3>
+            <p>“You get your own room, but the whole venue still feels alive. That balance is what makes this place stand out.”</p>
+            <small>— Lea, weekend group night</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reserve">
+      <div class="container reveal">
+        <div class="cta-banner">
+          <div>
+            <span class="date-chip">Reserve tonight</span>
+            <h2 style="margin:0.85rem 0 0.65rem; font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4vw,3.2rem);">Get the room before the city does.</h2>
+            <p style="color:var(--muted); max-width:38rem;">Lock in your private karaoke room, add bottle service or snacks, and choose the mood your group wants before arrival.</p>
+          </div>
+          <div style="display:grid; gap:0.9rem; justify-items:start;">
+            <a class="btn" href="mailto:book@neonnightkaraoke.com">Book a Room</a>
+            <a class="ghost-btn" href="tel:+123456789">Call reservations</a>
+            <small style="color:var(--muted);">Open daily · 6 PM to 3 AM · Walk-ins accepted when available</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>Neon Night Karaoke · Downtown entertainment venue</div>
+      <div>Private rooms · Late-night bar · Group reservations</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.16 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

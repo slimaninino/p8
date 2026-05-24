@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pop Party Karaoke</title>
+  <meta name="description" content="Playful Pop Karaoke homepage concept for parties, birthdays, and social groups with colorful packages, fun sections, and bold calls to action." />
+  <meta name="theme-color" content="#fff4f8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff6f8;
+      --bg-2: #fffdf7;
+      --card: #ffffff;
+      --text: #2a2140;
+      --muted: #645a7d;
+      --pink: #ff5ea8;
+      --yellow: #ffd84d;
+      --teal: #4fd8cb;
+      --blue: #7297ff;
+      --purple: #8d65ff;
+      --peach: #ffb680;
+      --line: rgba(42,33,64,0.09);
+      --shadow: 0 18px 40px rgba(110, 90, 160, 0.14);
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+      --radius-md: 22px;
+      --container: 1160px;
+      --header-h: 84px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(255, 94, 168, 0.12), transparent 18%),
+        radial-gradient(circle at 88% 8%, rgba(79, 216, 203, 0.16), transparent 16%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(114,151,255,.10) 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 40%, rgba(255,216,77,.14) 0 4px, transparent 5px),
+        radial-gradient(circle at 60% 80%, rgba(255,94,168,.12) 0 3px, transparent 4px);
+      background-size: 180px 180px;
+      opacity: .8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--container), calc(100% - 1.5rem)); margin: 0 auto; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      padding: .8rem 1rem;
+      background: white;
+      color: black;
+      border-radius: 999px;
+      z-index: 999;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 246, 248, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(42,33,64,0.06);
+    }
+
+    .nav {
+      min-height: var(--header-h);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn, .btn-alt {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 1.25rem;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--pink), #ff7cc9);
+      color: white;
+      box-shadow: 0 14px 28px rgba(255,94,168,.28);
+    }
+
+    .btn-alt {
+      background: white;
+      border: 2px solid rgba(42,33,64,.08);
+      color: var(--text);
+    }
+
+    .btn:hover, .btn-alt:hover { transform: translateY(-2px) scale(1.01); }
+
+    .menu-toggle { display: none; }
+
+    .hero {
+      padding: 1.4rem 0 2rem;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(42,33,64,.06);
+    }
+
+    .hero-left::before, .hero-left::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: 0;
+    }
+    .hero-left::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(255,216,77,.35);
+      top: -40px;
+      right: -30px;
+    }
+    .hero-left::after {
+      width: 140px;
+      height: 140px;
+      background: rgba(79,216,203,.24);
+      left: -40px;
+      bottom: 30px;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .55rem .9rem;
+      border-radius: 999px;
+      background: #fff0f7;
+      color: #a53a71;
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: .9;
+      margin: .9rem 0 .8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content p {
+      font-size: 1.05rem;
+      max-width: 34rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions, .quick-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+    }
+
+    .quick-badges { margin-top: 1rem; }
+    .quick-badges span {
+      padding: .75rem 1rem;
+      border-radius: 999px;
+      background: #f8f4ff;
+      font-weight: 800;
+      color: #5c4c85;
+    }
+
+    .hero-right {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .party-photo, .info-bubble, .feature-card, .package-card, .gallery-card, .review-card, .cta-box {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(42,33,64,.06);
+    }
+
+    .party-photo {
+      overflow: hidden;
+      min-height: 360px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(42,33,64,0.08)),
+        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80') center/cover;
+      position: relative;
+    }
+
+    .party-photo .sticker {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      padding: .7rem 1rem;
+      background: rgba(255,255,255,.92);
+      border-radius: 999px;
+      font-weight: 800;
+      color: #ff4e97;
+    }
+
+    .bubble-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .info-bubble {
+      padding: 1.2rem;
+      min-height: 150px;
+    }
+
+    .info-bubble strong { display:block; font-size:1.15rem; margin-top:.4rem; }
+    .info-bubble p { color: var(--muted); margin: .5rem 0 0; }
+
+    .section {
+      padding: 1.2rem 0 3rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      line-height: .95;
+    }
+
+    .section-head p { color: var(--muted); max-width: 36rem; }
+
+    .about-band {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .about-card {
+      background: linear-gradient(135deg, #fff0f8, #fff);
+      border-radius: var(--radius-xl);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(42,33,64,.06);
+    }
+
+    .about-list {
+      display: grid;
+      gap: .85rem;
+      color: var(--muted);
+    }
+
+    .about-list div {
+      padding: .95rem 1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.75);
+      border: 1px dashed rgba(42,33,64,.12);
+      font-weight: 700;
+      color: #594b7a;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr .95fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .feature-card {
+      padding: 1.4rem;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card h3, .package-card h3, .review-card h3 { margin: .65rem 0 .45rem; font-size: 1.35rem; }
+    .feature-card p, .package-card p, .review-card p { color: var(--muted); }
+
+    .feature-card:nth-child(1) { background: linear-gradient(180deg, #fff8de, white); }
+    .feature-card:nth-child(2) { background: linear-gradient(180deg, #edf8ff, white); }
+    .feature-card:nth-child(3) { background: linear-gradient(180deg, #fff0f6, white); }
+
+    .feature-badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .82rem;
+      color: white;
+    }
+
+    .package-marquee {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .package-card {
+      padding: 1.4rem;
+      border-radius: 28px;
+    }
+
+    .package-pill {
+      display:inline-flex;
+      padding:.45rem .7rem;
+      border-radius:999px;
+      background:#f7f1ff;
+      color:#7759cc;
+      font-weight:800;
+      font-size:.82rem;
+    }
+
+    .price {
+      font-family: 'Baloo 2', cursive;
+      font-size: 2rem;
+      line-height: 1;
+      margin-top: 1rem;
+    }
+
+    .gallery-mix {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      min-height: 220px;
+    }
+
+    .gallery-card img { width:100%; height:100%; object-fit:cover; }
+    .gallery-card.wide { grid-column: span 2; }
+
+    .reviews-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .review-card { padding: 1.4rem; }
+    .stars { color: #ffb400; letter-spacing: .14em; }
+
+    .cta-box {
+      margin-top: 1rem;
+      padding: clamp(1.5rem, 4vw, 2.4rem);
+      background: linear-gradient(135deg, #fff, #fff2f8);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-stack {
+      display: grid;
+      gap: .8rem;
+    }
+
+    .contact-stack a {
+      padding: .95rem 1rem;
+      border-radius: 18px;
+      background: #faf7ff;
+      border: 1px solid rgba(42,33,64,.08);
+      font-weight: 800;
+    }
+
+    .footer {
+      padding: 1rem 0 2.5rem;
+      color: var(--muted);
+    }
+
+    .footer-bar {
+      border-top: 1px solid rgba(42,33,64,.08);
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .reveal { opacity: 0; transform: translateY(16px) scale(.98); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+    @media (max-width: 980px) {
+      .hero-wrap, .about-band, .feature-grid, .package-marquee, .gallery-mix, .reviews-row, .cta-box { grid-template-columns: 1fr; }
+      .gallery-card.wide { grid-column: span 1; }
+    }
+
+    @media (max-width: 760px) {
+      .nav { flex-wrap: wrap; padding: .9rem 0; }
+      .menu-toggle {
+        display: inline-flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        background: white;
+        border: 1px solid rgba(42,33,64,.08);
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: .4rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav .btn { display: none; }
+      .bubble-row { grid-template-columns: 1fr; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+      h1 { font-size: clamp(2.7rem, 17vw, 4.6rem); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Pop Party Karaoke home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v9"></path>
+            <path d="M8.5 6h7"></path>
+            <circle cx="10" cy="16.5" r="3.2"></circle>
+            <path d="M16 14.5c1.7.1 2.8 1.2 2.8 3V20"></path>
+          </svg>
+        </span>
+        Pop Party Karaoke
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#features">Fun stuff</a>
+        <a href="#packages">Packages</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" href="#book">Start the Party</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-wrap reveal">
+        <article class="hero-left">
+          <div class="hero-content">
+            <div class="tag">Birthdays · friend groups · celebration nights</div>
+            <h1>Big songs. Bright rooms. Zero awkward vibes.</h1>
+            <p>Pop Party Karaoke is made for cheerful group nights with playful packages, easy bookings, birthday-ready add-ons, and social-first spaces that look great in every photo.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#book">Start the Party</a>
+              <a class="btn-alt" href="#packages">See party packages</a>
+            </div>
+            <div class="quick-badges">
+              <span>Birthday decorations</span>
+              <span>Group song requests</span>
+              <span>Content-ready photo corners</span>
+            </div>
+          </div>
+        </article>
+        <aside class="hero-right">
+          <div class="party-photo" aria-label="Party image">
+            <div class="sticker">Most booked for birthdays</div>
+          </div>
+          <div class="bubble-row">
+            <article class="info-bubble">
+              <small style="font-weight:800; color:#ff5ea8;">Hot package</small>
+              <strong>Glow Birthday Bash</strong>
+              <p>Decor, cake moment lighting, and a party host setup for friend groups.</p>
+            </article>
+            <article class="info-bubble">
+              <small style="font-weight:800; color:#4b79ff;">Social favorite</small>
+              <strong>Photo Booth Corner</strong>
+              <p>Color-pop backdrops and neon props for instant shareable content.</p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container reveal">
+        <div class="about-band">
+          <article class="about-card">
+            <small style="font-weight:800; color:#8d65ff; letter-spacing:.08em; text-transform:uppercase;">About the brand</small>
+            <h2 style="font-family:'Baloo 2',cursive; font-size:clamp(2.2rem,4vw,3.8rem); line-height:.95; margin:.7rem 0 .8rem;">Built for happy group chaos, but designed to stay easy.</h2>
+            <p style="color:var(--muted); margin:0;">This concept focuses on birthdays, spontaneous nights out, friend reunions, and energetic group bookings that want a fun visual identity without losing booking clarity or professional service.</p>
+          </article>
+          <div class="about-list">
+            <div>Easy room booking for friend groups and celebrations.</div>
+            <div>Party add-ons like props, snack trays, and playlist prep.</div>
+            <div>Colorful rooms that still feel clean, polished, and photo-friendly.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container reveal">
+        <div class="section-head">
+          <div>
+            <h2>Why this one feels fun fast</h2>
+          </div>
+          <p>Instead of a formal hospitality story, this homepage leans into quick excitement, playful visual cues, and group-friendly actions that reduce booking friction.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-badge" style="background:var(--yellow); color:#6b5600;">Group-ready</span>
+            <h3>Party packages that make sense</h3>
+            <p>Pick a package built for birthdays, casual friend nights, or full celebration mode, then customize snacks, props, and room extras.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-badge" style="background:var(--blue);">Made to share</span>
+            <h3>Photo corners and social moments</h3>
+            <p>Fun backdrops, better lighting, and playful decor make the venue feel built for memories, not just music.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-badge" style="background:var(--pink);">Low effort</span>
+            <h3>Fast song request flow</h3>
+            <p>Guests can suggest songs early, split turns easily, and keep the room energy moving without awkward pauses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><h2>Party packages</h2></div>
+          <p>These packages are framed around social occasions rather than generic room pricing, giving the concept a friendlier and more event-focused tone.</p>
+        </div>
+        <div class="package-marquee">
+          <article class="package-card">
+            <span class="package-pill">Casual night</span>
+            <h3>Pop-In Session</h3>
+            <p>Perfect for spontaneous plans, small groups, and two hours of singing with snack and drink add-ons.</p>
+            <div class="price" style="color:var(--purple);">From 89</div>
+          </article>
+          <article class="package-card" style="background:linear-gradient(180deg,#fff3d8,#fff);">
+            <span class="package-pill" style="background:#fff0c2; color:#8d6500;">Birthday favorite</span>
+            <h3>Glow Birthday Bash</h3>
+            <p>Decor pack, cake-photo lighting, party props, and one upgraded celebration playlist intro.</p>
+            <div class="price" style="color:#c68a00;">From 149</div>
+          </article>
+          <article class="package-card" style="background:linear-gradient(180deg,#eefaff,#fff);">
+            <span class="package-pill" style="background:#dffaf6; color:#0c8073;">Big group</span>
+            <h3>Friends Night Out</h3>
+            <p>For larger groups who want room bundles, share platters, and social content spots built into the flow.</p>
+            <div class="price" style="color:#0b9d8d;">From 219</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><h2>Showcase the fun</h2></div>
+          <p>Rounded cards, bright imagery, and mixed gallery sizing help the homepage feel social and energetic rather than formal or nightlife-heavy.</p>
+        </div>
+        <div class="gallery-mix">
+          <figure class="gallery-card wide"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Friends celebrating together in a social party atmosphere" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=80" alt="Birthday party table setup with decorations" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80" alt="Group party moment with confetti and lights" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80" alt="People enjoying a fun concert-like social event" loading="lazy"></figure>
+          <figure class="gallery-card wide"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80" alt="Bright live music atmosphere suitable for karaoke events" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><h2>What groups love</h2></div>
+          <p>The tone here is light, friendly, and social, so reviews focus on ease, celebration energy, and how good the night feels in real-life group use.</p>
+        </div>
+        <div class="reviews-row">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Exactly right for a birthday crew</h3>
+            <p>“It felt fun from the second we walked in. The room looked cute in photos and the booking was super easy.”</p>
+            <small>— Emma, birthday organizer</small>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>So easy for friend groups</h3>
+            <p>“We picked a package, added snacks, and basically had the whole night sorted in one go.”</p>
+            <small>— Sara, weekend group booking</small>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Fun without being messy</h3>
+            <p>“It still felt organized and polished, which matters when you are planning for a larger group.”</p>
+            <small>— Leo, celebration host</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="container reveal">
+        <div class="cta-box">
+          <div>
+            <small style="font-weight:800; color:#ff5ea8; letter-spacing:.08em; text-transform:uppercase;">Book now</small>
+            <h2 style="margin:.65rem 0 .65rem; font-family:'Baloo 2',cursive; font-size:clamp(2.2rem,4vw,3.8rem); line-height:.95;">Ready to build the loudest group chat memory of the month?</h2>
+            <p style="color:var(--muted); max-width:34rem;">Choose your room, package, and favorite add-ons for birthdays, reunions, or friend-night plans that need more energy than dinner.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1rem;">
+              <a class="btn" href="mailto:hello@poppartykaraoke.com">Start the Party</a>
+              <a class="btn-alt" href="tel:+123456789">Call the team</a>
+            </div>
+          </div>
+          <div class="contact-stack">
+            <a href="#packages">Pick a package first</a>
+            <a href="#gallery">Preview the party vibe</a>
+            <a href="#reviews">See what birthday groups said</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bar">
+      <div>Pop Party Karaoke · Bright social karaoke for birthdays and friend groups</div>
+      <div>Party rooms · Group bookings · Song requests · Photo moments</div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    if (mobileToggle && links) {
+      mobileToggle.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        mobileToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

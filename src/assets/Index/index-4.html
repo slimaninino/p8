@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StageHouse Karaoke Club</title>
+  <meta name="description" content="StageHouse Karaoke Club homepage concept with a performance-first, urban entertainment identity for singers, showcases, and weekly events." />
+  <meta name="theme-color" content="#0f1218" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c1016;
+      --bg-2: #111720;
+      --panel: #161d27;
+      --panel-2: #1a2330;
+      --text: #f4f7fb;
+      --muted: #aab6c7;
+      --red: #ff5a4f;
+      --amber: #ffbb55;
+      --ice: #89d6ff;
+      --line: rgba(255,255,255,.08);
+      --shadow: 0 24px 70px rgba(0,0,0,.28);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1180px;
+      --header-h: 82px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255,90,79,.14), transparent 20%),
+        radial-gradient(circle at 85% 10%, rgba(137,214,255,.12), transparent 18%),
+        linear-gradient(180deg, var(--bg) 0%, #121821 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display:block; max-width:100%; }
+    .container { width: min(var(--container), calc(100% - 1.5rem)); margin: 0 auto; }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -3rem; background: #fff; color:#000; padding: .75rem 1rem; border-radius:999px; z-index:999;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100; background: rgba(12,16,22,.82); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .nav {
+      min-height: var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    }
+    .logo {
+      display:inline-flex; align-items:center; gap:.8rem; font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:1.1rem;
+    }
+    .logo-mark {
+      width: 44px; height: 44px; border-radius: 14px; display:grid; place-items:center; background: linear-gradient(135deg, rgba(255,90,79,.24), rgba(255,187,85,.2)); border:1px solid rgba(255,255,255,.08);
+    }
+    .nav-links { display:flex; gap:1.35rem; color:var(--muted); font-weight:600; }
+    .nav-links a:hover { color: var(--text); }
+    .btn, .btn-ghost {
+      min-height: 48px; padding: 0 1.2rem; border-radius: 999px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; transition: .24s ease;
+    }
+    .btn { background: linear-gradient(135deg, var(--red), #ff8165); color:white; box-shadow: 0 14px 34px rgba(255,90,79,.22); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); }
+    .btn:hover, .btn-ghost:hover { transform: translateY(-2px); }
+    .menu-toggle { display:none; }
+
+    .hero { padding: 1.35rem 0 2rem; }
+    .hero-layout {
+      display:grid; grid-template-columns: .95fr 1.05fr; gap: 1rem; align-items:stretch;
+    }
+    .hero-sidebar {
+      display:grid; gap:1rem;
+    }
+    .ticket-card, .score-card, .cta-card, .hero-main, .feature-card, .event-card, .review-card, .booking-card, .gallery-card {
+      background: linear-gradient(180deg, rgba(25,33,45,.95), rgba(18,24,33,.98)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); box-shadow: var(--shadow);
+    }
+    .ticket-card, .score-card, .cta-card, .feature-card, .event-card, .review-card { padding: 1.35rem; }
+
+    .ticket-card {
+      position:relative; overflow:hidden;
+    }
+    .ticket-card::after {
+      content:""; position:absolute; right:-28px; top:22px; width:94px; height:94px; border-radius:50%; background: rgba(255,187,85,.12);
+    }
+    .ticket-card small, .score-card small, .feature-card small, .event-card small { text-transform:uppercase; letter-spacing:.12em; color:#ffc782; font-size:.75rem; }
+    .ticket-card h2, .cta-card h2, .section-head h2 { margin:.55rem 0 .5rem; font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:.02em; }
+
+    .hero-main {
+      min-height: 690px; overflow:hidden; position:relative; display:flex; align-items:flex-end; padding: clamp(1.6rem, 4vw, 3rem);
+      background:
+        linear-gradient(180deg, rgba(12,16,22,.08), rgba(12,16,22,.88)),
+        url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=80') center/cover;
+    }
+    .hero-main::before {
+      content:""; position:absolute; inset:1rem; border:1px solid rgba(255,255,255,.12); border-radius: calc(var(--radius-xl) - 10px);
+    }
+    .hero-copy { position:relative; z-index:1; max-width: 42rem; }
+    .hero-kicker {
+      display:inline-flex; padding:.5rem .8rem; border-radius:999px; background: rgba(255,255,255,.08); color:#ffd7b4; font-weight:700; font-size:.88rem;
+    }
+    h1 {
+      margin:.9rem 0 .8rem; font-family:'Oswald', sans-serif; text-transform:uppercase; line-height:.9; font-size: clamp(3.5rem, 8vw, 6.6rem); letter-spacing:-.03em;
+    }
+    .hero-copy p { color: #d5dce6; font-size:1.04rem; max-width:35rem; margin-bottom:1.4rem; }
+    .hero-actions, .hero-meta, .stats-row { display:flex; flex-wrap:wrap; gap:.8rem; }
+    .hero-meta span, .stats-row div {
+      padding:.8rem 1rem; border-radius:18px; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08);
+    }
+    .stats-row { margin-top: 1rem; }
+    .stats-row strong { display:block; font-size: 1.25rem; }
+
+    .section { padding: 1rem 0 3rem; }
+    .section-head {
+      display:flex; justify-content:space-between; gap:1rem; align-items:flex-end; margin-bottom:1rem;
+    }
+    .section-head p { color: var(--muted); max-width: 36rem; }
+
+    .about-strip {
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:1rem;
+    }
+    .about-card {
+      padding: 1.5rem; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(24,31,43,.96), rgba(18,24,33,.98)); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow);
+    }
+    .about-list { display:grid; gap:.8rem; }
+    .about-list div {
+      padding:1rem 1.1rem; border-radius:18px; background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); color: var(--muted); font-weight:600;
+    }
+
+    .feature-grid {
+      display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem;
+    }
+    .feature-card h3, .event-card h3, .review-card h3, .booking-card h3 { margin:.5rem 0; font-size:1.25rem; }
+    .feature-card p, .event-card p, .review-card p, .about-card p, .booking-card p { color: var(--muted); }
+
+    .events-layout {
+      display:grid; grid-template-columns: .85fr 1.15fr; gap:1rem;
+    }
+    .events-stack { display:grid; gap:1rem; }
+    .calendar-card {
+      border-radius: var(--radius-xl); min-height: 100%; background:
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(12,16,22,.84)),
+      url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80') center/cover; padding:1.5rem; border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); display:flex; align-items:flex-end;
+    }
+
+    .gallery-grid {
+      display:grid; grid-template-columns: 1.1fr .9fr .9fr; grid-auto-rows:220px; gap:1rem; margin-top:1rem;
+    }
+    .gallery-card { overflow:hidden; }
+    .gallery-card img { width:100%; height:100%; object-fit:cover; }
+    .gallery-card.tall { grid-row: span 2; }
+
+    .reviews-grid {
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; margin-top:1rem;
+    }
+    .stars { color: var(--amber); letter-spacing:.12em; }
+
+    .booking-card {
+      margin-top: 1rem; padding: clamp(1.5rem, 4vw, 2.4rem); border-radius: var(--radius-xl); background:
+      linear-gradient(135deg, rgba(29,36,48,.98), rgba(17,23,31,.98)); border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow);
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:1rem; align-items:center;
+    }
+    .booking-actions { display:grid; gap:.8rem; justify-items:start; }
+
+    .footer { padding:1rem 0 2.4rem; color:var(--muted); }
+    .footer-bar { border-top:1px solid rgba(255,255,255,.08); padding-top:1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition: .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width: 1020px) {
+      .hero-layout, .about-strip, .events-layout, .booking-card, .feature-grid, .reviews-grid, .gallery-grid { grid-template-columns:1fr; }
+      .gallery-card.tall { grid-row: span 1; }
+    }
+    @media (max-width: 760px) {
+      .nav { flex-wrap:wrap; padding:.8rem 0; }
+      .menu-toggle { display:inline-flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:14px; border:1px solid rgba(255,255,255,.12); }
+      .nav-links { display:none; width:100%; flex-direction:column; align-items:flex-start; }
+      .nav-links.open { display:flex; }
+      .nav .btn { display:none; }
+      h1 { font-size: clamp(2.9rem, 16vw, 4.8rem); }
+      .feature-grid, .reviews-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="StageHouse Karaoke Club home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M8.5 6h7"/><circle cx="10" cy="16.5" r="3"/><path d="M16 14.5c1.7 0 3 1.1 3 3V20"/></svg>
+        </span>
+        StageHouse
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#features">Club perks</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" href="#book">Book a Booth</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-layout reveal">
+        <aside class="hero-sidebar">
+          <article class="ticket-card">
+            <small>Theme name</small>
+            <h2>StageHouse Karaoke Club</h2>
+            <p style="color:var(--muted); margin:0;">A performance-first karaoke brand that feels like a city club crossed with a mini live-music venue.</p>
+          </article>
+          <article class="score-card">
+            <small>Target audience</small>
+            <p style="color:var(--muted); margin:.55rem 0 0;">Young professionals, friend groups, amateur singers, and repeat guests who enjoy events, rankings, and a stage-centered night out.</p>
+          </article>
+          <article class="cta-card">
+            <small>Design style summary</small>
+            <p style="color:var(--muted); margin:.55rem 0 0;">Bold industrial dark UI, poster-inspired typography, angular cards, and a more competitive entertainment-club energy than a private lounge concept.</p>
+          </article>
+        </aside>
+
+        <article class="hero-main">
+          <div class="hero-copy">
+            <span class="hero-kicker">Weekly spotlights · Open-mic showcases · Booth bookings</span>
+            <h1>Own the room. Then own the chorus.</h1>
+            <p>StageHouse is built for people who want karaoke to feel bigger, louder, and more performative, with event nights, audience energy, private booths, and a stage-ready identity.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#book">Book a Booth</a>
+              <a class="btn-ghost" href="#events">See event schedule</a>
+            </div>
+            <div class="stats-row">
+              <div><strong>5 nights</strong><span>of themed events weekly</span></div>
+              <div><strong>12 booths</strong><span>for groups and walk-ins</span></div>
+              <div><strong>Top 100</strong><span>crowd-favorite songs tracked live</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container reveal">
+        <div class="about-strip">
+          <article class="about-card">
+            <small style="text-transform:uppercase; letter-spacing:.14em; color:#ffc782;">Brand description</small>
+            <h2 style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:clamp(2.1rem,4vw,3.7rem); line-height:.94; margin:.65rem 0 .7rem;">An urban karaoke club shaped around performance energy.</h2>
+            <p>Instead of centering luxury or playful party decor, this homepage positions karaoke as a live-night entertainment format with featured sets, crowd moments, and stage confidence.</p>
+          </article>
+          <div class="about-list">
+            <div>Book booths for private group singing between live club sessions.</div>
+            <div>Join themed nights for duets, throwbacks, and leaderboard challenges.</div>
+            <div>Blend casual karaoke with a more public, venue-style atmosphere.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Club features</h2>
+          <p>This concept uses a venue-led experience with stronger emphasis on momentum, repeat attendance, and programmed entertainment.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><small>Booths</small><h3>Quick group reservations</h3><p>Reserve your own space and jump between private rounds and the larger club vibe outside.</p></article>
+          <article class="feature-card"><small>Events</small><h3>Weekly performance formats</h3><p>From battle nights to genre throwbacks, programming keeps the brand feeling active and current.</p></article>
+          <article class="feature-card"><small>Leaderboard</small><h3>Friendly crowd competition</h3><p>Top tracks, singalong favorites, and repeat guest recognition create community around the venue.</p></article>
+          <article class="feature-card"><small>Bar service</small><h3>Fast drinks between sets</h3><p>Beer, cocktails, and late-night snacks support the club format without slowing the pace.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Upcoming nights</h2>
+          <p>The event section behaves more like a nightlife calendar than a generic services block, helping this concept feel like a real entertainment business.</p>
+        </div>
+        <div class="events-layout">
+          <div class="events-stack">
+            <article class="event-card"><small>Thursday</small><h3>Mic Drop League</h3><p>Song battles, audience voting, and a competitive-but-friendly leaderboard night.</p></article>
+            <article class="event-card"><small>Friday</small><h3>Anthem Hour</h3><p>Full-room singalongs, peak-time light scenes, and late booking surges after dinner.</p></article>
+            <article class="event-card"><small>Saturday</small><h3>Headliner Room Packages</h3><p>Priority booth reservations for larger friend groups and celebration crews.</p></article>
+          </div>
+          <article class="calendar-card">
+            <div>
+              <small style="text-transform:uppercase; letter-spacing:.14em; color:#ffc782;">Featured experience</small>
+              <h3 style="margin:.55rem 0; font-size:2rem;">Front-row energy without needing a concert ticket.</h3>
+              <p style="color:#d4dce6; max-width:30rem;">This side of the homepage acts like a branded event poster, reinforcing the performance-driven identity and making the product feel active every week.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Showcase</h2>
+          <p>Photography is used to reinforce stage lighting, crowd atmosphere, and the venue’s club-style layout.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card tall"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80" alt="Live crowd atmosphere suitable for a performance-led karaoke venue" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Stage lights and performance mood" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80" alt="Night event performance energy" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Packed music venue feel for karaoke nights" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=900&q=80" alt="Late-night drinks in a nightlife setting" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <div class="section-head"><h2>Guest reactions</h2><p>Reviews here support the idea that this brand is about atmosphere, confidence, and event-night momentum.</p></div>
+        <div class="reviews-grid">
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Feels bigger than normal karaoke</h3><p>“The whole place feels alive, like a live event mixed with private karaoke rooms.”</p><small>— Alex, Thursday regular</small></article>
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Great for confident groups</h3><p>“Perfect if your friends want more energy than a quiet private-room-only place.”</p><small>— Rita, weekend guest</small></article>
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Themed nights keep it fresh</h3><p>“We keep coming back because there is always a different format or vibe.”</p><small>— Mark, repeat booking</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="container reveal">
+        <div class="booking-card">
+          <div>
+            <small style="text-transform:uppercase; letter-spacing:.14em; color:#ffc782;">Booking CTA</small>
+            <h3 style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:clamp(2rem,4vw,3.4rem); line-height:.92; margin:.6rem 0;">Reserve a booth before prime time fills up.</h3>
+            <p>Use this concept for a karaoke business that wants to feel like a weekly destination, not only a rental service.</p>
+          </div>
+          <div class="booking-actions">
+            <a class="btn" href="mailto:hello@stagehousekaraoke.com">Book a Booth</a>
+            <a class="btn-ghost" href="tel:+123456789">Call the club</a>
+            <small style="color:var(--muted);">Best for nightlife brands, event-driven karaoke, and social repeat traffic.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bar">
+      <div>StageHouse Karaoke Club · Performance-first karaoke venue</div>
+      <div>Booth reservations · Weekly showcases · Nightlife events</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

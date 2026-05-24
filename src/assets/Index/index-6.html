@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karaoke Caravan</title>
+  <meta name="description" content="Karaoke Caravan homepage concept for mobile karaoke events, weddings, office parties, and pop-up entertainment bookings." />
+  <meta name="theme-color" content="#f8fbff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef7ff;
+      --bg-2: #fdfcff;
+      --card: #ffffff;
+      --text: #182334;
+      --muted: #5f6d83;
+      --blue: #4186ff;
+      --cyan: #60d7ff;
+      --orange: #ff9551;
+      --lime: #b8ef5b;
+      --line: rgba(24,35,52,.08);
+      --shadow: 0 20px 44px rgba(65, 134, 255, .12);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --container: 1180px;
+      --header-h: 84px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0; font-family:'DM Sans', sans-serif; color:var(--text);
+      background:
+        radial-gradient(circle at 12% 14%, rgba(96,215,255,.22), transparent 18%),
+        radial-gradient(circle at 86% 12%, rgba(255,149,81,.18), transparent 16%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    }
+    body::before {
+      content:""; position:fixed; inset:0; pointer-events:none; background-image:
+      radial-gradient(circle at 20% 20%, rgba(65,134,255,.1) 0 3px, transparent 4px),
+      radial-gradient(circle at 70% 60%, rgba(255,149,81,.1) 0 4px, transparent 5px),
+      radial-gradient(circle at 40% 80%, rgba(184,239,91,.14) 0 3px, transparent 4px); background-size:170px 170px;
+    }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; max-width:100%; }
+    .container { width:min(var(--container), calc(100% - 1.5rem)); margin:0 auto; }
+    .skip-link { position:absolute; left:1rem; top:-3rem; background:#fff; color:#000; padding:.75rem 1rem; border-radius:999px; z-index:999; }
+    .skip-link:focus { top:1rem; }
+
+    .site-header { position:sticky; top:0; z-index:100; background: rgba(238,247,255,.9); backdrop-filter: blur(14px); border-bottom:1px solid rgba(24,35,52,.05); }
+    .nav { min-height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .logo { display:inline-flex; align-items:center; gap:.8rem; font-weight:800; }
+    .logo-mark { width:46px; height:46px; border-radius:16px; display:grid; place-items:center; background: linear-gradient(135deg, var(--blue), var(--cyan)); color:white; box-shadow:var(--shadow); }
+    .logo strong { font-family:'Archivo Black', sans-serif; letter-spacing:.02em; font-size:1.08rem; }
+    .nav-links { display:flex; gap:1.2rem; color:var(--muted); font-weight:700; }
+    .nav-links a:hover { color:var(--text); }
+    .btn, .btn-secondary { min-height:50px; padding:0 1.25rem; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; transition:.22s ease; }
+    .btn { background:linear-gradient(135deg, var(--blue), #6ea5ff); color:white; box-shadow:var(--shadow); }
+    .btn-secondary { background:white; border:1px solid rgba(24,35,52,.08); }
+    .btn:hover, .btn-secondary:hover { transform: translateY(-2px); }
+    .menu-toggle { display:none; }
+
+    .hero { padding: 1.5rem 0 2rem; }
+    .hero-grid { display:grid; grid-template-columns: 1.02fr .98fr; gap:1rem; align-items:stretch; }
+    .hero-card, .hero-map, .service-card, .package-card, .review-card, .cta-card, .gallery-card, .about-card {
+      background:white; border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow:var(--shadow);
+    }
+    .hero-card { padding: clamp(1.6rem, 4vw, 3rem); position:relative; overflow:hidden; }
+    .hero-card::after {
+      content:""; position:absolute; right:-40px; top:-30px; width:180px; height:180px; border-radius:50%; background: rgba(96,215,255,.18);
+    }
+    .pill { display:inline-flex; padding:.55rem .9rem; border-radius:999px; background:#e9f4ff; color:#2d5ec8; font-weight:800; font-size:.9rem; }
+    h1 {
+      margin:.9rem 0 .8rem; font-family:'Archivo Black', sans-serif; font-size: clamp(2.9rem, 7vw, 5.8rem); line-height:.92; letter-spacing:-.03em;
+    }
+    .hero-card p { color:var(--muted); max-width: 36rem; font-size:1.05rem; margin-bottom:1.3rem; }
+    .hero-actions, .route-badges { display:flex; flex-wrap:wrap; gap:.8rem; }
+    .route-badges { margin-top:1rem; }
+    .route-badges span { padding:.75rem 1rem; border-radius:999px; background:#f6fbff; color:#48627e; font-weight:700; }
+
+    .hero-map {
+      padding:1rem; display:grid; gap:1rem;
+    }
+    .map-visual {
+      min-height: 340px; border-radius: 26px; position:relative; overflow:hidden; background:
+      linear-gradient(180deg, rgba(255,255,255,.02), rgba(24,35,52,.06)),
+      url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .map-visual::before {
+      content:""; position:absolute; inset:0; background:
+      linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px); background-size:36px 36px;
+    }
+    .pin {
+      position:absolute; padding:.55rem .8rem; border-radius:999px; background:white; font-weight:800; box-shadow:0 10px 20px rgba(0,0,0,.1);
+    }
+    .pin.one { top:18%; left:18%; }
+    .pin.two { top:42%; right:15%; }
+    .pin.three { bottom:16%; left:34%; }
+    .map-notes { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .map-notes div { padding:1rem; border-radius:22px; background:#f8fbff; border:1px solid rgba(24,35,52,.06); }
+
+    .section { padding: 1rem 0 3rem; }
+    .section-head { display:flex; justify-content:space-between; gap:1rem; align-items:flex-end; margin-bottom:1rem; }
+    .section-head h2 { margin:0; font-family:'Archivo Black', sans-serif; font-size: clamp(2rem, 4vw, 3.6rem); line-height:.95; }
+    .section-head p { color:var(--muted); max-width:36rem; }
+
+    .about-layout { display:grid; grid-template-columns: .95fr 1.05fr; gap:1rem; }
+    .about-card { padding:1.5rem; }
+    .about-list { display:grid; gap:.8rem; }
+    .about-list div { padding:1rem 1.1rem; border-radius:18px; background:white; border:1px dashed rgba(24,35,52,.12); color:#4d6077; font-weight:700; box-shadow:var(--shadow); }
+
+    .services-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem; }
+    .service-card, .package-card, .review-card { padding:1.35rem; }
+    .service-card h3, .package-card h3, .review-card h3 { margin:.55rem 0 .45rem; font-size:1.25rem; }
+    .service-card p, .package-card p, .review-card p { color:var(--muted); }
+
+    .packages-layout { display:grid; grid-template-columns: .82fr 1.18fr; gap:1rem; }
+    .road-card {
+      min-height: 100%; border-radius:var(--radius-xl); background: linear-gradient(180deg, rgba(65,134,255,.92), rgba(30,86,190,.94)); color:white; padding:1.5rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
+    }
+    .road-card::after {
+      content:""; position:absolute; right:-25px; bottom:-25px; width:160px; height:160px; border-radius:50%; background: rgba(255,255,255,.12);
+    }
+    .package-grid { display:grid; gap:1rem; }
+    .package-card { display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:start; }
+    .price { font-family:'Archivo Black', sans-serif; font-size:1.7rem; color:var(--blue); }
+
+    .gallery-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem; margin-top:1rem; }
+    .gallery-card { overflow:hidden; min-height:240px; }
+    .gallery-card img { width:100%; height:100%; object-fit:cover; }
+
+    .reviews-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem; }
+    .stars { color:#ff9e4a; letter-spacing:.13em; }
+
+    .cta-card {
+      margin-top:1rem; padding: clamp(1.6rem, 4vw, 2.5rem); display:grid; grid-template-columns:1.05fr .95fr; gap:1rem; align-items:center;
+    }
+    .cta-actions { display:grid; gap:.8rem; justify-items:start; }
+
+    .footer { padding:1rem 0 2.5rem; color:var(--muted); }
+    .footer-bar { border-top:1px solid rgba(24,35,52,.08); padding-top:1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+
+    .reveal { opacity:0; transform:translateY(16px); transition:.68s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width: 1020px) {
+      .hero-grid, .about-layout, .packages-layout, .services-grid, .gallery-grid, .reviews-grid, .cta-card { grid-template-columns:1fr; }
+    }
+    @media (max-width: 760px) {
+      .nav { flex-wrap:wrap; padding:.85rem 0; }
+      .menu-toggle { display:inline-flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:14px; background:white; border:1px solid rgba(24,35,52,.08); }
+      .nav-links { display:none; width:100%; flex-direction:column; align-items:flex-start; }
+      .nav-links.open { display:flex; }
+      .nav .btn { display:none; }
+      .map-notes, .package-card { grid-template-columns:1fr; }
+      .services-grid, .gallery-grid, .reviews-grid { grid-template-columns:1fr; }
+      h1 { font-size: clamp(2.7rem, 15vw, 4.6rem); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Karaoke Caravan home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v9"/><path d="M9 6h6"/><circle cx="10" cy="16.5" r="3"/><path d="M16 14.5c1.8 0 3 1.1 3 3V20"/></svg>
+        </span>
+        <span><strong>Karaoke Caravan</strong></span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#gallery">Events</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" href="#book">Book the Van</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid reveal">
+        <article class="hero-card">
+          <span class="pill">Theme name · Karaoke Caravan</span>
+          <h1>We bring the karaoke night to the party.</h1>
+          <p>Karaoke Caravan is a mobile event karaoke brand for weddings, office celebrations, campus events, festivals, and private parties that want entertainment brought directly to their venue.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#book">Book the van</a>
+            <a class="btn-secondary" href="#packages">Explore packages</a>
+          </div>
+          <div class="route-badges">
+            <span>Target audience: event planners, offices, weddings, private hosts</span>
+            <span>Design summary: bright, active, mobile-service brand with logistical clarity</span>
+          </div>
+        </article>
+        <aside class="hero-map">
+          <div class="map-visual">
+            <div class="pin one">Office parties</div>
+            <div class="pin two">Weddings</div>
+            <div class="pin three">Birthdays</div>
+          </div>
+          <div class="map-notes">
+            <div><strong>Brand description</strong><p style="color:var(--muted); margin:.45rem 0 0;">A flexible mobile karaoke product focused on events, setup, and on-site entertainment.</p></div>
+            <div><strong>Different UX angle</strong><p style="color:var(--muted); margin:.45rem 0 0;">This concept sells logistics, packages, and reliability instead of a fixed physical venue.</p></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container reveal">
+        <div class="about-layout">
+          <article class="about-card">
+            <h2 style="margin:0 0 .7rem;">A karaoke brand that travels.</h2>
+            <p style="color:var(--muted); margin:0;">This homepage is intentionally built like an event-service business rather than a bar or lounge. It helps customers quickly understand where the service works, what is included, and how bookings scale.</p>
+          </article>
+          <div class="about-list">
+            <div>On-site setup for private and corporate locations.</div>
+            <div>Customizable event formats with hosts, mics, screens, and lighting.</div>
+            <div>Ideal for clients who need service flexibility more than a permanent venue identity.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>The homepage uses practical sections and event-friendly language so customers can immediately match the offer to their occasion.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Setup</small><h3>Portable stage system</h3><p>Bring microphones, speakers, displays, and karaoke software directly to the venue.</p></article>
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Hosting</small><h3>Event MC support</h3><p>Optional hosts keep the flow moving for weddings, team events, and birthdays.</p></article>
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Branding</small><h3>Custom event themes</h3><p>Adapt visuals, queue screens, and music themes to suit the occasion.</p></article>
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Flexibility</small><h3>Indoor or outdoor plans</h3><p>Useful for pop-ups, festivals, courtyards, halls, and mixed-format spaces.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Packages</h2>
+          <p>This package system is tailored around event scale and service scope rather than room size, which makes the concept feel distinctly different from venue-based karaoke websites.</p>
+        </div>
+        <div class="packages-layout">
+          <article class="road-card">
+            <small style="text-transform:uppercase; letter-spacing:.12em; color:#dff1ff;">Best fit</small>
+            <h3 style="font-size:2rem; margin:.55rem 0;">Office and celebration-ready booking flow</h3>
+            <p style="color:rgba(255,255,255,.88); max-width:28rem;">This side acts as a service overview panel, helping planners understand that the brand is mobile, organized, and scalable.</p>
+          </article>
+          <div class="package-grid">
+            <article class="package-card"><div><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Small event</small><h3>Party Drop-In</h3><p>Compact setup for birthdays, home parties, and private celebrations with essential equipment and song access.</p></div><div class="price">From 190</div></article>
+            <article class="package-card"><div><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Corporate</small><h3>Team Night Package</h3><p>Ideal for offices, networking mixers, and staff events that need structured hosting and smooth setup.</p></div><div class="price">From 340</div></article>
+            <article class="package-card"><div><small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Large-scale</small><h3>Wedding and event edition</h3><p>For larger guest counts with extra screens, multiple microphones, and custom event pacing.</p></div><div class="price">Custom</div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container reveal">
+        <div class="section-head"><h2>Event showcase</h2><p>The visual language here focuses on mobility, social events, and adaptable entertainment setups.</p></div>
+        <div class="gallery-grid">
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Corporate or event venue suitable for a mobile karaoke setup" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80" alt="Celebration event atmosphere for karaoke entertainment" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=80" alt="Birthday or social event setting" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <div class="section-head"><h2>Client feedback</h2><p>These reviews support the operational reliability and event value of the concept, rather than emphasizing room design alone.</p></div>
+        <div class="reviews-grid">
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Super easy for our office event</h3><p>“They handled setup, hosting, and the vibe. We just showed up and enjoyed it.”</p><small>— Noura, team lead</small></article>
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Perfect wedding add-on</h3><p>“It gave our guests something genuinely fun to do after dinner without complicated planning.”</p><small>— Elise, wedding host</small></article>
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Great event flexibility</h3><p>“What stood out most was how adaptable the setup was for our space and guest count.”</p><small>— Adam, private organizer</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="container reveal">
+        <div class="cta-card">
+          <div>
+            <small style="text-transform:uppercase; letter-spacing:.12em; color:#4d76d7;">Booking CTA</small>
+            <h2 style="margin:.6rem 0 .65rem;">Bring the full karaoke experience to your venue.</h2>
+            <p style="color:var(--muted);">Use this concept for mobile karaoke brands, event entertainment businesses, and customers who need booking clarity around service scope.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn" href="mailto:book@karaokecaravan.com">Book the van</a>
+            <a class="btn-secondary" href="tel:+123456789">Talk to events team</a>
+            <small style="color:var(--muted);">Best for event services, weddings, companies, and pop-up karaoke brands.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bar">
+      <div>Karaoke Caravan · Mobile karaoke for events and celebrations</div>
+      <div>On-site setup · Event hosting · Weddings · Office parties</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    if (menuBtn && links) {
+      menuBtn.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: .14 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

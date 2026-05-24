@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moonroom Karaoke Suites</title>
+  <meta name="description" content="Moonroom Karaoke Suites homepage concept with a calm, minimalist, modern Japanese-inspired premium private room aesthetic." />
+  <meta name="theme-color" content="#f3efe6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --bg-2: #ece5db;
+      --card: #fbf8f3;
+      --sand: #d8c4a5;
+      --ink: #211d1a;
+      --muted: #73685c;
+      --olive: #7d8771;
+      --clay: #b67f5e;
+      --line: rgba(33,29,26,.08);
+      --shadow: 0 18px 44px rgba(63, 45, 28, .08);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --container: 1140px;
+      --header-h: 84px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0; font-family:'Manrope', sans-serif; color:var(--ink); background: linear-gradient(180deg, var(--bg) 0%, #f8f5ef 100%);
+    }
+    body::before {
+      content:""; position:fixed; inset:0; pointer-events:none; background:
+      linear-gradient(rgba(33,29,26,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(33,29,26,.03) 1px, transparent 1px); background-size:36px 36px; mask-image: linear-gradient(180deg, rgba(255,255,255,.65), transparent 80%);
+    }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; max-width:100%; }
+    .container { width:min(var(--container), calc(100% - 1.5rem)); margin:0 auto; }
+    .skip-link { position:absolute; left:1rem; top:-3rem; background:#fff; color:#000; padding:.75rem 1rem; border-radius:999px; z-index:999; }
+    .skip-link:focus { top:1rem; }
+
+    .site-header { position:sticky; top:0; z-index:100; background: rgba(245,240,232,.86); backdrop-filter: blur(14px); border-bottom:1px solid rgba(33,29,26,.05); }
+    .nav { min-height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .logo { display:inline-flex; align-items:center; gap:.8rem; font-size:1rem; letter-spacing:.08em; text-transform:uppercase; }
+    .logo-mark { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; border:1px solid rgba(33,29,26,.1); background: radial-gradient(circle at 35% 35%, #fff, #efe7db); }
+    .nav-links { display:flex; gap:1.25rem; color:var(--muted); font-weight:700; }
+    .nav-links a:hover { color:var(--ink); }
+    .btn, .btn-secondary { min-height:48px; padding:0 1.2rem; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; transition:.22s ease; }
+    .btn { background:var(--ink); color:#fff; }
+    .btn-secondary { background:#fff; border:1px solid rgba(33,29,26,.08); }
+    .btn:hover, .btn-secondary:hover { transform: translateY(-2px); }
+    .menu-toggle { display:none; }
+
+    .hero { padding: 1.6rem 0 2rem; }
+    .hero-shell {
+      display:grid; grid-template-columns: 1.05fr .95fr; gap:1rem; align-items:stretch;
+    }
+    .hero-copy {
+      background: linear-gradient(180deg, rgba(251,248,243,.95), rgba(249,244,237,.98)); border:1px solid var(--line); border-radius: var(--radius-xl); padding: clamp(1.6rem, 4vw, 3rem); box-shadow: var(--shadow); display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .badge {
+      display:inline-flex; width:fit-content; padding:.55rem .85rem; border-radius:999px; background:#f0e8dd; color:#66584b; font-weight:800; font-size:.88rem;
+    }
+    h1 {
+      margin:.9rem 0 .75rem; font-family:'Marcellus', serif; font-size: clamp(3rem, 7vw, 5.6rem); line-height:.93; letter-spacing:-.03em;
+    }
+    .hero-copy p { color: var(--muted); max-width: 35rem; font-size: 1.04rem; margin-bottom: 1.25rem; }
+    .hero-actions, .hero-notes { display:flex; flex-wrap:wrap; gap:.8rem; }
+    .hero-notes { margin-top: 1rem; }
+    .hero-notes span { padding:.8rem .95rem; border-radius:18px; background:#f3ede3; color:#64584b; font-weight:700; }
+
+    .hero-visual {
+      display:grid; gap:1rem;
+    }
+    .photo-card, .info-card, .service-card, .suite-card, .review-card, .cta-panel, .gallery-card {
+      background: linear-gradient(180deg, rgba(251,248,243,.98), rgba(248,243,236,.98)); border:1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow);
+    }
+    .photo-card {
+      min-height: 390px; overflow:hidden; background:
+      linear-gradient(180deg, rgba(255,255,255,.08), rgba(33,29,26,.14)),
+      url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80') center/cover;
+      position:relative;
+    }
+    .photo-card::after {
+      content:"Quiet luxury suites"; position:absolute; right:1rem; bottom:1rem; padding:.7rem 1rem; border-radius:999px; background: rgba(255,255,255,.82); color:#554a3f; font-weight:800;
+    }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .info-card, .service-card, .suite-card, .review-card { padding:1.4rem; }
+    .info-card strong { display:block; margin:.35rem 0 0; font-size:1.15rem; }
+    .info-card p, .service-card p, .suite-card p, .review-card p, .section-head p, .cta-panel p { color:var(--muted); }
+
+    .section { padding: 1rem 0 3rem; }
+    .section-head { display:flex; justify-content:space-between; gap:1rem; align-items:flex-end; margin-bottom:1rem; }
+    .section-head h2 { margin:0; font-family:'Marcellus', serif; font-size: clamp(2.1rem, 4vw, 3.8rem); line-height:.96; }
+
+    .about-layout { display:grid; grid-template-columns: .9fr 1.1fr; gap:1rem; }
+    .about-card {
+      padding:1.6rem; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(251,248,243,.98), rgba(247,241,233,.98)); border:1px solid var(--line); box-shadow:var(--shadow);
+    }
+    .about-list { display:grid; gap:.8rem; }
+    .about-list div {
+      padding:1rem 1.1rem; border-radius:18px; background:#f5eee4; color:#665a4d; font-weight:700;
+    }
+
+    .services-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }
+
+    .suite-layout { display:grid; grid-template-columns: .92fr 1.08fr; gap:1rem; }
+    .suite-visual {
+      min-height: 520px; overflow:hidden; background:
+      linear-gradient(180deg, rgba(255,255,255,.08), rgba(33,29,26,.12)),
+      url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80') center/cover;
+      border-radius: var(--radius-xl); border:1px solid var(--line); box-shadow:var(--shadow); display:flex; align-items:flex-end; padding:1.5rem;
+    }
+    .suite-stack { display:grid; gap:1rem; }
+
+    .gallery-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem; margin-top:1rem; }
+    .gallery-card { overflow:hidden; min-height:260px; }
+    .gallery-card img { width:100%; height:100%; object-fit:cover; }
+
+    .reviews-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; margin-top:1rem; }
+    .stars { color:#9c876f; letter-spacing:.12em; }
+
+    .cta-panel {
+      margin-top:1rem; padding: clamp(1.6rem,4vw,2.5rem); display:grid; grid-template-columns:1.05fr .95fr; gap:1rem; align-items:center;
+    }
+    .cta-links { display:grid; gap:.8rem; justify-items:start; }
+
+    .footer { padding:1rem 0 2.5rem; color:var(--muted); }
+    .footer-bar { border-top:1px solid var(--line); padding-top:1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+
+    .reveal { opacity:0; transform:translateY(16px); transition:.65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width: 980px) {
+      .hero-shell, .about-layout, .suite-layout, .services-grid, .reviews-grid, .gallery-grid, .cta-panel { grid-template-columns:1fr; }
+    }
+    @media (max-width: 760px) {
+      .nav { flex-wrap:wrap; padding:.85rem 0; }
+      .menu-toggle { display:inline-flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:14px; background:#fff; border:1px solid rgba(33,29,26,.08); }
+      .nav-links { display:none; width:100%; flex-direction:column; align-items:flex-start; }
+      .nav-links.open { display:flex; }
+      .nav .btn { display:none; }
+      .info-grid { grid-template-columns:1fr; }
+      h1 { font-size: clamp(2.7rem, 15vw, 4.6rem); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Moonroom Karaoke Suites home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A7.5 7.5 0 1 1 12.5 4a6.2 6.2 0 0 0 7.5 10.5Z"/></svg>
+        </span>
+        Moonroom Suites
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#suites">Suites</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" href="#reserve">Reserve quietly</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-shell reveal">
+        <article class="hero-copy">
+          <div>
+            <span class="badge">Theme name</span>
+            <h1>Moonroom Karaoke Suites</h1>
+            <p>A serene private-room karaoke concept with warm neutrals, calmer luxury, and a minimalist hospitality tone inspired by boutique lounges and soft Japanese-influenced interiors.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#reserve">Reserve a suite</a>
+              <a class="btn-secondary" href="#suites">View suite types</a>
+            </div>
+          </div>
+          <div class="hero-notes">
+            <span>Target audience: couples, calm group nights, premium social bookings</span>
+            <span>Design summary: soft luxury, quiet palettes, spacious editorial calm</span>
+          </div>
+        </article>
+        <aside class="hero-visual">
+          <div class="photo-card" aria-label="Elegant suite photo"></div>
+          <div class="info-grid">
+            <article class="info-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Brand description</small><strong>Private karaoke designed to feel restorative, not hectic.</strong><p>Ideal for customers who want intimacy and polish over nightlife intensity.</p></article>
+            <article class="info-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Mood</small><strong>Warm, quiet, refined.</strong><p>Room lighting, materials, and layout encourage a slower, more elegant evening.</p></article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container reveal">
+        <div class="about-layout">
+          <article class="about-card">
+            <small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">About the concept</small>
+            <h2 style="margin:.6rem 0 .7rem;">A softer interpretation of premium karaoke.</h2>
+            <p>This homepage avoids nightclub language and bright party cues. Instead, it positions the business as a considered private-room experience for guests who care about comfort, atmosphere, and beautifully composed interiors.</p>
+          </article>
+          <div class="about-list">
+            <div>Private suites for intimate gatherings and low-noise celebrations.</div>
+            <div>Hospitality-led service with tea, cocktails, and curated room ambiance.</div>
+            <div>Best for upscale brands wanting minimalist elegance instead of flash.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>The structure emphasizes hospitality, room preparation, and guest comfort rather than dense nightlife programming.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Arrival</small><h3>Prepared suites</h3><p>Rooms are staged in advance with selected lighting, drinks setup, and a clean visual atmosphere.</p></article>
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Food & drink</small><h3>Quiet luxury menu</h3><p>Offer tea service, cocktails, and elegant snack boards that match the calmer brand language.</p></article>
+          <article class="service-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Private events</small><h3>Thoughtful hosting</h3><p>Ideal for date nights, discreet celebrations, client socials, and intimate birthdays.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="suites">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Suite showcase</h2>
+          <p>This layout gives the page a boutique-hospitality feel, showing one signature room alongside curated package descriptions.</p>
+        </div>
+        <div class="suite-layout">
+          <article class="suite-visual">
+            <div>
+              <small style="text-transform:uppercase; letter-spacing:.12em; color:#fff7e9;">Signature suite</small>
+              <h3 style="margin:.55rem 0; font-size:2rem; color:white;">The Cedar Room</h3>
+              <p style="color:rgba(255,255,255,.82); max-width:28rem;">A tranquil private suite with layered lighting, soft textiles, and a premium in-room experience.</p>
+            </div>
+          </article>
+          <div class="suite-stack">
+            <article class="suite-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Package one</small><h3>Two-person moon session</h3><p>Made for quiet evenings, couple bookings, and low-key singing with drinks and dessert service.</p></article>
+            <article class="suite-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Package two</small><h3>Private friends suite</h3><p>For small groups who want a thoughtful, design-led atmosphere with longer reservations.</p></article>
+            <article class="suite-card"><small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Package three</small><h3>Hosted premium celebration</h3><p>Includes floral styling, menu planning, and gentle room personalization for milestones.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container reveal">
+        <div class="section-head"><h2>Gallery</h2><p>Images reinforce texture, calm interiors, and refined hospitality rather than loud spectacle.</p></div>
+        <div class="gallery-grid">
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=80" alt="Elegant premium interior atmosphere" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=900&q=80" alt="Warm private lounge style suite" loading="lazy"></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80" alt="Refined drinks presentation for a premium karaoke lounge" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <div class="section-head"><h2>Guest notes</h2><p>The testimonials fit the restrained brand voice and focus on atmosphere, service, and comfort.</p></div>
+        <div class="reviews-grid">
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Beautifully calm</h3><p>“It felt more like a private lounge than a loud karaoke venue, which is exactly what we wanted.”</p><small>— Hana, date-night guest</small></article>
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Thoughtful service</h3><p>“The suite was prepared so well that the whole night felt effortless from start to finish.”</p><small>— Lina, host</small></article>
+          <article class="review-card"><div class="stars">★★★★★</div><h3>Quiet luxury done right</h3><p>“A really different karaoke experience. Elegant, intimate, and still genuinely fun.”</p><small>— Omar, private booking</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reserve">
+      <div class="container reveal">
+        <div class="cta-panel">
+          <div>
+            <small style="text-transform:uppercase; letter-spacing:.12em; color:#8f7764;">Reservation CTA</small>
+            <h2 style="margin:.6rem 0 .65rem;">Reserve a room designed for slower evenings and better company.</h2>
+            <p>Use this concept when the client wants premium private karaoke with emotional calm, understated visual design, and boutique positioning.</p>
+          </div>
+          <div class="cta-links">
+            <a class="btn" href="mailto:reserve@moonroomkaraoke.com">Reserve quietly</a>
+            <a class="btn-secondary" href="tel:+123456789">Call the host team</a>
+            <small style="color:var(--muted);">Best suited to luxury private rooms, boutique brands, and intimate events.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bar">
+      <div>Moonroom Karaoke Suites · Quiet luxury private karaoke</div>
+      <div>Private suites · Calm hospitality · Boutique reservations</div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: .14 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
