@@ -1,113 +1,319 @@
-<div class="container">
-  <!-- Header/Navigation -->
-  <header class="header">
-    <div class="logo-container">
-      <img src="assets/images/Logo_Plan de travail 1-03.png" alt="NoahSwitch Logo" class="logo">
+<div class="page">
+  <header class="header" [class.nav-open]="mobileNavOpen">
+    <a class="logo-container" href="#top" (click)="scrollToSection('top'); $event.preventDefault()">
+      <img src="assets/images/Logo_Plan de travail 1-03.png" alt="NoahSwitch Logo" class="logo" />
+    </a>
 
-    </div>
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+    <button
+      type="button"
+      class="nav-toggle"
+      [attr.aria-expanded]="mobileNavOpen"
+      aria-controls="site-nav"
+      aria-label="Toggle navigation"
+      (click)="toggleNav()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="nav" [class.open]="mobileNavOpen">
+      <a href="#about" (click)="scrollToSection('about'); $event.preventDefault()">About</a>
+      <a href="#services" (click)="scrollToSection('services'); $event.preventDefault()">Services</a>
+      <a href="#themes" (click)="scrollToSection('themes'); $event.preventDefault()">Themes</a>
+      <a href="#contact" (click)="scrollToSection('contact'); $event.preventDefault()">Contact</a>
+      <a
+        class="nav-cta"
+        href="#contact"
+        (click)="scrollToContact(); $event.preventDefault()"
+      >Get Started</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <img src="assets/images/logo.png" alt="NoahSwitch" class="hero-logo">
-      <h1 class="hero-title">Driving Innovation in Technology</h1>
-      <p class="hero-subtitle">
-        A dynamic and forward-thinking brand dedicated to setting new standards 
-        and pushing boundaries in technology training and services
-      </p>
-      <button class="cta-button" (click)="scrollToContact()">Get Started</button>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2 class="section-title">About NoahSwitch</h2>
-    <div class="about-content">
-      <p>
-        NoahSwitch is more than just a provider of technology training and services; 
-        it is a movement that aspires to make a lasting impact. At the core lies a 
-        team of experts who are passionate about their craft and committed to excellence.
-      </p>
-      <p>
-        With a commitment to transparency and a willingness to adapt, NoahSwitch is 
-        constantly evolving, embracing new concepts that align with its core values 
-        of expertise, dedication, forward-thinking, and inclusivity.
-      </p>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card" *ngFor="let service of services">
-        <div class="service-icon">{{ service.icon }}</div>
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
+  <main>
+    <section id="top" class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="section-inner hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Technology Training &amp; Services</p>
+          <img src="assets/images/logo.png" alt="NoahSwitch" class="hero-logo" />
+          <h1 class="hero-title">Driving Innovation in Technology</h1>
+          <p class="hero-subtitle">
+            A dynamic and forward-thinking brand dedicated to setting new standards
+            and pushing boundaries in technology training and services
+          </p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" (click)="scrollToContact()">
+              Get Started
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="scrollToSection('themes')">
+              View Theme Showcase
+            </button>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Core values">
+          <div class="hero-stat">
+            <strong>Expertise</strong>
+            <span>Specialists across brand, digital, and training</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Forward-thinking</strong>
+            <span>Concepts built for modern audiences and platforms</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Inclusivity</strong>
+            <span>Solutions designed to empower teams and individuals</span>
+          </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        <div class="contact-item">
-          <span class="contact-label">📧 Email:</span>
-          <a href="mailto:cs@noahswitch.com">cs&#64;noahswitch.com</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-label">📱 WhatsApp:</span>
-          <a href="https://wa.me/33678415751" target="_blank">+33 6 78 41 57 51</a>
-        </div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/noah_.switch?igsh=MXR4Mmg2NHVtM3UyMw==" 
-             target="_blank" 
-             class="social-link">
-            📷 Instagram
-          </a>
-          <a href="https://www.tiktok.com/@noahswitch?_r=1&_t=ZS-91uYERD82p3" 
-             target="_blank" 
-             class="social-link">
-            🎵 TikTok
-          </a>
+    <section id="about" class="about section">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="eyebrow">About</p>
+          <h2 class="section-title">About NoahSwitch</h2>
+        </header>
+        <div class="about-grid">
+          <p>
+            NoahSwitch is more than just a provider of technology training and services;
+            it is a movement that aspires to make a lasting impact. At the core lies a
+            team of experts who are passionate about their craft and committed to excellence.
+          </p>
+          <p>
+            With a commitment to transparency and a willingness to adapt, NoahSwitch is
+            constantly evolving, embracing new concepts that align with its core values
+            of expertise, dedication, forward-thinking, and inclusivity.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="contact-form-wrapper">
-        <h3>Send us a Message</h3>
-        <form action="https://submit-form.com/9Q29PPSTH" method="POST" class="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
-          </div>
-          <button type="submit" class="submit-button">Send Message</button>
-        </form>
+    <section id="services" class="services section">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="eyebrow">What we offer</p>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-lead">
+            Brand strategy, creative systems, digital delivery, and technology training —
+            aligned to help you grow with clarity and confidence.
+          </p>
+        </header>
+        <div class="services-grid">
+          <article class="service-card" *ngFor="let service of services">
+            <div class="service-icon" aria-hidden="true">{{ service.icon }}</div>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      
-    </div>
-  </section>
+    <section id="themes" class="themes section">
+      <div class="section-inner">
+        <header class="section-head section-head--themes">
+          <div>
+            <p class="eyebrow">Portfolio</p>
+            <h2 class="section-title">Theme Showcase</h2>
+            <p class="section-lead">
+              Explore homepage concepts crafted for karaoke venues and restaurants.
+              Browse one full demo at a time, then open the live preview in a new tab.
+            </p>
+          </div>
+          <div class="themes-meta">
+            <span class="themes-count">{{ demos.length }} concepts</span>
+            <span class="themes-count themes-count--alt">Karaoke &amp; hospitality</span>
+          </div>
+        </header>
 
-  <!-- Footer -->
+        <div class="showcase">
+          <div class="showcase-main">
+            <article
+              class="showcase-card"
+              [style.--demo-accent]="activeDemo.accent"
+            >
+              <div class="showcase-toolbar">
+                <div class="showcase-info">
+                  <span class="showcase-index">
+                    {{ activeDemoIndex + 1 }} / {{ demos.length }}
+                  </span>
+                  <h3 class="showcase-title">{{ activeDemo.title }}</h3>
+                  <p class="showcase-summary">{{ activeDemo.summary }}</p>
+                </div>
+                <div class="showcase-actions">
+                  <span class="showcase-badge">{{ activeDemo.category }}</span>
+                  <a
+                    class="btn btn-ghost"
+                    [href]="activeDemo.path"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open full preview
+                  </a>
+                </div>
+              </div>
+
+              <div class="showcase-viewport">
+                <iframe
+                  [src]="demoUrls[activeDemoIndex]"
+                  [title]="activeDemo.title + ' homepage preview'"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+
+              <div class="showcase-controls">
+                <button
+                  type="button"
+                  class="showcase-nav-btn"
+                  aria-label="Previous theme"
+                  (click)="prevDemo()"
+                >
+                  ← Previous
+                </button>
+                <div class="showcase-dots" role="tablist" aria-label="Theme demos">
+                  <button
+                    type="button"
+                    *ngFor="let demo of demos; let i = index"
+                    class="showcase-dot"
+                    role="tab"
+                    [class.active]="i === activeDemoIndex"
+                    [attr.aria-selected]="i === activeDemoIndex"
+                    [attr.aria-label]="'Show ' + demo.title"
+                    (click)="selectDemo(i)"
+                  ></button>
+                </div>
+                <button
+                  type="button"
+                  class="showcase-nav-btn"
+                  aria-label="Next theme"
+                  (click)="nextDemo()"
+                >
+                  Next →
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <aside class="showcase-sidebar" aria-label="Theme list">
+            <p class="sidebar-label">All themes</p>
+            <div class="theme-list">
+              <button
+                type="button"
+                class="theme-item"
+                *ngFor="let demo of demos; let i = index"
+                [class.active]="i === activeDemoIndex"
+                [style.--item-accent]="demo.accent"
+                (click)="selectDemo(i)"
+              >
+                <span class="theme-item-accent" aria-hidden="true"></span>
+                <span class="theme-item-copy">
+                  <strong>{{ demo.title }}</strong>
+                  <small>{{ demo.category }}</small>
+                </span>
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">Get In Touch</h2>
+        </header>
+        <div class="contact-container">
+          <div class="contact-info card-panel">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:cs@noahswitch.com">cs&#64;noahswitch.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">WhatsApp</span>
+              <a href="https://wa.me/33678415751" target="_blank" rel="noopener noreferrer">
+                +33 6 78 41 57 51
+              </a>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/noah_.switch?igsh=MXR4Mmg2NHVtM3UyMw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.tiktok.com/@noahswitch?_r=1&_t=ZS-91uYERD82p3"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+              >
+                TikTok
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper card-panel">
+            <h3>Send us a Message</h3>
+            <form
+              action="https://submit-form.com/9Q29PPSTH"
+              method="POST"
+              class="contact-form"
+            >
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your message..."
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <p>&copy; {{ currentYear }} NoahSwitch. All rights reserved.</p>
-    <p>Empowering individuals and organizations to unlock their full potential</p>
+    <div class="section-inner footer-inner">
+      <img
+        src="assets/images/Logo_Plan de travail 1-03.png"
+        alt=""
+        class="footer-logo"
+        aria-hidden="true"
+      />
+      <div class="footer-copy">
+        <p>&copy; {{ currentYear }} NoahSwitch. All rights reserved.</p>
+        <p>Empowering individuals and organizations to unlock their full potential</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#about" (click)="scrollToSection('about'); $event.preventDefault()">About</a>
+        <a href="#services" (click)="scrollToSection('services'); $event.preventDefault()">Services</a>
+        <a href="#themes" (click)="scrollToSection('themes'); $event.preventDefault()">Themes</a>
+        <a href="#contact" (click)="scrollToSection('contact'); $event.preventDefault()">Contact</a>
+      </nav>
+    </div>
   </footer>
 </div>
