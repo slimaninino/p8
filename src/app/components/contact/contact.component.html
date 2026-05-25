@@ -1,19 +1,19 @@
 <section id="contact" class="contact section">
   <div class="section-inner">
     <header class="section-head">
-      <p class="eyebrow">{{ i18n.t('contact.eyebrow', 'Contact') }}</p>
-      <h2 class="section-title">{{ i18n.t('contact.title', 'Get In Touch') }}</h2>
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">Get In Touch</h2>
     </header>
 
     <div class="contact-container">
       <div class="contact-info card-panel">
-        <h3>{{ i18n.t('contact.info.title', 'Contact Information') }}</h3>
+        <h3>Contact Information</h3>
         <div class="contact-item">
-          <span class="contact-label">{{ i18n.t('contact.info.email', 'Email') }}</span>
+          <span class="contact-label">Email</span>
           <a href="mailto:cs@noahswitch.com">cs&#64;noahswitch.com</a>
         </div>
         <div class="contact-item">
-          <span class="contact-label">{{ i18n.t('contact.info.whatsapp', 'WhatsApp') }}</span>
+          <span class="contact-label">WhatsApp</span>
           <a href="https://wa.me/33678415751" target="_blank" rel="noopener noreferrer">
             +33 6 78 41 57 51
           </a>
@@ -25,7 +25,7 @@
             rel="noopener noreferrer"
             class="social-link"
           >
-            {{ i18n.t('contact.info.instagram', 'Instagram') }}
+            Instagram
           </a>
           <a
             href="https://www.tiktok.com/@noahswitch?_r=1&_t=ZS-91uYERD82p3"
@@ -33,100 +33,112 @@
             rel="noopener noreferrer"
             class="social-link"
           >
-            {{ i18n.t('contact.info.tiktok', 'TikTok') }}
+            TikTok
           </a>
         </div>
       </div>
 
       <div class="contact-form-wrapper card-panel">
-        <h3>{{ i18n.t('contact.form.title', 'Send us a Message') }}</h3>
+        <h3>Send us a Message</h3>
 
         <form
           #contactForm
           class="contact-form"
           [formGroup]="form"
+          [action]="googleFormAction"
+          method="POST"
+          target="hidden_iframe"
           (ngSubmit)="onSubmit()"
           novalidate
         >
           <div class="form-group">
-            <label for="contact-name">{{ i18n.t('contact.form.name', 'Name') }}</label>
+            <label for="contact-name">Name</label>
             <input
               id="contact-name"
               type="text"
               formControlName="name"
-              [placeholder]="i18n.t('contact.form.namePlaceholder', 'Your Name')"
+              name="entry.2005620554"
+              placeholder="Your Name"
               autocomplete="name"
             />
             @if (showError('name')) {
-              <small class="field-error">{{ i18n.t('contact.form.errors.nameRequired', 'Name is required.') }}</small>
+              <small class="field-error">Name is required.</small>
             }
           </div>
 
           <div class="form-group">
-            <label for="contact-email">{{ i18n.t('contact.form.email', 'Email') }}</label>
+            <label for="contact-email">Email</label>
             <input
               id="contact-email"
               type="email"
               formControlName="email"
-              [placeholder]="i18n.t('contact.form.emailPlaceholder', 'your@email.com')"
+              name="entry.1045781291"
+              placeholder="your@email.com"
               autocomplete="email"
             />
             @if (showError('email')) {
-              <small class="field-error">{{ i18n.t('contact.form.errors.emailRequired', 'Enter a valid email address.') }}</small>
+              <small class="field-error">Enter a valid email address.</small>
             }
           </div>
 
           <div class="form-group">
-            <label for="contact-address">{{ i18n.t('contact.form.address', 'Address') }}</label>
+            <label for="contact-address">Address</label>
             <textarea
               id="contact-address"
               rows="3"
               formControlName="address"
-              [placeholder]="i18n.t('contact.form.addressPlaceholder', 'Your address')"
+              name="entry.1065046570"
+              placeholder="Your address"
               autocomplete="street-address"
             ></textarea>
             @if (showError('address')) {
-              <small class="field-error">{{ i18n.t('contact.form.errors.addressRequired', 'Address is required.') }}</small>
+              <small class="field-error">Address is required.</small>
             }
           </div>
 
           <div class="form-group">
-            <label for="contact-phone">{{ i18n.t('contact.form.phone', 'Phone number') }}</label>
+            <label for="contact-phone">Phone number</label>
             <input
               id="contact-phone"
               type="tel"
               formControlName="phone"
-              [placeholder]="i18n.t('contact.form.phonePlaceholder', '+33 6 00 00 00 00')"
+              name="entry.1166974658"
+              placeholder="+33 6 00 00 00 00"
               autocomplete="tel"
             />
           </div>
 
           <div class="form-group">
-            <label for="contact-comments">{{ i18n.t('contact.form.comments', 'Comments') }}</label>
+            <label for="contact-comments">Comments</label>
             <textarea
               id="contact-comments"
               rows="5"
               formControlName="comments"
-              [placeholder]="i18n.t('contact.form.commentsPlaceholder', 'Your message...')"
+              name="entry.839337160"
+              placeholder="Your message..."
             ></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block" [disabled]="sending">
-            {{ sending ? i18n.t('contact.form.sending', 'Sending…') : i18n.t('contact.form.submit', 'Send Message') }}
+            {{ sending ? 'Sending…' : 'Send Message' }}
           </button>
 
           @if (submitted) {
-            <p class="form-success" role="status">{{ i18n.t('contact.form.successMessage', 'Message sent successfully. Thank you!') }}</p>
-          }
-
-          @if (errorMessage) {
-            <p class="form-error" role="alert">{{ errorMessage }}</p>
+            <p class="form-success" role="status">Message sent successfully. Thank you!</p>
           }
 
           <p class="form-note">
-            {{ i18n.t('contact.form.note', 'Your details are sent securely via our contact form.') }}
+            Your details are sent securely via our contact form.
           </p>
         </form>
+
+        <iframe
+          name="hidden_iframe"
+          class="hidden-iframe"
+          title="Form submission"
+          tabindex="-1"
+          aria-hidden="true"
+        ></iframe>
       </div>
     </div>
   </div>
