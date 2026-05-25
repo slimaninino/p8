@@ -1,44 +1,145 @@
-<form
-  class="contact-form"
-  [formGroup]="form"
-  [action]="googleFormAction"
-  method="POST"
-  target="hidden_iframe"
-  (ngSubmit)="onSubmit()"
->
-  <div class="field">
-    <label for="name">Name *</label>
-    <input id="name" type="text" formControlName="name" name="entry.2005620554">
-    <small *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Name is required.</small>
+<section id="contact" class="contact section">
+  <div class="section-inner">
+    <header class="section-head">
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">Get In Touch</h2>
+    </header>
+
+    <div class="contact-container">
+      <div class="contact-info card-panel">
+        <h3>Contact Information</h3>
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:cs@noahswitch.com">cs&#64;noahswitch.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">WhatsApp</span>
+          <a href="https://wa.me/33678415751" target="_blank" rel="noopener noreferrer">
+            +33 6 78 41 57 51
+          </a>
+        </div>
+        <div class="social-links">
+          <a
+            href="https://www.instagram.com/noah_.switch?igsh=MXR4Mmg2NHVtM3UyMw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.tiktok.com/@noahswitch?_r=1&_t=ZS-91uYERD82p3"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            TikTok
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper card-panel">
+        <h3>Send us a Message</h3>
+
+        <form
+          #contactForm
+          class="contact-form"
+          [formGroup]="form"
+          [action]="googleFormAction"
+          method="POST"
+          target="hidden_iframe"
+          (ngSubmit)="onSubmit()"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input
+              id="contact-name"
+              type="text"
+              formControlName="name"
+              name="entry.2005620554"
+              placeholder="Your Name"
+              autocomplete="name"
+            />
+            @if (showError('name')) {
+              <small class="field-error">Name is required.</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input
+              id="contact-email"
+              type="email"
+              formControlName="email"
+              name="entry.1045781291"
+              placeholder="your@email.com"
+              autocomplete="email"
+            />
+            @if (showError('email')) {
+              <small class="field-error">Enter a valid email address.</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="contact-address">Address</label>
+            <textarea
+              id="contact-address"
+              rows="3"
+              formControlName="address"
+              name="entry.1065046570"
+              placeholder="Your address"
+              autocomplete="street-address"
+            ></textarea>
+            @if (showError('address')) {
+              <small class="field-error">Address is required.</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="contact-phone">Phone number</label>
+            <input
+              id="contact-phone"
+              type="tel"
+              formControlName="phone"
+              name="entry.1166974658"
+              placeholder="+33 6 00 00 00 00"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-comments">Comments</label>
+            <textarea
+              id="contact-comments"
+              rows="5"
+              formControlName="comments"
+              name="entry.839337160"
+              placeholder="Your message..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="sending">
+            {{ sending ? 'Sending…' : 'Send Message' }}
+          </button>
+
+          @if (submitted) {
+            <p class="form-success" role="status">Message sent successfully. Thank you!</p>
+          }
+
+          <p class="form-note">
+            Your details are sent securely via our contact form.
+          </p>
+        </form>
+
+        <iframe
+          name="hidden_iframe"
+          class="hidden-iframe"
+          title="Form submission"
+          tabindex="-1"
+          aria-hidden="true"
+        ></iframe>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <label for="email">Email *</label>
-    <input id="email" type="email" formControlName="email" name="entry.1045781291">
-    <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Enter a valid email.</small>
-  </div>
-
-  <div class="field">
-    <label for="address">Address *</label>
-    <textarea id="address" rows="4" formControlName="address" name="entry.1065046570"></textarea>
-    <small *ngIf="form.get('address')?.touched && form.get('address')?.invalid">Address is required.</small>
-  </div>
-
-  <div class="field">
-    <label for="phone">Phone number</label>
-    <input id="phone" type="tel" formControlName="phone" name="entry.1166974658">
-  </div>
-
-  <div class="field">
-    <label for="comments">Comments</label>
-    <textarea id="comments" rows="5" formControlName="comments" name="entry.839337160"></textarea>
-  </div>
-
-  <button type="submit" [disabled]="sending">
-    {{ sending ? 'Sending...' : 'Send' }}
-  </button>
-
-  <p class="success" *ngIf="submitted">Message sent successfully.</p>
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
+</section>
