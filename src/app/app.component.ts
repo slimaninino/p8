@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -15,6 +16,63 @@ interface ThemeDemo {
   accent: string;
   summary: string;
 }
+=======
+// import { Component } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+
+// @Component({
+//   selector: 'app-root',
+//   standalone: true,
+//   imports: [CommonModule],
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+//   title = 'NoahSwitch';
+//   currentYear = new Date().getFullYear();
+
+//   services = [
+//     {
+//       icon: '🎯',
+//       title: 'Brand Strategy',
+//       description: 'Developing cohesive branding strategies that resonate with your target audience'
+//     },
+//     {
+//       icon: '🎨',
+//       title: 'Brand ID Systems',
+//       description: 'Crafting compelling brand identities that set you apart from the competition'
+//     },
+//     {
+//       icon: '📝',
+//       title: 'Brand Content',
+//       description: 'Creating captivating content that engages and inspires your audience'
+//     },
+//     {
+//       icon: '💡',
+//       title: 'Creative Concepts',
+//       description: 'Conceptualizing innovative digital solutions for modern challenges'
+//     },
+//     {
+//       icon: '💻',
+//       title: 'Digital Expertise',
+//       description: 'Website development, marketing, and international marketing excellence'
+//     },
+//     {
+//       icon: '🚀',
+//       title: 'Technology Training',
+//       description: 'Cutting-edge training programs to empower individuals and organizations'
+//     }
+//   ];
+
+//   scrollToContact() {
+//     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+//   }
+
+// }
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import Splide from '@splidejs/splide';
+>>>>>>> 0a35e5eb8426007bafcf03049fbc8a1446bfffd1
 
 @Component({
   selector: 'app-root',
@@ -63,6 +121,7 @@ export class AppComponent {
     }
   ];
 
+<<<<<<< HEAD
   readonly demoUrls: SafeResourceUrl[];
 
   demos: ThemeDemo[] = [
@@ -190,3 +249,33 @@ export class AppComponent {
       (this.activeDemoIndex - 1 + this.demos.length) % this.demos.length;
   }
 }
+=======
+  demos = [
+    { name: 'Demo 1', src: 'assets/Index/index-1.html' },
+    { name: 'Demo 2', src: 'assets/Index/index-2.html' },
+    { name: 'Demo 3', src: 'assets/Index/index-3.html' }
+  ];
+
+  ngAfterViewInit(): void {
+    new Splide('#demos-slider', {
+      perPage: 1,
+      perMove: 1,
+      gap: '1rem',
+      arrows: true,
+      pagination: true,
+      drag: true,
+      rewind: true,
+      lazyLoad: 'nearby',
+      breakpoints: {
+        768: {
+          gap: '0.75rem'
+        }
+      }
+    }).mount();
+  }
+
+  scrollToContact(): void {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+>>>>>>> 0a35e5eb8426007bafcf03049fbc8a1446bfffd1
