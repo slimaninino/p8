@@ -5,13 +5,8 @@
         <p class="eyebrow">Portfolio</p>
         <h2 class="section-title">Theme Showcase</h2>
         <p class="section-lead themes-intro">
-          Sample homepage concepts from NoahSwitch digital work — crafted for karaoke
-          venues and restaurants. Each theme demonstrates how brand, layout, and UX come
-          together for hospitality and entertainment clients.
-        </p>
-        <p class="section-lead themes-intro-secondary">
-          Browse one full demo at a time below, then open the live preview in a new tab.
-          Use arrow keys (← →) to move between themes.
+          Explore homepage concepts crafted for karaoke venues and restaurants.
+          Browse one full demo at a time, then open the live preview in a new tab.
         </p>
       </div>
       <div class="themes-meta">
@@ -26,7 +21,7 @@
           <div class="showcase-toolbar">
             <div class="showcase-info">
               <span class="showcase-index">
-                {{ activeDemoIndex + 1 }} / {{ demos.length }}
+                Theme {{ activeDemoIndex + 1 }} of {{ demos.length }}
               </span>
               <h3 class="showcase-title">{{ activeDemo.title }}</h3>
               <p class="showcase-summary">{{ activeDemo.summary }}</p>
@@ -44,52 +39,76 @@
             </div>
           </div>
 
-          <div class="showcase-viewport">
-            @if (isDemoLoaded(activeDemoIndex)) {
-              <iframe
-                [src]="demoUrls[activeDemoIndex]"
-                [title]="activeDemo.title + ' homepage preview'"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              ></iframe>
-            } @else {
-              <div class="showcase-loading" role="status">Loading preview…</div>
-            }
-          </div>
+          <div class="showcase-stage-wrap">
+            <div class="showcase-stage">
+              <button
+                type="button"
+                class="showcase-arrow showcase-arrow--prev"
+                aria-label="Previous theme"
+                (click)="prevDemo()"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path d="M14 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
 
-          <div class="showcase-controls">
-            <button
-              type="button"
-              class="showcase-nav-btn"
-              aria-label="Previous theme"
-              (click)="prevDemo()"
-            >
-              ← Previous
-            </button>
-            <span class="showcase-counter" aria-live="polite">
-              {{ activeDemo.title }}
-            </span>
-            <div class="showcase-dots" role="tablist" aria-label="Theme demos">
-              @for (demo of demos; track demo.id; let i = $index) {
-                <button
-                  type="button"
-                  class="showcase-dot"
-                  role="tab"
-                  [class.active]="i === activeDemoIndex"
-                  [attr.aria-selected]="i === activeDemoIndex"
-                  [attr.aria-label]="'Show ' + demo.title"
-                  (click)="selectDemo(i)"
-                ></button>
-              }
+              <div class="showcase-frame">
+                <div class="showcase-browser" aria-hidden="true">
+                  <span class="browser-dots">
+                    <i></i><i></i><i></i>
+                  </span>
+                  <span class="browser-url">{{ activeDemo.path }}</span>
+                </div>
+                <div class="showcase-viewport">
+                  @if (isDemoLoaded(activeDemoIndex)) {
+                    <iframe
+                      [src]="demoUrls[activeDemoIndex]"
+                      [title]="activeDemo.title + ' homepage preview'"
+                      loading="lazy"
+                      referrerpolicy="no-referrer"
+                    ></iframe>
+                  } @else {
+                    <div class="showcase-loading" role="status">
+                      <span class="showcase-loading-spinner"></span>
+                      Loading preview…
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <button
+                type="button"
+                class="showcase-arrow showcase-arrow--next"
+                aria-label="Next theme"
+                (click)="nextDemo()"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path d="M10 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </div>
-            <button
-              type="button"
-              class="showcase-nav-btn"
-              aria-label="Next theme"
-              (click)="nextDemo()"
-            >
-              Next →
-            </button>
+
+            <div class="showcase-footer">
+              <button type="button" class="showcase-nav-btn" (click)="prevDemo()">
+                ← Previous
+              </button>
+              <div class="showcase-progress-wrap" aria-label="Theme progress">
+                <div class="showcase-progress-track">
+                  <div
+                    class="showcase-progress-fill"
+                    [style.width.%]="progressPercent"
+                    [style.background]="'linear-gradient(90deg, ' + activeDemo.accent + ', var(--brand-accent))'"
+                  ></div>
+                </div>
+                <span class="showcase-progress-text">
+                  {{ activeDemoIndex + 1 }} / {{ demos.length }}
+                </span>
+              </div>
+              <button type="button" class="showcase-nav-btn" (click)="nextDemo()">
+                Next →
+              </button>
+            </div>
+            <p class="showcase-hint">Tip: use ← → arrow keys to browse themes</p>
           </div>
         </article>
       </div>
@@ -108,11 +127,11 @@
               <span
                 class="theme-thumb"
                 [style.background]="
-                  'linear-gradient(145deg, ' + demo.accent + ' 0%, rgba(255,255,255,.92) 70%)'
+                  'linear-gradient(145deg, ' + demo.accent + ' 0%, rgba(255,255,255,.94) 72%)'
                 "
                 aria-hidden="true"
               >
-                <span class="theme-thumb-label">{{ demo.category.charAt(0) }}</span>
+                <span class="theme-thumb-label">{{ demo.id }}</span>
               </span>
               <span class="theme-item-copy">
                 <strong>{{ demo.title }}</strong>

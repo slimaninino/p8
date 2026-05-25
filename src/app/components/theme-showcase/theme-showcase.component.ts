@@ -25,6 +25,10 @@ export class ThemeShowcaseComponent {
     return this.demos[this.activeDemoIndex];
   }
 
+  get progressPercent(): number {
+    return ((this.activeDemoIndex + 1) / this.demos.length) * 100;
+  }
+
   isDemoLoaded(index: number): boolean {
     return this.loadedDemoIndices.has(index);
   }

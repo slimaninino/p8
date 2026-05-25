@@ -1,3 +1,4 @@
+/** Same artwork as originals; URL-safe filenames for reliable asset loading */
 export const LOGO_MARK = 'assets/images/noahswitch-logo-mark.png';
 export const LOGO_HERO = 'assets/images/noahswitch-logo-hero.png';
 

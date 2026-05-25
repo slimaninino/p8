@@ -25,6 +25,13 @@
   --section-y: clamp(4rem, 8vw, 6rem);
   --content-max: 1200px;
   --header-h: 76px;
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--brand-cyan) 0%,
+    var(--brand-accent) 48%,
+    var(--brand-blue) 100%
+  );
+  --shadow-xl: 0 28px 56px rgba(18, 65, 145, 0.18);
 }
 
 *,
