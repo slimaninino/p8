@@ -1,74 +1,44 @@
-<section id="contact" class="contact section">
-  <div class="section-inner">
-    <header class="section-head">
-      <p class="eyebrow">Contact</p>
-      <h2 class="section-title">Get In Touch</h2>
-    </header>
-    <div class="contact-container">
-      <div class="contact-info card-panel">
-        <h3>Contact Information</h3>
-        <div class="contact-item">
-          <span class="contact-label">Email</span>
-          <a href="mailto:cs@noahswitch.hu">cs&#64;noahswitch.hu</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-label">WhatsApp</span>
-          <a href="https://wa.me/33678415751" target="_blank" rel="noopener noreferrer">
-            +33 6 78 41 57 51
-          </a>
-        </div>
-        <div class="social-links">
-          <a
-            href="https://www.instagram.com/noah_.switch?igsh=MXR4Mmg2NHVtM3UyMw=="
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://www.tiktok.com/@noahswitch?_r=1&_t=ZS-91uYERD82p3"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-          >
-            TikTok
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-form-wrapper card-panel">
-        <h3>Send us a Message</h3>
-        <form [action]="formAction" method="POST" class="contact-form">
-          <input type="hidden" name="_redirect" value="/" />
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Your message..."
-              rows="5"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-          <p class="form-note">After sending, you will return to the homepage. We typically reply within one business day.</p>
-        </form>
-      </div>
-    </div>
+<form
+  class="contact-form"
+  [formGroup]="form"
+  [action]="googleFormAction"
+  method="POST"
+  target="hidden_iframe"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="field">
+    <label for="name">Name *</label>
+    <input id="name" type="text" formControlName="name" name="entry.2005620554">
+    <small *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Name is required.</small>
   </div>
-</section>
+
+  <div class="field">
+    <label for="email">Email *</label>
+    <input id="email" type="email" formControlName="email" name="entry.1045781291">
+    <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Enter a valid email.</small>
+  </div>
+
+  <div class="field">
+    <label for="address">Address *</label>
+    <textarea id="address" rows="4" formControlName="address" name="entry.1065046570"></textarea>
+    <small *ngIf="form.get('address')?.touched && form.get('address')?.invalid">Address is required.</small>
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone number</label>
+    <input id="phone" type="tel" formControlName="phone" name="entry.1166974658">
+  </div>
+
+  <div class="field">
+    <label for="comments">Comments</label>
+    <textarea id="comments" rows="5" formControlName="comments" name="entry.839337160"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="sending">
+    {{ sending ? 'Sending...' : 'Send' }}
+  </button>
+
+  <p class="success" *ngIf="submitted">Message sent successfully.</p>
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
