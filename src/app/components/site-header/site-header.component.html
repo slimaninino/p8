@@ -1,0 +1,37 @@
+<header class="header" [class.nav-open]="nav.mobileNavOpen">
+  <a
+    class="logo-container"
+    href="#top"
+    (click)="nav.scrollToSection('top'); $event.preventDefault()"
+  >
+    <img [src]="logoMark" alt="NoahSwitch Logo" class="logo" />
+  </a>
+
+  <button
+    type="button"
+    class="nav-toggle"
+    [attr.aria-expanded]="nav.mobileNavOpen"
+    aria-controls="site-nav"
+    aria-label="Toggle navigation"
+    (click)="nav.toggleNav()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="site-nav" class="nav" [class.open]="nav.mobileNavOpen">
+    @for (section of sections; track section) {
+      <a
+        [href]="'#' + section"
+        [class.active]="nav.isActive(section)"
+        (click)="nav.scrollToSection(section); $event.preventDefault()"
+      >{{ section | titlecase }}</a>
+    }
+    <a
+      class="nav-cta"
+      href="#contact"
+      (click)="nav.scrollToContact(); $event.preventDefault()"
+    >Get Started</a>
+  </nav>
+</header>

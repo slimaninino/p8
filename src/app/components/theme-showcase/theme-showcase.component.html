@@ -1,0 +1,127 @@
+<section id="themes" class="themes section">
+  <div class="section-inner">
+    <header class="section-head section-head--themes">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 class="section-title">Theme Showcase</h2>
+        <p class="section-lead themes-intro">
+          Sample homepage concepts from NoahSwitch digital work — crafted for karaoke
+          venues and restaurants. Each theme demonstrates how brand, layout, and UX come
+          together for hospitality and entertainment clients.
+        </p>
+        <p class="section-lead themes-intro-secondary">
+          Browse one full demo at a time below, then open the live preview in a new tab.
+          Use arrow keys (← →) to move between themes.
+        </p>
+      </div>
+      <div class="themes-meta">
+        <span class="themes-count">{{ demos.length }} concepts</span>
+        <span class="themes-count themes-count--alt">Karaoke &amp; hospitality</span>
+      </div>
+    </header>
+
+    <div class="showcase">
+      <div class="showcase-main">
+        <article class="showcase-card" [style.--demo-accent]="activeDemo.accent">
+          <div class="showcase-toolbar">
+            <div class="showcase-info">
+              <span class="showcase-index">
+                {{ activeDemoIndex + 1 }} / {{ demos.length }}
+              </span>
+              <h3 class="showcase-title">{{ activeDemo.title }}</h3>
+              <p class="showcase-summary">{{ activeDemo.summary }}</p>
+            </div>
+            <div class="showcase-actions">
+              <span class="showcase-badge">{{ activeDemo.category }}</span>
+              <a
+                class="btn btn-ghost"
+                [href]="activeDemo.path"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open full preview
+              </a>
+            </div>
+          </div>
+
+          <div class="showcase-viewport">
+            @if (isDemoLoaded(activeDemoIndex)) {
+              <iframe
+                [src]="demoUrls[activeDemoIndex]"
+                [title]="activeDemo.title + ' homepage preview'"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              ></iframe>
+            } @else {
+              <div class="showcase-loading" role="status">Loading preview…</div>
+            }
+          </div>
+
+          <div class="showcase-controls">
+            <button
+              type="button"
+              class="showcase-nav-btn"
+              aria-label="Previous theme"
+              (click)="prevDemo()"
+            >
+              ← Previous
+            </button>
+            <span class="showcase-counter" aria-live="polite">
+              {{ activeDemo.title }}
+            </span>
+            <div class="showcase-dots" role="tablist" aria-label="Theme demos">
+              @for (demo of demos; track demo.id; let i = $index) {
+                <button
+                  type="button"
+                  class="showcase-dot"
+                  role="tab"
+                  [class.active]="i === activeDemoIndex"
+                  [attr.aria-selected]="i === activeDemoIndex"
+                  [attr.aria-label]="'Show ' + demo.title"
+                  (click)="selectDemo(i)"
+                ></button>
+              }
+            </div>
+            <button
+              type="button"
+              class="showcase-nav-btn"
+              aria-label="Next theme"
+              (click)="nextDemo()"
+            >
+              Next →
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <aside class="showcase-sidebar" aria-label="Theme list">
+        <p class="sidebar-label">All themes</p>
+        <div class="theme-list">
+          @for (demo of demos; track demo.id; let i = $index) {
+            <button
+              type="button"
+              class="theme-item"
+              [class.active]="i === activeDemoIndex"
+              [style.--item-accent]="demo.accent"
+              (click)="selectDemo(i)"
+            >
+              <span
+                class="theme-thumb"
+                [style.background]="
+                  'linear-gradient(145deg, ' + demo.accent + ' 0%, rgba(255,255,255,.92) 70%)'
+                "
+                aria-hidden="true"
+              >
+                <span class="theme-thumb-label">{{ demo.category.charAt(0) }}</span>
+              </span>
+              <span class="theme-item-copy">
+                <strong>{{ demo.title }}</strong>
+                <small>{{ demo.category }}</small>
+              </span>
+            </button>
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

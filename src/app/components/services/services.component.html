@@ -1,0 +1,61 @@
+<section id="services" class="services section">
+  <div class="section-inner">
+    <header class="section-head">
+      <p class="eyebrow">What we offer</p>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-lead">
+        From brand strategy and identity to websites, campaigns, and technology training —
+        one partner to shape how you look, communicate, and grow.
+      </p>
+    </header>
+    <div class="services-grid">
+      @for (service of services; track service.title) {
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            @switch (service.icon) {
+              @case ('strategy') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+                </svg>
+              }
+              @case ('identity') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 7h16M4 12h10M4 17h16" />
+                  <path d="M18 9v6" />
+                </svg>
+              }
+              @case ('content') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M6 4h12v16H6z" />
+                  <path d="M9 8h6M9 12h6M9 16h4" />
+                </svg>
+              }
+              @case ('concepts') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M9 18h6" />
+                  <path d="M10 14c-2-1.5-3-3.5-3-6a5 5 0 0 1 10 0c0 2.5-1 4.5-3 6" />
+                </svg>
+              }
+              @case ('digital') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="5" width="18" height="12" rx="2" />
+                  <path d="M8 19h8" />
+                </svg>
+              }
+              @case ('training') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 14l8-5 8 5" />
+                  <path d="M6 16v3h12v-3" />
+                </svg>
+              }
+            }
+          </div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

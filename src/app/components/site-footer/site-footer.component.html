@@ -1,0 +1,18 @@
+<footer class="footer">
+  <div class="section-inner footer-inner">
+    <img [src]="logoMark" alt="" class="footer-logo" aria-hidden="true" />
+    <div class="footer-copy">
+      <p>&copy; {{ currentYear }} NoahSwitch. All rights reserved.</p>
+      <p>Empowering individuals and organizations to unlock their full potential</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      @for (section of sections; track section) {
+        <a
+          [href]="'#' + section"
+          [class.active]="nav.isActive(section)"
+          (click)="nav.scrollToSection(section); $event.preventDefault()"
+        >{{ section | titlecase }}</a>
+      }
+    </nav>
+  </div>
+</footer>
