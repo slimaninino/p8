@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokyo Fade Lab</title>
+  <meta name="description" content="Tech-inspired barber shop theme with dark UI and red accent system." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: '#0B0D10',
+            panel: '#12161B',
+            line: '#222831',
+            paper: '#F2F4F7',
+            accent: '#FF3B30',
+            mute: '#9AA4AF'
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(255,59,48,.25), 0 0 40px rgba(255,59,48,.10)'
+          },
+          keyframes: {
+            scan: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100vh)' }
+            },
+            pulseBorder: {
+              '0%,100%': { boxShadow: '0 0 0 1px rgba(255,59,48,.15), 0 0 18px rgba(255,59,48,.06)' },
+              '50%': { boxShadow: '0 0 0 1px rgba(255,59,48,.35), 0 0 30px rgba(255,59,48,.18)' }
+            }
+          },
+          animation: {
+            scan: 'scan 8s linear infinite',
+            pulseBorder: 'pulseBorder 3s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background:#0B0D10; color:#F2F4F7; }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .scanline {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(to bottom, transparent, rgba(255,59,48,.04), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .clip-corner {
+      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+    }
+  </style>
+</head>
+<body class="grid-bg overflow-x-hidden">
+  <div class="scanline animate-scan"></div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-line bg-base/90 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="w-11 h-11 bg-accent text-white flex items-center justify-center clip-corner">
+          <i class="fa-solid fa-clover"></i>
+        </span>
+        <div>
+          <p class="font-display font-bold text-xl tracking-tight">TOKYO FADE LAB</p>
+          <p class="font-mono text-[11px] text-mute">CUTS / SHAVES / DETAIL / OPEN 7 DAYS</p>
+        </div>
+      </a>
+
+      <button id="menuBtn14" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-mono uppercase tracking-wider">
+        <a href="#services" class="hover:text-accent transition">Services</a>
+        <a href="#pricing" class="hover:text-accent transition">Pricing</a>
+        <a href="#team" class="hover:text-accent transition">Team</a>
+        <a href="#gallery" class="hover:text-accent transition">Gallery</a>
+        <a href="#location" class="hover:text-accent transition">Location</a>
+        <a href="#booking" class="px-5 py-3 bg-accent text-white clip-corner hover:translate-x-1 hover:-translate-y-1 transition">Book Seat</a>
+      </nav>
+    </div>
+
+    <div id="mobileMenu14" class="hidden md:hidden border-t border-line px-5 pb-5">
+      <div class="grid gap-3 pt-4 font-mono uppercase text-sm">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#team">Team</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <a href="#booking" class="mt-2 px-5 py-3 bg-accent text-white clip-corner text-center">Book Seat</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- Hero -->
+    <section class="border-b border-line">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-16">
+        <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-6">
+          <div class="reveal bg-panel border border-line p-8 md:p-12 clip-corner">
+            <p class="font-mono uppercase text-xs tracking-[0.35em] text-accent mb-5">System calibrated for precision</p>
+            <h1 class="font-display text-5xl md:text-7xl leading-[0.92] font-bold max-w-3xl mb-6">
+              Sharp fades. Exact lines. Zero wasted motion.
+            </h1>
+            <p class="text-paper/70 text-lg max-w-2xl mb-8">
+              Tokyo Fade Lab blends barber tradition with a high-performance visual identity built around detail, speed, and consistency.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-10">
+              <a href="#booking" class="px-7 py-4 bg-accent text-white clip-corner font-semibold hover:translate-x-1 hover:-translate-y-1 transition shadow-glow">
+                Book Appointment
+              </a>
+              <a href="#pricing" class="px-7 py-4 border border-line clip-corner font-semibold hover:border-accent hover:text-accent transition">
+                See Price Matrix
+              </a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+              <div class="border border-line p-4 clip-corner">
+                <p class="text-3xl font-bold">01</p>
+                <p class="text-sm text-mute font-mono">Signature process</p>
+              </div>
+              <div class="border border-line p-4 clip-corner">
+                <p class="text-3xl font-bold">4.9</p>
+                <p class="text-sm text-mute font-mono">Average rating</p>
+              </div>
+              <div class="border border-line p-4 clip-corner">
+                <p class="text-3xl font-bold">24/7</p>
+                <p class="text-sm text-mute font-mono">Online booking</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-6">
+            <div class="reveal relative h-[420px] md:h-[470px] overflow-hidden clip-corner border border-line">
+              <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=1200&q=80" alt="Modern barber portrait" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-base via-base/20 to-transparent"></div>
+              <div class="absolute left-0 bottom-0 p-6">
+                <p class="font-mono text-xs tracking-[0.3em] text-accent mb-2">FEATURED EXPERIENCE</p>
+                <h2 class="text-2xl font-bold">Signature Fade Protocol</h2>
+              </div>
+            </div>
+
+            <div class="reveal grid sm:grid-cols-2 gap-6">
+              <div class="bg-panel border border-line p-6 clip-corner">
+                <p class="font-mono text-xs tracking-[0.25em] text-mute mb-3">MODEL / 001</p>
+                <h3 class="text-xl font-bold mb-2">Skin Fade</h3>
+                <p class="text-paper/65">High-contrast detail with soft blending and refined neckline work.</p>
+              </div>
+              <div class="bg-panel border border-line p-6 clip-corner">
+                <p class="font-mono text-xs tracking-[0.25em] text-mute mb-3">MODEL / 002</p>
+                <h3 class="text-xl font-bold mb-2">Razor Outline</h3>
+                <p class="text-paper/65">Crisp perimeter definition and exacting beard geometry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div>
+            <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Service modules</p>
+            <h2 class="text-4xl md:text-5xl font-bold">Built for disciplined grooming.</h2>
+          </div>
+          <p class="text-paper/60 max-w-xl">Each service is structured like a system: consult, execute, refine, finish.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <article class="reveal bg-panel border border-line p-7 clip-corner hover:border-accent transition">
+            <div class="text-accent text-2xl mb-4"><i class="fa-solid fa-scissors"></i></div>
+            <h3 class="text-2xl font-bold mb-3">Fade Engineering</h3>
+            <p class="text-paper/65 mb-5">Low, mid, or high fade executed with smooth compression and exact finish.</p>
+            <span class="font-mono text-sm text-accent">45 MIN</span>
+          </article>
+
+          <article class="reveal bg-panel border border-line p-7 clip-corner hover:border-accent transition">
+            <div class="text-accent text-2xl mb-4"><i class="fa-solid fa-bezier-curve"></i></div>
+            <h3 class="text-2xl font-bold mb-3">Line Architecture</h3>
+            <p class="text-paper/65 mb-5">Sharp front line, temple cleanup, and razor outline detailing.</p>
+            <span class="font-mono text-sm text-accent">25 MIN</span>
+          </article>
+
+          <article class="reveal bg-panel border border-line p-7 clip-corner hover:border-accent transition">
+            <div class="text-accent text-2xl mb-4"><i class="fa-solid fa-user-ninja"></i></div>
+            <h3 class="text-2xl font-bold mb-3">Beard Geometry</h3>
+            <p class="text-paper/65 mb-5">Beard mapping, contour balance, and grooming oil finish.</p>
+            <span class="font-mono text-sm text-accent">30 MIN</span>
+          </article>
+
+          <article class="reveal bg-panel border border-line p-7 clip-corner hover:border-accent transition">
+            <div class="text-accent text-2xl mb-4"><i class="fa-solid fa-fire"></i></div>
+            <h3 class="text-2xl font-bold mb-3">Full Reset</h3>
+            <p class="text-paper/65 mb-5">Fade, beard, steam towel, scalp reset, and styling sequence.</p>
+            <span class="font-mono text-sm text-accent">75 MIN</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 border-y border-line bg-black/20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-12">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Price matrix</p>
+          <h2 class="text-4xl md:text-5xl font-bold">Transparent rates, no guesswork.</h2>
+        </div>
+
+        <div class="overflow-hidden clip-corner border border-line">
+          <div class="grid md:grid-cols-4 bg-panel font-mono text-sm uppercase tracking-widest border-b border-line">
+            <div class="p-5 text-mute">Service</div>
+            <div class="p-5 text-mute">Duration</div>
+            <div class="p-5 text-mute">Level</div>
+            <div class="p-5 text-mute">Price</div>
+          </div>
+
+          <div class="divide-y divide-line bg-base">
+            <div class="grid md:grid-cols-4 items-center hover:bg-panel transition">
+              <div class="p-5 font-semibold">Classic Cut</div>
+              <div class="p-5 text-paper/65">35 min</div>
+              <div class="p-5 text-paper/65">Core</div>
+              <div class="p-5 text-accent font-bold">$28</div>
+            </div>
+            <div class="grid md:grid-cols-4 items-center hover:bg-panel transition">
+              <div class="p-5 font-semibold">Fade Engineering</div>
+              <div class="p-5 text-paper/65">45 min</div>
+              <div class="p-5 text-paper/65">Signature</div>
+              <div class="p-5 text-accent font-bold">$42</div>
+            </div>
+            <div class="grid md:grid-cols-4 items-center hover:bg-panel transition">
+              <div class="p-5 font-semibold">Beard Geometry</div>
+              <div class="p-5 text-paper/65">30 min</div>
+              <div class="p-5 text-paper/65">Detail</div>
+              <div class="p-5 text-accent font-bold">$24</div>
+            </div>
+            <div class="grid md:grid-cols-4 items-center hover:bg-panel transition">
+              <div class="p-5 font-semibold">Full Reset</div>
+              <div class="p-5 text-paper/65">75 min</div>
+              <div class="p-5 text-paper/65">Premium</div>
+              <div class="p-5 text-accent font-bold">$69</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-12">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Operator roster</p>
+          <h2 class="text-4xl md:text-5xl font-bold">A crew obsessed with exactness.</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-5">
+          <article class="reveal clip-corner border border-line bg-panel overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=900&q=80" alt="Barber Ken" class="w-full h-80 object-cover">
+            <div class="p-6">
+              <div class="font-mono text-xs tracking-[0.25em] text-accent mb-3">LEAD / KEN</div>
+              <h3 class="text-2xl font-bold mb-2">Ken Sato</h3>
+              <p class="text-paper/65">Specializes in low fades, exact side profiles, and effortless texture refinement.</p>
+            </div>
+          </article>
+
+          <article class="reveal clip-corner border border-line bg-panel overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" alt="Barber Ryo" class="w-full h-80 object-cover">
+            <div class="p-6">
+              <div class="font-mono text-xs tracking-[0.25em] text-accent mb-3">DETAIL / RYO</div>
+              <h3 class="text-2xl font-bold mb-2">Ryo Tan</h3>
+              <p class="text-paper/65">Known for beard symmetry, razor detailing, and finish quality that lasts.</p>
+            </div>
+          </article>
+
+          <article class="reveal clip-corner border border-line bg-panel overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Barber Leon" class="w-full h-80 object-cover">
+            <div class="p-6">
+              <div class="font-mono text-xs tracking-[0.25em] text-accent mb-3">STYLE / LEON</div>
+              <h3 class="text-2xl font-bold mb-2">Leon Cross</h3>
+              <p class="text-paper/65">Blends structured cuts with modern editorial styling and texture control.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 border-y border-line bg-black/20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal flex items-end justify-between mb-10">
+          <div>
+            <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Visual archive</p>
+            <h2 class="text-4xl md:text-5xl font-bold">Studio, detail, result.</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[220px]">
+          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80" alt="Barber station" class="reveal w-full h-full object-cover clip-corner border border-line col-span-2 row-span-2">
+          <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80" alt="Tools closeup" class="reveal w-full h-full object-cover clip-corner border border-line">
+          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80" alt="Fade haircut closeup" class="reveal w-full h-full object-cover clip-corner border border-line">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" alt="Barber interior black theme" class="reveal w-full h-full object-cover clip-corner border border-line">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Client portrait" class="reveal w-full h-full object-cover clip-corner border border-line">
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials + Hours -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1fr_.85fr] gap-6">
+        <div class="reveal clip-corner border border-line bg-panel p-8 md:p-10 animate-pulseBorder">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Client feed</p>
+          <h2 class="text-4xl font-bold mb-6">Real feedback, no fluff.</h2>
+          <div id="testimonial14" class="min-h-[180px]"></div>
+          <div class="flex gap-3 mt-6">
+            <button id="prev14" class="w-12 h-12 border border-line clip-corner hover:border-accent hover:text-accent transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="next14" class="w-12 h-12 border border-line clip-corner hover:border-accent hover:text-accent transition"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="reveal clip-corner border border-line bg-panel p-8 md:p-10">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Open schedule</p>
+          <h2 class="text-4xl font-bold mb-6">Operating hours</h2>
+          <ul class="space-y-4 text-paper/75">
+            <li class="flex justify-between border-b border-line pb-3"><span>Mon — Thu</span><span>11:00 — 21:00</span></li>
+            <li class="flex justify-between border-b border-line pb-3"><span>Friday</span><span>11:00 — 22:00</span></li>
+            <li class="flex justify-between border-b border-line pb-3"><span>Saturday</span><span>10:00 — 20:00</span></li>
+            <li class="flex justify-between"><span>Sunday</span><span>12:00 — 18:00</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking + Contact -->
+    <section id="booking" class="pb-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1.1fr_.9fr] gap-6">
+        <div class="reveal clip-corner border border-line bg-panel p-8 md:p-10">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Book seat</p>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">Schedule your next cut.</h2>
+          <form class="grid md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Name" class="bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent">
+            <input type="tel" placeholder="Phone" class="bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent">
+            <input type="email" placeholder="Email" class="bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent">
+            <select class="bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent text-paper">
+              <option>Select service</option>
+              <option>Classic Cut</option>
+              <option>Fade Engineering</option>
+              <option>Beard Geometry</option>
+              <option>Full Reset</option>
+            </select>
+            <input type="date" class="bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent">
+            <input type="time" class="bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent">
+            <textarea rows="5" placeholder="Notes" class="md:col-span-2 bg-base border border-line px-5 py-4 clip-corner outline-none focus:border-accent"></textarea>
+            <button class="md:col-span-2 px-6 py-4 bg-accent text-white clip-corner font-semibold hover:translate-x-1 hover:-translate-y-1 transition">
+              Confirm Booking
+            </button>
+          </form>
+        </div>
+
+        <div id="location" class="reveal clip-corner border border-line bg-panel p-8 md:p-10">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-accent mb-3">Location / contact</p>
+          <h2 class="text-4xl font-bold mb-6">Visit the lab.</h2>
+          <div class="space-y-5 text-paper/75">
+            <p><i class="fa-solid fa-location-dot text-accent mr-3"></i>27 Vector Street, Central Avenue</p>
+            <p><i class="fa-solid fa-phone text-accent mr-3"></i>+1 (555) 909-2211</p>
+            <p><i class="fa-solid fa-envelope text-accent mr-3"></i>book@tokyofadelab.com</p>
+          </div>
+
+          <div class="mt-8 rounded-2xl overflow-hidden border border-line">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="City location" class="w-full h-52 object-cover">
+          </div>
+
+          <div class="flex gap-3 mt-8">
+            <a href="#" class="w-12 h-12 border border-line clip-corner flex items-center justify-center hover:border-accent hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-12 h-12 border border-line clip-corner flex items-center justify-center hover:border-accent hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-12 h-12 border border-line clip-corner flex items-center justify-center hover:border-accent hover:text-accent transition"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="w-12 h-12 border border-line clip-corner flex items-center justify-center hover:border-accent hover:text-accent transition"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line py-8">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between gap-4 text-sm font-mono uppercase text-mute">
+      <p>&copy; 2026 Tokyo Fade Lab</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-accent transition">Instagram</a>
+        <a href="#" class="hover:text-accent transition">Book now</a>
+        <a href="#" class="hover:text-accent transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menuBtn14').addEventListener('click', () => {
+      document.getElementById('mobileMenu14').classList.toggle('hidden');
+    });
+
+    const reveal14 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => reveal14.observe(el));
+
+    const testimonials14 = [
+      {
+        text: "Fast booking, clean layout, and the actual cut was even better. They really care about symmetry and finish.",
+        name: "Marcus J.",
+        role: "Fade Engineering client"
+      },
+      {
+        text: "This place is precise in every sense. The beard detailing is on another level.",
+        name: "Ivan C.",
+        role: "Beard Geometry client"
+      },
+      {
+        text: "Strong visual identity, strong service, no waiting chaos. Exactly the kind of barbershop I wanted.",
+        name: "Leo P.",
+        role: "Weekly customer"
+      }
+    ];
+
+    let current14 = 0;
+    const testimonialEl14 = document.getElementById('testimonial14');
+
+    function render14(i){
+      testimonialEl14.innerHTML = `
+        <p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonials14[i].text}"</p>
+        <p class="font-bold text-lg">${testimonials14[i].name}</p>
+        <p class="text-mute font-mono text-sm uppercase">${testimonials14[i].role}</p>
+      `;
+    }
+
+    document.getElementById('prev14').addEventListener('click', () => {
+      current14 = (current14 - 1 + testimonials14.length) % testimonials14.length;
+      render14(current14);
+    });
+
+    document.getElementById('next14').addEventListener('click', () => {
+      current14 = (current14 + 1) % testimonials14.length;
+      render14(current14);
+    });
+
+    render14(current14);
+    setInterval(() => {
+      current14 = (current14 + 1) % testimonials14.length;
+      render14(current14);
+    }, 4500);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blossom Nail Atelier</title>
+  <meta name="description" content="Elegant nail salon theme with soft luxury spa aesthetic." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blush: '#F7E8EE',
+            rose: '#C98FA2',
+            sand: '#FFF8F4',
+            cocoa: '#5C494B',
+            pearl: '#FFFDFD'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Manrope"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 60px rgba(201,143,162,.14)'
+          },
+          keyframes: {
+            floaty: {
+              '0%,100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          },
+          animation: {
+            floaty: 'floaty 7s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <style>
+    body { font-family: 'Manrope', sans-serif; background: #FFFDFD; color: #5C494B; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .glass { background: rgba(255,255,255,.6); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.5); }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-pearl">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-pearl/85 backdrop-blur border-b border-rose/10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="w-11 h-11 rounded-full bg-rose text-white flex items-center justify-center"><i class="fa-solid fa-spa"></i></span>
+        <div>
+          <p class="font-display text-2xl leading-none">Blossom</p>
+          <p class="text-xs uppercase tracking-[0.3em] text-cocoa/45">Nail Atelier</p>
+        </div>
+      </a>
+      <button id="menuBtnN1" class="md:hidden text-2xl text-cocoa"><i class="fa-solid fa-bars"></i></button>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#services" class="hover:text-rose transition">Services</a>
+        <a href="#pricing" class="hover:text-rose transition">Pricing</a>
+        <a href="#artists" class="hover:text-rose transition">Artists</a>
+        <a href="#gallery" class="hover:text-rose transition">Gallery</a>
+        <a href="#booking" class="px-5 py-3 rounded-full bg-cocoa text-white hover:bg-rose transition">Book Now</a>
+      </nav>
+    </div>
+    <div id="mobileMenuN1" class="hidden md:hidden px-5 pb-5">
+      <div class="grid gap-3 text-sm font-semibold">
+        <a href="#services" class="py-2">Services</a>
+        <a href="#pricing" class="py-2">Pricing</a>
+        <a href="#artists" class="py-2">Artists</a>
+        <a href="#gallery" class="py-2">Gallery</a>
+        <a href="#booking" class="py-2">Booking</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute -top-20 left-10 w-80 h-80 bg-rose/15 blur-3xl rounded-full animate-floaty"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-blush blur-3xl rounded-full animate-floaty" style="animation-delay:1.3s"></div>
+
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-[1.05fr_.95fr] gap-12 items-center relative z-10">
+        <div class="reveal">
+          <span class="inline-block px-4 py-2 rounded-full bg-white shadow-sm text-sm font-semibold text-rose mb-6">Minimal chic • chrome finishes • spa care</span>
+          <h1 class="font-display text-6xl md:text-8xl leading-[0.9] text-cocoa mb-6">Beautiful nails, softly refined.</h1>
+          <p class="max-w-xl text-lg text-cocoa/70 mb-8">A premium nail salon theme for luxurious manicure and pedicure brands that want a gentle, polished, and Instagram-ready presence.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#booking" class="px-7 py-4 rounded-full bg-cocoa text-white font-semibold hover:bg-rose transition">Book Appointment</a>
+            <a href="#gallery" class="px-7 py-4 rounded-full border border-cocoa/10 bg-white hover:border-rose hover:text-rose transition">View Gallery</a>
+          </div>
+          <div class="grid grid-cols-3 gap-4 mt-10">
+            <div class="glass rounded-3xl p-4 shadow-soft">
+              <p class="text-2xl font-extrabold text-cocoa">250+</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-cocoa/50">Designs</p>
+            </div>
+            <div class="glass rounded-3xl p-4 shadow-soft">
+              <p class="text-2xl font-extrabold text-rose">4.9</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-cocoa/50">Rating</p>
+            </div>
+            <div class="glass rounded-3xl p-4 shadow-soft">
+              <p class="text-2xl font-extrabold text-cocoa">7d</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-cocoa/50">Booking</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-rose/20 to-white/30 blur-2xl rounded-[2rem]"></div>
+            <div class="relative grid grid-cols-2 gap-4">
+              <img src="https://images.unsplash.com/photo-1610992015732-2449b0a7b4de?auto=format&fit=crop&w=1000&q=80" alt="Nail salon hero" class="rounded-[2rem] h-[520px] object-cover shadow-soft col-span-2 md:col-span-1">
+              <div class="space-y-4">
+                <img src="https://images.unsplash.com/photo-1604654894611-6973b376cbde?auto=format&fit=crop&w=900&q=80" alt="Nail art" class="rounded-[2rem] h-64 object-cover shadow-soft">
+                <div class="rounded-[2rem] bg-white p-6 shadow-soft">
+                  <p class="uppercase tracking-[0.3em] text-xs text-rose mb-3">Signature</p>
+                  <h3 class="font-display text-3xl text-cocoa leading-tight">Chrome French with pearly gloss.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal flex items-end justify-between gap-6 mb-10">
+          <div>
+            <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-3">Services</p>
+            <h2 class="font-display text-4xl md:text-5xl text-cocoa">Designed to feel soft and elevated.</h2>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <article class="reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-blush text-rose flex items-center justify-center mb-5"><i class="fa-solid fa-hand-sparkles"></i></div>
+            <h3 class="text-xl font-bold text-cocoa mb-3">Classic Manicure</h3>
+            <p class="text-cocoa/65">Shape, cuticle care, nourishing treatment, polish finish.</p>
+          </article>
+          <article class="reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-blush text-rose flex items-center justify-center mb-5"><i class="fa-solid fa-gem"></i></div>
+            <h3 class="text-xl font-bold text-cocoa mb-3">Chrome Art</h3>
+            <p class="text-cocoa/65">Mirror shine, metallic layers, and minimalist luxe art.</p>
+          </article>
+          <article class="reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-blush text-rose flex items-center justify-center mb-5"><i class="fa-solid fa-droplet"></i></div>
+            <h3 class="text-xl font-bold text-cocoa mb-3">Spa Pedicure</h3>
+            <p class="text-cocoa/65">Relaxing soak, exfoliation, massage, and polish.</p>
+          </article>
+          <article class="reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-blush text-rose flex items-center justify-center mb-5"><i class="fa-solid fa-heart"></i></div>
+            <h3 class="text-xl font-bold text-cocoa mb-3">Bridal Set</h3>
+            <p class="text-cocoa/65">Soft nude tones, glossy finish, and photo-ready details.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-sand">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal text-center mb-12">
+          <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-3">Pricing</p>
+          <h2 class="font-display text-4xl md:text-5xl text-cocoa">Clear packages, premium finish.</h2>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="reveal bg-white rounded-[2rem] p-8 shadow-soft">
+            <h3 class="font-display text-3xl text-cocoa mb-3">Essential</h3>
+            <p class="text-5xl font-extrabold text-cocoa mb-6">$28</p>
+            <ul class="space-y-3 text-cocoa/70 mb-8">
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Basic manicure</li>
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Clean polish</li>
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Quick shaping</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-cocoa text-white hover:bg-rose transition">Choose Essential</a>
+          </div>
+          <div class="reveal bg-cocoa text-white rounded-[2rem] p-8 shadow-soft scale-[1.02]">
+            <div class="inline-block px-3 py-1 rounded-full bg-white/10 text-xs uppercase tracking-[0.25em] mb-4">Popular</div>
+            <h3 class="font-display text-3xl mb-3">Signature</h3>
+            <p class="text-5xl font-extrabold mb-6">$46</p>
+            <ul class="space-y-3 text-white/80 mb-8">
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Manicure + chrome detail</li>
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Nourishing treatment</li>
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Luxury polish</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-rose text-white hover:bg-white hover:text-cocoa transition">Choose Signature</a>
+          </div>
+          <div class="reveal bg-white rounded-[2rem] p-8 shadow-soft">
+            <h3 class="font-display text-3xl text-cocoa mb-3">Deluxe Spa</h3>
+            <p class="text-5xl font-extrabold text-cocoa mb-6">$68</p>
+            <ul class="space-y-3 text-cocoa/70 mb-8">
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Full manicure + pedicure</li>
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Massage and exfoliation</li>
+              <li><i class="fa-solid fa-check text-rose mr-2"></i>Premium art add-on</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-cocoa text-white hover:bg-rose transition">Choose Deluxe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="artists" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-10">
+          <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-3">Artists</p>
+          <h2 class="font-display text-4xl md:text-5xl text-cocoa">A team with a careful eye for detail.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="reveal bg-white rounded-[2rem] overflow-hidden shadow-soft">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=1000&q=80" alt="Artist one" class="w-full h-96 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-cocoa">Mia Rose</h3>
+              <p class="text-rose font-semibold mb-2">Chrome / Minimal Art</p>
+              <p class="text-cocoa/65">Best known for polished neutrals and pearl finish work.</p>
+            </div>
+          </article>
+          <article class="reveal bg-white rounded-[2rem] overflow-hidden shadow-soft">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80" alt="Artist two" class="w-full h-96 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-cocoa">Lena Vale</h3>
+              <p class="text-rose font-semibold mb-2">Spa Pedicure Expert</p>
+              <p class="text-cocoa/65">Relaxing treatments with precision and immaculate hygiene.</p>
+            </div>
+          </article>
+          <article class="reveal bg-white rounded-[2rem] overflow-hidden shadow-soft">
+            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1000&q=80" alt="Artist three" class="w-full h-96 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-cocoa">Aria Bloom</h3>
+              <p class="text-rose font-semibold mb-2">Bridal Sets</p>
+              <p class="text-cocoa/65">Elegant nude palettes and special-event finish work.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 bg-sand">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-10">
+          <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-3">Gallery</p>
+          <h2 class="font-display text-4xl md:text-5xl text-cocoa">Soft textures and glossy details.</h2>
+        </div>
+        <div class="grid md:grid-cols-12 gap-4">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b0a7b4de?auto=format&fit=crop&w=1400&q=80" alt="Gallery one" class="reveal md:col-span-5 rounded-[2rem] h-72 md:h-[500px] w-full object-cover shadow-soft">
+          <div class="md:col-span-7 grid sm:grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1604654894611-6973b376cbde?auto=format&fit=crop&w=1000&q=80" alt="Gallery two" class="reveal rounded-[2rem] h-56 object-cover w-full shadow-soft">
+            <img src="https://images.unsplash.com/photo-1595475038786-9fa2f1b2f3f4?auto=format&fit=crop&w=1000&q=80" alt="Gallery three" class="reveal rounded-[2rem] h-56 object-cover w-full shadow-soft">
+            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=1000&q=80" alt="Gallery four" class="reveal rounded-[2rem] h-56 object-cover w-full shadow-soft sm:col-span-2">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-5 md:px-8">
+        <div class="reveal bg-white rounded-[2rem] p-8 md:p-10 shadow-soft">
+          <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-4">Testimonials</p>
+          <div id="testimonialN1" class="min-h-[140px]"></div>
+          <div class="flex gap-3 mt-6">
+            <button id="prevN1" class="w-12 h-12 rounded-full border border-cocoa/10 hover:bg-cocoa hover:text-white transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="nextN1" class="w-12 h-12 rounded-full border border-cocoa/10 hover:bg-cocoa hover:text-white transition"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking" class="pb-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1.1fr_.9fr] gap-6">
+        <div class="reveal bg-white rounded-[2rem] p-8 md:p-10 shadow-soft">
+          <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-4">Appointment</p>
+          <h2 class="font-display text-4xl md:text-5xl text-cocoa mb-6">Reserve your manicure time.</h2>
+          <form class="grid md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Full name" class="rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose">
+            <input type="email" placeholder="Email address" class="rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose">
+            <input type="tel" placeholder="Phone number" class="rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose">
+            <select class="rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose text-cocoa">
+              <option>Select service</option>
+              <option>Classic Manicure</option>
+              <option>Chrome Art</option>
+              <option>Spa Pedicure</option>
+              <option>Bridal Set</option>
+            </select>
+            <input type="date" class="rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose">
+            <input type="time" class="rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose">
+            <textarea rows="5" placeholder="Notes" class="md:col-span-2 rounded-2xl px-5 py-4 bg-sand border border-cocoa/10 outline-none focus:border-rose"></textarea>
+            <button type="submit" class="md:col-span-2 py-4 rounded-full bg-cocoa text-white font-semibold hover:bg-rose transition">Confirm Booking</button>
+          </form>
+        </div>
+
+        <div class="space-y-6">
+          <div class="reveal bg-white rounded-[2rem] p-8 shadow-soft">
+            <p class="uppercase tracking-[0.3em] text-xs text-rose font-bold mb-4">Opening hours</p>
+            <ul class="space-y-4 text-cocoa/70">
+              <li class="flex justify-between border-b border-cocoa/10 pb-3"><span>Mon - Thu</span><span>10:00 - 19:00</span></li>
+              <li class="flex justify-between border-b border-cocoa/10 pb-3"><span>Friday</span><span>10:00 - 20:00</span></li>
+              <li class="flex justify-between border-b border-cocoa/10 pb-3"><span>Saturday</span><span>09:00 - 18:00</span></li>
+              <li class="flex justify-between"><span>Sunday</span><span>11:00 - 16:00</span></li>
+            </ul>
+          </div>
+          <div class="reveal bg-cocoa text-white rounded-[2rem] p-8 shadow-soft">
+            <p class="uppercase tracking-[0.3em] text-xs text-blush font-bold mb-4">Contact</p>
+            <p><i class="fa-solid fa-location-dot text-rose mr-3"></i>12 Rose Avenue, City Center</p>
+            <p class="mt-3"><i class="fa-solid fa-phone text-rose mr-3"></i>+1 (555) 301-4466</p>
+            <p class="mt-3"><i class="fa-solid fa-envelope text-rose mr-3"></i>hello@blossomnailatelier.com</p>
+            <div class="flex gap-3 mt-6 text-xl">
+              <a href="#" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose transition"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose transition"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 border-t border-cocoa/10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-cocoa/55">
+      <p>&copy; 2026 Blossom Nail Atelier</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-rose transition">Instagram</a>
+        <a href="#" class="hover:text-rose transition">Book</a>
+        <a href="#" class="hover:text-rose transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menuBtnN1').addEventListener('click', () => document.getElementById('mobileMenuN1').classList.toggle('hidden'));
+    const obsN1 = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obsN1.observe(el));
+    const testimonialsN1 = [
+      { text: "The atmosphere is calm, clean, and beautiful. The chrome finish was perfect and lasted longer than expected.", name: "Sofia M.", role: "Signature client" },
+      { text: "It feels like a luxury spa, not just a nail salon. The attention to detail is excellent.", name: "Nadia A.", role: "Spa pedicure client" },
+      { text: "Elegant branding and a very polished experience from start to finish.", name: "Emma L.", role: "Bridal set client" }
+    ];
+    let idxN1 = 0;
+    function renderN1(){ document.getElementById('testimonialN1').innerHTML = `<p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonialsN1[idxN1].text}"</p><p class="font-bold text-cocoa">${testimonialsN1[idxN1].name}</p><p class="text-cocoa/55">${testimonialsN1[idxN1].role}</p>`; }
+    document.getElementById('prevN1').onclick = () => { idxN1 = (idxN1 - 1 + testimonialsN1.length) % testimonialsN1.length; renderN1(); };
+    document.getElementById('nextN1').onclick = () => { idxN1 = (idxN1 + 1) % testimonialsN1.length; renderN1(); };
+    renderN1();
+    setInterval(() => { idxN1 = (idxN1 + 1) % testimonialsN1.length; renderN1(); }, 5200);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

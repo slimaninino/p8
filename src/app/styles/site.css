@@ -427,6 +427,11 @@
   background: linear-gradient(180deg, var(--surface-muted) 0%, var(--surface-alt) 100%);
 }
 
+.themes--portfolio {
+  background: linear-gradient(180deg, var(--surface-alt) 0%, var(--surface-muted) 100%);
+  border-top: 1px solid var(--border);
+}
+
 .section-head--themes {
   display: flex;
   justify-content: space-between;

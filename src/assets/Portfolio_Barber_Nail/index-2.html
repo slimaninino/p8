@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futuristic Developer Portfolio</title>
+  <meta name="description" content="Cyberpunk developer portfolio with neon accents and terminal-style hero." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#05070B',
+            panel: '#0C1017',
+            line: '#1C2532',
+            neon: '#00F5A0',
+            pink: '#FF4DDA',
+            blue: '#4DA3FF',
+            text: '#D8E1EF'
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'monospace'],
+            display: ['"Space Grotesk"', 'sans-serif']
+          },
+          keyframes: {
+            glow: {
+              '0%,100%': { boxShadow: '0 0 0 rgba(0,245,160,0)' },
+              '50%': { boxShadow: '0 0 24px rgba(0,245,160,.25)' }
+            },
+            pulseX: {
+              '0%,100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          },
+          animation: {
+            glow: 'glow 3s ease-in-out infinite',
+            pulseX: 'pulseX 7s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background: #05070B; color: #D8E1EF; }
+    .noise::before {
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity:.12;
+      pointer-events:none;
+      z-index:0;
+    }
+    .reveal { opacity: 0; transform: translateY(30px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .neo {
+      background: linear-gradient(135deg, rgba(0,245,160,.12), rgba(77,163,255,.10), rgba(255,77,218,.10));
+      border: 1px solid rgba(255,255,255,.08);
+    }
+  </style>
+</head>
+<body class="noise overflow-x-hidden">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-bg/80 backdrop-blur border-b border-line/80">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-neon text-bg flex items-center justify-center font-bold">DX</div>
+        <div>
+          <p class="font-mono text-xs tracking-[0.35em] text-neon">DEV.PORTFOLIO</p>
+          <p class="text-sm text-text/60">Neon interface / 2026</p>
+        </div>
+      </div>
+      <button id="menuBtn2" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+      <nav class="hidden md:flex items-center gap-7 font-mono text-sm uppercase tracking-[0.2em]">
+        <a href="#about" class="hover:text-neon transition">About</a>
+        <a href="#skills" class="hover:text-neon transition">Skills</a>
+        <a href="#projects" class="hover:text-neon transition">Projects</a>
+        <a href="#contact" class="hover:text-neon transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileMenu2" class="hidden md:hidden px-5 pb-5">
+      <div class="grid gap-3 font-mono uppercase tracking-[0.2em] text-sm">
+        <a href="#about" class="py-2">About</a>
+        <a href="#skills" class="py-2">Skills</a>
+        <a href="#projects" class="py-2">Projects</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- Hero -->
+    <section class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-[1.05fr_.95fr] gap-10 items-center">
+      <div class="reveal">
+        <div class="neo rounded-3xl p-6 md:p-8 font-mono text-sm shadow-[0_0_0_1px_rgba(255,255,255,.08),0_0_50px_rgba(0,245,160,.06)]">
+          <div class="flex gap-2 mb-4">
+            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+          </div>
+          <p class="text-neon mb-2">root@machine:~$ ./launch_portfolio.sh</p>
+          <h1 class="text-4xl md:text-6xl font-bold text-white leading-[0.95] mb-4">Building interfaces for the future.</h1>
+          <p class="text-text/65">Full-stack engineer • creative coder • systems architect</p>
+          <p class="text-neon mt-4 animate-pulse">_</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+          <a href="#projects" class="px-6 py-4 rounded-2xl bg-neon text-bg font-bold hover:scale-[1.02] transition">View Projects</a>
+          <a href="#contact" class="px-6 py-4 rounded-2xl border border-line hover:border-neon hover:text-neon transition">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="reveal relative">
+        <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-neon/15 via-blue/10 to-pink/15 blur-2xl animate-pulseX"></div>
+        <div class="relative grid gap-4">
+          <div class="neo rounded-[2rem] p-5">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Developer desk" class="w-full h-[440px] object-cover rounded-[1.5rem] border border-white/5">
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="neo rounded-2xl p-4">
+              <p class="text-3xl font-bold text-neon" data-count="18">0</p>
+              <p class="text-xs font-mono uppercase text-text/50">Deployments</p>
+            </div>
+            <div class="neo rounded-2xl p-4">
+              <p class="text-3xl font-bold text-blue">42</p>
+              <p class="text-xs font-mono uppercase text-text/50">Systems</p>
+            </div>
+            <div class="neo rounded-2xl p-4">
+              <p class="text-3xl font-bold text-pink">99</p>
+              <p class="text-xs font-mono uppercase text-text/50">Uptime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div class="reveal">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-neon mb-4">About</p>
+          <h2 class="text-4xl md:text-5xl font-bold">I turn complex systems into fast, elegant user experiences.</h2>
+        </div>
+        <div class="reveal text-text/70 space-y-4">
+          <p>My work sits between engineering precision and cinematic visual design. I build interfaces that feel premium, technical, and easy to use.</p>
+          <p>From SaaS platforms to AI tools, I love shaping product flows that feel as polished as they are performant.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="bg-panel border-y border-line py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-10">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-neon mb-4">Skills</p>
+          <h2 class="text-4xl md:text-5xl font-bold">Stack and capability matrix.</h2>
+        </div>
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div class="reveal neo rounded-3xl p-6">
+            <div class="flex justify-between"><span class="font-bold">Frontend</span><span class="text-neon">96%</span></div><div class="mt-4 h-2 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[96%] bg-neon"></div></div>
+          </div>
+          <div class="reveal neo rounded-3xl p-6">
+            <div class="flex justify-between"><span class="font-bold">UI Motion</span><span class="text-blue">88%</span></div><div class="mt-4 h-2 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[88%] bg-blue"></div></div>
+          </div>
+          <div class="reveal neo rounded-3xl p-6">
+            <div class="flex justify-between"><span class="font-bold">Backend</span><span class="text-pink">82%</span></div><div class="mt-4 h-2 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[82%] bg-pink"></div></div>
+          </div>
+          <div class="reveal neo rounded-3xl p-6">
+            <div class="flex justify-between"><span class="font-bold">AI Tools</span><span class="text-neon">90%</span></div><div class="mt-4 h-2 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[90%] bg-neon"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+      <div class="reveal flex justify-between items-end mb-10">
+        <div>
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-neon mb-4">Projects</p>
+          <h2 class="text-4xl md:text-5xl font-bold">Selected builds.</h2>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <article class="reveal neo rounded-[2rem] p-4 group">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="AI project" class="w-full h-64 object-cover rounded-[1.5rem] group-hover:scale-[1.03] transition duration-700">
+          <div class="p-4">
+            <h3 class="text-2xl font-bold">Neural Dashboard</h3>
+            <p class="text-text/60 mt-2">Real-time analytics and AI workflow UI.</p>
+          </div>
+        </article>
+        <article class="reveal neo rounded-[2rem] p-4 group lg:mt-12">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="App project" class="w-full h-64 object-cover rounded-[1.5rem] group-hover:scale-[1.03] transition duration-700">
+          <div class="p-4">
+            <h3 class="text-2xl font-bold">SaaS Launch Kit</h3>
+            <p class="text-text/60 mt-2">Conversion-focused landing system.</p>
+          </div>
+        </article>
+        <article class="reveal neo rounded-[2rem] p-4 group">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80" alt="Code project" class="w-full h-64 object-cover rounded-[1.5rem] group-hover:scale-[1.03] transition duration-700">
+          <div class="p-4">
+            <h3 class="text-2xl font-bold">Motion Toolkit</h3>
+            <p class="text-text/60 mt-2">Reusable UI animation component pack.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="max-w-7xl mx-auto px-5 md:px-8 pb-20">
+      <div class="reveal neo rounded-[2rem] p-8 md:p-10">
+        <p class="font-mono uppercase tracking-[0.3em] text-xs text-neon mb-4">Testimonials</p>
+        <div id="testimonial2" class="min-h-[150px]"></div>
+        <div class="flex gap-3 mt-6">
+          <button id="prev2" class="w-12 h-12 rounded-full border border-line hover:border-neon hover:text-neon transition"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="next2" class="w-12 h-12 rounded-full border border-line hover:border-neon hover:text-neon transition"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-gradient-to-b from-bg to-panel border-t border-line py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1fr_.9fr] gap-8">
+        <div class="reveal">
+          <p class="font-mono uppercase tracking-[0.3em] text-xs text-neon mb-4">Contact</p>
+          <h2 class="text-5xl md:text-6xl font-bold leading-none">Let’s ship something unforgettable.</h2>
+        </div>
+        <div class="reveal grid gap-4">
+          <a href="mailto:hello@devfolio.com" class="neo rounded-2xl p-5 flex justify-between hover:translate-x-1 transition"><span>Email</span><span class="text-text/60">hello@devfolio.com</span></a>
+          <a href="#" class="neo rounded-2xl p-5 flex justify-between hover:translate-x-1 transition"><span>GitHub</span><span class="text-text/60">/devfolio</span></a>
+          <a href="#" class="neo rounded-2xl p-5 flex justify-between hover:translate-x-1 transition"><span>LinkedIn</span><span class="text-text/60">/in/devfolio</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menuBtn2').addEventListener('click', () => document.getElementById('mobileMenu2').classList.toggle('hidden'));
+    const observer2 = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer2.observe(el));
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = +el.dataset.count, step = () => {
+        const cur = +el.innerText;
+        if (cur < target) { el.innerText = cur + 1; requestAnimationFrame(step); }
+      };
+      step();
+    });
+    const testimonials2 = [
+      { text: "The interface looks like a high-end product launch and still reads like a real developer portfolio.", name: "Chris A.", role: "Product Lead" },
+      { text: "Strong visuals, strong hierarchy, and exactly the kind of polished technical vibe we wanted.", name: "Noah S.", role: "Founder" },
+      { text: "The glow accents and terminal styling give it a real futuristic identity without becoming messy.", name: "Amina R.", role: "Design Director" }
+    ];
+    let i2 = 0;
+    function render2(){ document.getElementById('testimonial2').innerHTML = `<p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonials2[i2].text}"</p><p class="font-bold">${testimonials2[i2].name}</p><p class="text-text/55">${testimonials2[i2].role}</p>`; }
+    document.getElementById('prev2').onclick = () => { i2 = (i2 - 1 + testimonials2.length) % testimonials2.length; render2(); };
+    document.getElementById('next2').onclick = () => { i2 = (i2 + 1) % testimonials2.length; render2(); };
+    render2();
+    setInterval(() => { i2 = (i2 + 1) % testimonials2.length; render2(); }, 5200);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

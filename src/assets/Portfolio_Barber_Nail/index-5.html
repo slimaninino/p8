@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brutalist Portfolio</title>
+  <meta name="description" content="Experimental brutalist portfolio with sharp layout and bold typography." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F5F1E8',
+            ink: '#101010',
+            accent: '#FF5A1F',
+            soft: '#D7D0C2'
+          },
+          fontFamily: {
+            display: ['"Archivo Black"', 'sans-serif'],
+            body: ['"Space Grotesk"', 'sans-serif']
+          },
+          keyframes: {
+            shake: {
+              '0%,100%': { transform: 'translate(0,0)' },
+              '25%': { transform: 'translate(2px,-1px)' },
+              '50%': { transform: 'translate(-1px,2px)' },
+              '75%': { transform: 'translate(1px,1px)' }
+            }
+          },
+          animation: {
+            shake: 'shake .7s linear infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background: #F5F1E8; color: #101010; }
+    .reveal { opacity: 0; transform: translateY(25px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .boxy { border: 3px solid #101010; box-shadow: 8px 8px 0 #101010; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <header class="sticky top-0 z-50 bg-bg border-b-4 border-ink">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="font-display text-xl md:text-2xl uppercase">RIGID STUDIO</a>
+      <button id="menuBtn5" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+      <nav class="hidden md:flex items-center gap-8 uppercase text-sm font-bold">
+        <a href="#about" class="hover:text-accent transition">About</a>
+        <a href="#work" class="hover:text-accent transition">Work</a>
+        <a href="#skills" class="hover:text-accent transition">Skills</a>
+        <a href="#contact" class="hover:text-accent transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileMenu5" class="hidden md:hidden px-5 pb-5">
+      <div class="grid gap-3 uppercase text-sm font-bold">
+        <a href="#about" class="py-2">About</a>
+        <a href="#work" class="py-2">Work</a>
+        <a href="#skills" class="py-2">Skills</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-16">
+      <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-8">
+        <div class="reveal">
+          <div class="boxy bg-white p-6 md:p-8">
+            <p class="uppercase tracking-[0.3em] text-xs font-bold mb-5">Brutalist / 01</p>
+            <h1 class="font-display text-6xl md:text-8xl leading-[0.88] uppercase">DESIGN<br>IS A<br>STATEMENT.</h1>
+            <p class="mt-6 max-w-2xl text-lg">Experimental portfolio for designers who want bold layouts, oversized typography, and an unapologetic presence.</p>
+            <div class="flex flex-col sm:flex-row gap-4 mt-8">
+              <a href="#work" class="px-6 py-4 bg-ink text-bg font-bold uppercase">Enter Work</a>
+              <a href="#contact" class="px-6 py-4 border-3 border-ink font-bold uppercase hover:bg-ink hover:text-bg transition">Hire Me</a>
+            </div>
+          </div>
+        </div>
+        <div class="reveal grid gap-4">
+          <div class="boxy overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=80" alt="Brutalist portrait" class="w-full h-[420px] object-cover grayscale">
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="boxy bg-accent text-white p-4"><p class="text-3xl font-display">11</p><p class="text-xs uppercase">Years</p></div>
+            <div class="boxy bg-white p-4"><p class="text-3xl font-display">64</p><p class="text-xs uppercase">Projects</p></div>
+            <div class="boxy bg-white p-4"><p class="text-3xl font-display">19</p><p class="text-xs uppercase">Clients</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="border-y-4 border-ink bg-white">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-16 grid lg:grid-cols-3 gap-8">
+        <div class="reveal">
+          <p class="uppercase tracking-[0.3em] text-xs font-bold mb-4">About</p>
+          <h2 class="font-display text-4xl md:text-5xl uppercase leading-none">Sharp. Clear. Unfiltered.</h2>
+        </div>
+        <div class="reveal lg:col-span-2 text-lg leading-relaxed">
+          <p>A brutalist portfolio strips away decoration and makes the work impossible to ignore. It is loud by design, but still structured and usable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="max-w-7xl mx-auto px-5 md:px-8 py-16">
+      <div class="reveal mb-10 flex items-end justify-between gap-6">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs font-bold text-accent mb-4">Work</p>
+          <h2 class="font-display text-5xl md:text-7xl uppercase leading-none">Case files.</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <article class="reveal boxy bg-white overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Project a" class="w-full h-80 object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-3xl uppercase">Platform A</h3>
+            <p class="mt-2">UI system / motion / launch</p>
+          </div>
+        </article>
+        <article class="reveal boxy bg-white overflow-hidden md:mt-16">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80" alt="Project b" class="w-full h-80 object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-3xl uppercase">Campaign B</h3>
+            <p class="mt-2">Brand / web / content</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="bg-ink text-bg py-16 border-y-4 border-ink">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-8">
+          <p class="uppercase tracking-[0.3em] text-xs font-bold text-accent mb-4">Skills</p>
+          <h2 class="font-display text-5xl md:text-6xl uppercase">Capabilities.</h2>
+        </div>
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div class="reveal boxy bg-bg text-ink p-5"><p class="font-bold uppercase">Typography</p><p class="text-sm mt-2">96%</p></div>
+          <div class="reveal boxy bg-bg text-ink p-5"><p class="font-bold uppercase">Branding</p><p class="text-sm mt-2">90%</p></div>
+          <div class="reveal boxy bg-bg text-ink p-5"><p class="font-bold uppercase">Motion</p><p class="text-sm mt-2">84%</p></div>
+          <div class="reveal boxy bg-bg text-ink p-5"><p class="font-bold uppercase">Art Direction</p><p class="text-sm mt-2">92%</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-5 md:px-8 py-16">
+      <div class="reveal boxy bg-white p-6 md:p-8">
+        <p class="uppercase tracking-[0.3em] text-xs font-bold text-accent mb-4">Testimonials</p>
+        <div id="testimonial5" class="min-h-[140px]"></div>
+        <div class="flex gap-3 mt-6">
+          <button id="prev5" class="w-12 h-12 border-3 border-ink hover:bg-ink hover:text-bg transition"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="next5" class="w-12 h-12 border-3 border-ink hover:bg-ink hover:text-bg transition"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-white border-t-4 border-ink py-16">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1fr_.9fr] gap-8">
+        <div class="reveal">
+          <p class="uppercase tracking-[0.3em] text-xs font-bold text-accent mb-4">Contact</p>
+          <h2 class="font-display text-6xl uppercase leading-[0.9]">Call me.</h2>
+        </div>
+        <div class="reveal space-y-4">
+          <a href="mailto:hello@rigidstudio.com" class="boxy bg-bg p-5 flex justify-between hover:translate-x-1 transition"><span>Email</span><span>hello@rigidstudio.com</span></a>
+          <a href="#" class="boxy bg-bg p-5 flex justify-between hover:translate-x-1 transition"><span>Instagram</span><span>@rigidstudio</span></a>
+          <a href="#" class="boxy bg-bg p-5 flex justify-between hover:translate-x-1 transition"><span>Behance</span><span>/rigidstudio</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menuBtn5').addEventListener('click', () => document.getElementById('mobileMenu5').classList.toggle('hidden'));
+    const observer5 = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer5.observe(el));
+    const testimonials5 = [
+      { text: "It feels aggressive in the right way and makes the work impossible to miss.", name: "Tom H.", role: "Creative Founder" },
+      { text: "The layout has attitude, but the structure still guides the eye very well.", name: "Nina S.", role: "Art Director" },
+      { text: "Brutalist, bold, and memorable. Great for a designer who wants to stand apart.", name: "Paul D.", role: "Brand Lead" }
+    ];
+    let i5 = 0;
+    function render5(){ document.getElementById('testimonial5').innerHTML = `<p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonials5[i5].text}"</p><p class="font-bold">${testimonials5[i5].name}</p><p class="text-ink/55">${testimonials5[i5].role}</p>`; }
+    document.getElementById('prev5').onclick = () => { i5 = (i5 - 1 + testimonials5.length) % testimonials5.length; render5(); };
+    document.getElementById('next5').onclick = () => { i5 = (i5 + 1) % testimonials5.length; render5(); };
+    render5();
+    setInterval(() => { i5 = (i5 + 1) % testimonials5.length; render5(); }, 5000);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

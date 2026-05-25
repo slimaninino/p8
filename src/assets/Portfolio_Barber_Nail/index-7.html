@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coastal Grooming House</title>
+  <meta name="description" content="Premium coastal-inspired barber shop website theme." />
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#F7F1E8',
+            ink: '#1D2A30',
+            teal: '#2F8F9D',
+            foam: '#EAF7F8',
+            terracotta: '#C97858',
+            cream: '#FFFDF9'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Manrope"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 20px 60px rgba(29,42,48,.10)',
+            glass: '0 10px 30px rgba(47,143,157,.12)'
+          },
+          keyframes: {
+            floaty: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            revealUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            }
+          },
+          animation: {
+            floaty: 'floaty 6s ease-in-out infinite',
+            revealUp: 'revealUp .8s ease forwards'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Manrope', sans-serif; background: #FFFDF9; color: #1D2A30; }
+    .section-reveal { opacity: 0; transform: translateY(24px); transition: all .8s ease; }
+    .section-reveal.visible { opacity: 1; transform: translateY(0); }
+    .glass {
+      background: rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.45);
+    }
+    .grain::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+      opacity:.08;
+      pointer-events:none;
+    }
+  </style>
+</head>
+<body class="bg-cream text-ink overflow-x-hidden">
+  <!-- Decorative -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-teal/10 blur-3xl animate-floaty"></div>
+    <div class="absolute top-1/3 -right-16 w-72 h-72 rounded-full bg-terracotta/10 blur-3xl animate-floaty" style="animation-delay:1.5s;"></div>
+    <div class="absolute bottom-0 left-1/4 w-96 h-60 rounded-full bg-foam blur-3xl"></div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50">
+    <nav class="glass mx-3 mt-3 rounded-2xl shadow-glass">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-teal text-white flex items-center justify-center shadow-soft">
+            <i class="fa-solid fa-scissors"></i>
+          </span>
+          <div>
+            <p class="font-display text-xl leading-none">Coastal Grooming</p>
+            <p class="text-xs tracking-[0.25em] uppercase text-ink/60">Barber House</p>
+          </div>
+        </a>
+
+        <button id="menuBtn13" class="md:hidden text-2xl text-ink">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+          <a href="#services" class="hover:text-teal transition">Services</a>
+          <a href="#pricing" class="hover:text-teal transition">Pricing</a>
+          <a href="#team" class="hover:text-teal transition">Barbers</a>
+          <a href="#gallery" class="hover:text-teal transition">Gallery</a>
+          <a href="#contact" class="hover:text-teal transition">Contact</a>
+          <a href="#booking" class="px-5 py-3 bg-ink text-white rounded-full hover:bg-teal transition shadow-soft">Book Visit</a>
+        </div>
+      </div>
+      <div id="mobileMenu13" class="hidden md:hidden px-5 pb-5">
+        <div class="grid gap-3 text-sm font-semibold">
+          <a href="#services" class="py-2">Services</a>
+          <a href="#pricing" class="py-2">Pricing</a>
+          <a href="#team" class="py-2">Barbers</a>
+          <a href="#gallery" class="py-2">Gallery</a>
+          <a href="#contact" class="py-2">Contact</a>
+          <a href="#booking" class="py-3 text-center bg-ink text-white rounded-full">Book Visit</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative grain">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-16 md:pb-24 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="section-reveal">
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-6">
+            <i class="fa-solid fa-star"></i> Elevated cuts by the coast
+          </span>
+          <h1 class="font-display text-5xl sm:text-6xl md:text-7xl leading-[0.95] mb-6">
+            Precision barbering with a lighter, modern touch.
+          </h1>
+          <p class="text-lg md:text-xl text-ink/70 max-w-xl mb-8">
+            Clean fades, beard rituals, and premium grooming in a calm, sunlit studio designed for comfort and confidence.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#booking" class="group px-7 py-4 bg-ink text-white rounded-full font-semibold hover:bg-teal transition shadow-soft">
+              Book Appointment
+              <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
+            <a href="#gallery" class="px-7 py-4 bg-white border border-ink/10 rounded-full font-semibold hover:border-teal hover:text-teal transition shadow-soft">
+              Explore Interior
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 mt-10">
+            <div class="glass rounded-2xl p-4 shadow-soft">
+              <p class="text-2xl font-extrabold">12+</p>
+              <p class="text-sm text-ink/60">Years experience</p>
+            </div>
+            <div class="glass rounded-2xl p-4 shadow-soft">
+              <p class="text-2xl font-extrabold">4.9</p>
+              <p class="text-sm text-ink/60">Client rating</p>
+            </div>
+            <div class="glass rounded-2xl p-4 shadow-soft">
+              <p class="text-2xl font-extrabold">7d</p>
+              <p class="text-sm text-ink/60">Open weekly</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-teal/20 to-terracotta/20 rounded-[2rem] blur-xl"></div>
+            <div class="relative grid grid-cols-2 gap-4">
+              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80" alt="Barber portrait" class="rounded-[2rem] h-[500px] object-cover shadow-soft col-span-2 lg:col-span-1">
+              <div class="grid gap-4">
+                <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80" alt="Barber tools" class="rounded-[2rem] h-60 object-cover shadow-soft">
+                <div class="bg-sand rounded-[2rem] p-6 shadow-soft flex flex-col justify-between">
+                  <div>
+                    <p class="text-sm uppercase tracking-[0.3em] text-ink/50 mb-3">Signature</p>
+                    <h3 class="font-display text-3xl leading-tight">Fade + Beard + Towel Ritual</h3>
+                  </div>
+                  <p class="text-terracotta font-bold mt-4">Most booked service</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="section-reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div>
+            <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Services</p>
+            <h2 class="font-display text-4xl md:text-5xl">Crafted for modern gentlemen.</h2>
+          </div>
+          <p class="max-w-xl text-ink/65">Every treatment is designed to feel polished but relaxed, from clean cuts to restorative beard care.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <article class="section-reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-teal/10 text-teal flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-scissors"></i></div>
+            <h3 class="font-bold text-xl mb-3">Precision Cut</h3>
+            <p class="text-ink/65 mb-4">Tailored haircut with consultation, wash, and finish.</p>
+            <span class="font-semibold text-terracotta">45 min</span>
+          </article>
+
+          <article class="section-reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-user-tie"></i></div>
+            <h3 class="font-bold text-xl mb-3">Beard Ritual</h3>
+            <p class="text-ink/65 mb-4">Shape, detail trimming, warm towel, and oil finish.</p>
+            <span class="font-semibold text-teal">30 min</span>
+          </article>
+
+          <article class="section-reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-teal/10 text-teal flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-spa"></i></div>
+            <h3 class="font-bold text-xl mb-3">Coastal Deluxe</h3>
+            <p class="text-ink/65 mb-4">Haircut, beard trim, scalp massage, and styling.</p>
+            <span class="font-semibold text-terracotta">75 min</span>
+          </article>
+
+          <article class="section-reveal bg-white rounded-[2rem] p-7 shadow-soft hover:-translate-y-2 transition duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-child"></i></div>
+            <h3 class="font-bold text-xl mb-3">Junior Cut</h3>
+            <p class="text-ink/65 mb-4">Fresh, comfortable haircut service for younger clients.</p>
+            <span class="font-semibold text-teal">25 min</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-sand/60">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="section-reveal text-center mb-12">
+          <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Pricing</p>
+          <h2 class="font-display text-4xl md:text-5xl">Simple, premium pricing.</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="section-reveal bg-white rounded-[2rem] p-8 shadow-soft">
+            <h3 class="font-display text-3xl mb-4">Essential</h3>
+            <p class="text-5xl font-extrabold mb-6">$32</p>
+            <ul class="space-y-3 text-ink/70 mb-8">
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Classic haircut</li>
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Consultation</li>
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Styling finish</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-ink text-white font-semibold hover:bg-teal transition">Choose Essential</a>
+          </div>
+
+          <div class="section-reveal bg-ink text-white rounded-[2rem] p-8 shadow-soft scale-[1.02] border border-white/10">
+            <div class="inline-block px-3 py-1 rounded-full bg-teal/20 text-teal text-xs uppercase tracking-[0.25em] mb-5">Popular</div>
+            <h3 class="font-display text-3xl mb-4">Signature</h3>
+            <p class="text-5xl font-extrabold mb-6">$58</p>
+            <ul class="space-y-3 text-white/75 mb-8">
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Haircut + beard ritual</li>
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Warm towel treatment</li>
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Premium finish products</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-teal text-white font-semibold hover:bg-terracotta transition">Choose Signature</a>
+          </div>
+
+          <div class="section-reveal bg-white rounded-[2rem] p-8 shadow-soft">
+            <h3 class="font-display text-3xl mb-4">Coastal Luxe</h3>
+            <p class="text-5xl font-extrabold mb-6">$82</p>
+            <ul class="space-y-3 text-ink/70 mb-8">
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Signature service</li>
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Scalp massage</li>
+              <li><i class="fa-solid fa-check text-teal mr-2"></i>Express facial refresh</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-ink text-white font-semibold hover:bg-teal transition">Choose Luxe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="section-reveal mb-12">
+          <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Our barbers</p>
+          <h2 class="font-display text-4xl md:text-5xl">A team with calm hands and sharp eyes.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="section-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft group">
+            <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=900&q=80" alt="Barber Marco" class="h-96 w-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="p-6">
+              <h3 class="font-bold text-2xl">Marco Vale</h3>
+              <p class="text-teal font-semibold mb-3">Founder / Fade Specialist</p>
+              <p class="text-ink/65">Clean contours, modern fades, and effortless styling advice.</p>
+            </div>
+          </article>
+
+          <article class="section-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft group">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Barber Elias" class="h-96 w-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="p-6">
+              <h3 class="font-bold text-2xl">Elias Shore</h3>
+              <p class="text-teal font-semibold mb-3">Beard Designer</p>
+              <p class="text-ink/65">Known for sculpted beard lines and refined hot towel work.</p>
+            </div>
+          </article>
+
+          <article class="section-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft group">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" alt="Barber Adrian" class="h-96 w-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="p-6">
+              <h3 class="font-bold text-2xl">Adrian Moss</h3>
+              <p class="text-teal font-semibold mb-3">Stylist / Texture Expert</p>
+              <p class="text-ink/65">Specializes in textured cuts, curls, and lightweight finishes.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 bg-sand/50">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="section-reveal flex items-end justify-between gap-6 mb-10">
+          <div>
+            <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Gallery</p>
+            <h2 class="font-display text-4xl md:text-5xl">Sunlit textures and sharp results.</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <img src="https://images.unsplash.com/photo-1593702288056-f5836f0ad321?auto=format&fit=crop&w=900&q=80" alt="Barber interior" class="section-reveal rounded-[1.5rem] h-52 md:h-72 w-full object-cover hover:scale-[1.02] transition">
+          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80" alt="Haircut closeup" class="section-reveal rounded-[1.5rem] h-52 md:h-72 w-full object-cover hover:scale-[1.02] transition">
+          <img src="https://images.unsplash.com/photo-1512690459411-b0fd1c86b8c8?auto=format&fit=crop&w=900&q=80" alt="Barber tools shelf" class="section-reveal rounded-[1.5rem] h-52 md:h-72 w-full object-cover hover:scale-[1.02] transition">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Client haircut" class="section-reveal rounded-[1.5rem] h-52 md:h-72 w-full object-cover hover:scale-[1.02] transition">
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 md:py-24">
+      <div class="max-w-5xl mx-auto px-5 md:px-8">
+        <div class="section-reveal text-center mb-10">
+          <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Testimonials</p>
+          <h2 class="font-display text-4xl md:text-5xl">Clients come back for the atmosphere as much as the cut.</h2>
+        </div>
+
+        <div class="section-reveal bg-white rounded-[2rem] shadow-soft p-8 md:p-12 relative overflow-hidden">
+          <div class="absolute top-5 right-5 text-6xl text-teal/10"><i class="fa-solid fa-quote-right"></i></div>
+          <div id="testimonial13" class="min-h-[150px]"></div>
+          <div class="flex items-center justify-center gap-3 mt-8">
+            <button id="prev13" class="w-12 h-12 rounded-full border border-ink/10 hover:bg-teal hover:text-white transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="next13" class="w-12 h-12 rounded-full border border-ink/10 hover:bg-teal hover:text-white transition"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking + Hours -->
+    <section id="booking" class="py-20 bg-ink text-white">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1.15fr_.85fr] gap-8 items-start">
+        <div class="section-reveal bg-white/5 rounded-[2rem] p-8 md:p-10 border border-white/10">
+          <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Appointment</p>
+          <h2 class="font-display text-4xl md:text-5xl mb-6">Reserve your chair.</h2>
+          <form class="grid md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Full name" class="bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal">
+            <input type="email" placeholder="Email address" class="bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal">
+            <input type="tel" placeholder="Phone number" class="bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal">
+            <select class="bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal text-white">
+              <option>Choose service</option>
+              <option>Precision Cut</option>
+              <option>Beard Ritual</option>
+              <option>Coastal Deluxe</option>
+            </select>
+            <input type="date" class="bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal md:col-span-1">
+            <input type="time" class="bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal md:col-span-1">
+            <textarea rows="5" placeholder="Notes" class="md:col-span-2 bg-white/10 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-teal"></textarea>
+            <button type="submit" class="md:col-span-2 py-4 rounded-full bg-teal font-bold hover:bg-terracotta transition duration-300">
+              Confirm Appointment
+            </button>
+          </form>
+        </div>
+
+        <div class="section-reveal space-y-6">
+          <div class="bg-white/5 rounded-[2rem] p-8 border border-white/10">
+            <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Opening hours</p>
+            <ul class="space-y-4 text-white/80">
+              <li class="flex justify-between border-b border-white/10 pb-3"><span>Monday - Thursday</span><span>10:00 - 20:00</span></li>
+              <li class="flex justify-between border-b border-white/10 pb-3"><span>Friday</span><span>10:00 - 21:00</span></li>
+              <li class="flex justify-between border-b border-white/10 pb-3"><span>Saturday</span><span>09:00 - 19:00</span></li>
+              <li class="flex justify-between"><span>Sunday</span><span>11:00 - 17:00</span></li>
+            </ul>
+          </div>
+
+          <div id="contact" class="bg-white/5 rounded-[2rem] p-8 border border-white/10">
+            <p class="uppercase tracking-[0.3em] text-sm text-teal font-bold mb-3">Location & Contact</p>
+            <div class="space-y-4 text-white/80">
+              <p><i class="fa-solid fa-location-dot text-teal mr-3"></i>18 Marina Avenue, Downtown District</p>
+              <p><i class="fa-solid fa-phone text-teal mr-3"></i>+1 (555) 210-4444</p>
+              <p><i class="fa-solid fa-envelope text-teal mr-3"></i>hello@coastalgrooming.com</p>
+            </div>
+            <div class="flex gap-4 mt-6 text-xl">
+              <a href="#" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal transition"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal transition"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-[#152127] text-white/70">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between gap-4">
+      <p>&copy; 2026 Coastal Grooming House. Designed for premium local barber brands.</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-teal transition">Instagram</a>
+        <a href="#" class="hover:text-teal transition">Facebook</a>
+        <a href="#" class="hover:text-teal transition">Book Now</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn13 = document.getElementById('menuBtn13');
+    const mobileMenu13 = document.getElementById('mobileMenu13');
+    menuBtn13.addEventListener('click', () => mobileMenu13.classList.toggle('hidden'));
+
+    const observer13 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.section-reveal').forEach(el => observer13.observe(el));
+
+    const testimonials13 = [
+      {
+        quote: "The space feels calm and elevated, and every cut is consistently sharp. It’s the first barber shop I’ve actually looked forward to visiting.",
+        name: "Daniel M.",
+        role: "Weekly client"
+      },
+      {
+        quote: "The beard ritual is excellent. Great atmosphere, premium products, and no rushed service at all.",
+        name: "Julian R.",
+        role: "Beard grooming client"
+      },
+      {
+        quote: "Beautiful interior, easy booking, and one of the cleanest fades I’ve had in years.",
+        name: "Owen T.",
+        role: "Signature package client"
+      }
+    ];
+
+    let t13 = 0;
+    const testimonial13 = document.getElementById('testimonial13');
+    function renderTestimonial13(index){
+      testimonial13.innerHTML = `
+        <p class="text-xl md:text-2xl leading-relaxed text-ink mb-6">"${testimonials13[index].quote}"</p>
+        <div>
+          <p class="font-bold text-lg">${testimonials13[index].name}</p>
+          <p class="text-ink/55">${testimonials13[index].role}</p>
+        </div>
+      `;
+    }
+    document.getElementById('prev13').onclick = () => {
+      t13 = (t13 - 1 + testimonials13.length) % testimonials13.length;
+      renderTestimonial13(t13);
+    };
+    document.getElementById('next13').onclick = () => {
+      t13 = (t13 + 1) % testimonials13.length;
+      renderTestimonial13(t13);
+    };
+    renderTestimonial13(t13);
+    setInterval(() => {
+      t13 = (t13 + 1) % testimonials13.length;
+      renderTestimonial13(t13);
+    }, 5000);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

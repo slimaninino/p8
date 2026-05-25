@@ -4,7 +4,14 @@
     <app-hero />
     <app-about />
     <app-services />
-    <app-theme-showcase />
+    <app-theme-showcase
+      [config]="hospitalityShowcase"
+      [demos]="hospitalityDemos"
+    />
+    <app-theme-showcase
+      [config]="beautyPortfolioShowcase"
+      [demos]="beautyPortfolioDemos"
+    />
     <app-contact />
   </main>
   <app-site-footer />

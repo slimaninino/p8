@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Personal Brand</title>
+  <meta name="description" content="Elegant luxury personal brand portfolio with cinematic hero and gold palette." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#090808',
+            panel: '#121010',
+            gold: '#C9B27C',
+            gold2: '#E1C98A',
+            paper: '#F5EFE5',
+            soft: '#E8DDC8'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Tenor Sans"', 'sans-serif']
+          },
+          keyframes: {
+            drift: {
+              '0%,100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          },
+          animation: {
+            drift: 'drift 8s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Tenor Sans', sans-serif; background: #090808; color: #F5EFE5; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .gold-line { background: linear-gradient(90deg, transparent, rgba(201,178,124,.6), transparent); height: 1px; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <header class="sticky top-0 z-50 bg-bg/85 backdrop-blur border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="font-serif text-2xl tracking-[0.2em] uppercase text-gold">Maison Valeur</a>
+      <button id="menuBtn4" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+      <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em] text-paper/80">
+        <a href="#about" class="hover:text-gold transition">About</a>
+        <a href="#services" class="hover:text-gold transition">Services</a>
+        <a href="#experience" class="hover:text-gold transition">Experience</a>
+        <a href="#contact" class="hover:text-gold transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileMenu4" class="hidden md:hidden px-5 pb-5 text-sm uppercase tracking-[0.2em]">
+      <div class="grid gap-3">
+        <a href="#about" class="py-2">About</a>
+        <a href="#services" class="py-2">Services</a>
+        <a href="#experience" class="py-2">Experience</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative min-h-[92vh] flex items-center">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1516983357549-4b5d7a1a6e1b?auto=format&fit=crop&w=1600&q=80" alt="Luxury portrait" class="w-full h-full object-cover opacity-35">
+        <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-bg/20"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10 py-16">
+        <div class="reveal max-w-4xl">
+          <p class="uppercase tracking-[0.4em] text-xs text-gold mb-5">Personal brand / 2026</p>
+          <h1 class="font-serif text-6xl md:text-8xl leading-[0.9] text-paper mb-6">An elevated presence for a refined professional identity.</h1>
+          <p class="max-w-2xl text-paper/70 text-lg mb-8">A cinematic personal brand theme built to feel timeless, exclusive, and premium from the first scroll.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="px-7 py-4 bg-gold text-bg font-bold uppercase tracking-[0.18em] hover:translate-y-[-2px] transition">Work With Me</a>
+            <a href="#services" class="px-7 py-4 border border-gold/30 text-paper uppercase tracking-[0.18em] hover:bg-white/5 transition">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-panel border-y border-white/5">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="reveal"><p class="text-3xl font-serif text-gold">14+</p><p class="text-xs uppercase tracking-[0.2em] text-paper/50">Years</p></div>
+        <div class="reveal"><p class="text-3xl font-serif text-gold">60</p><p class="text-xs uppercase tracking-[0.2em] text-paper/50">Clients</p></div>
+        <div class="reveal"><p class="text-3xl font-serif text-gold">18</p><p class="text-xs uppercase tracking-[0.2em] text-paper/50">Speeches</p></div>
+        <div class="reveal"><p class="text-3xl font-serif text-gold">12</p><p class="text-xs uppercase tracking-[0.2em] text-paper/50">Awards</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div class="reveal">
+          <p class="uppercase tracking-[0.4em] text-xs text-gold mb-4">About</p>
+          <h2 class="font-serif text-5xl md:text-6xl leading-none">Where expertise meets presentation.</h2>
+        </div>
+        <div class="reveal text-paper/70 leading-relaxed space-y-4">
+          <p>This theme is designed for executives, consultants, creators, and luxury personal brands that need sophistication and trust.</p>
+          <p>Every section is intentionally paced to feel expensive, curated, and memorable without ever becoming loud.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-20 bg-[#0d0b0b]">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-10">
+          <p class="uppercase tracking-[0.4em] text-xs text-gold mb-4">Services</p>
+          <h2 class="font-serif text-5xl md:text-6xl">The offer suite.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="reveal bg-panel border border-gold/10 rounded-[2rem] p-8 hover:border-gold/30 transition">
+            <h3 class="font-serif text-3xl text-gold mb-4">Brand Presence</h3>
+            <p class="text-paper/65">A polished identity system built for premium positioning and consistent presentation.</p>
+          </article>
+          <article class="reveal bg-panel border border-gold/10 rounded-[2rem] p-8 hover:border-gold/30 transition">
+            <h3 class="font-serif text-3xl text-gold mb-4">Strategic Web</h3>
+            <p class="text-paper/65">Elegant landing pages and content structure tuned for trust, clarity, and conversion.</p>
+          </article>
+          <article class="reveal bg-panel border border-gold/10 rounded-[2rem] p-8 hover:border-gold/30 transition">
+            <h3 class="font-serif text-3xl text-gold mb-4">Executive Content</h3>
+            <p class="text-paper/65">Storytelling, polished visuals, and high-end communication assets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+      <div class="reveal mb-10">
+        <p class="uppercase tracking-[0.4em] text-xs text-gold mb-4">Experience</p>
+        <h2 class="font-serif text-5xl md:text-6xl">A timeline of trust.</h2>
+      </div>
+      <div class="space-y-6">
+        <div class="reveal flex flex-col md:flex-row justify-between gap-3 border-b border-white/10 pb-5">
+          <div><p class="text-2xl font-serif text-paper">Principal Consultant</p><p class="text-paper/60">Independent</p></div><span class="text-gold uppercase tracking-[0.2em]">2022 — Present</span>
+        </div>
+        <div class="reveal flex flex-col md:flex-row justify-between gap-3 border-b border-white/10 pb-5">
+          <div><p class="text-2xl font-serif text-paper">Creative Director</p><p class="text-paper/60">Studio Élan</p></div><span class="text-gold uppercase tracking-[0.2em]">2018 — 2022</span>
+        </div>
+        <div class="reveal flex flex-col md:flex-row justify-between gap-3 border-b border-white/10 pb-5">
+          <div><p class="text-2xl font-serif text-paper">Brand Strategist</p><p class="text-paper/60">Premium House</p></div><span class="text-gold uppercase tracking-[0.2em]">2013 — 2018</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-5 md:px-8 pb-20">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="reveal overflow-hidden rounded-[2rem] border border-gold/10"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Luxury project one" class="w-full h-[420px] object-cover"></div>
+        <div class="reveal overflow-hidden rounded-[2rem] border border-gold/10 md:mt-16"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Luxury project two" class="w-full h-[420px] object-cover"></div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-5 md:px-8 pb-20">
+      <div class="reveal bg-panel rounded-[2rem] p-8 md:p-10 border border-white/5">
+        <p class="uppercase tracking-[0.4em] text-xs text-gold mb-4">Testimonials</p>
+        <div id="testimonial4" class="min-h-[150px]"></div>
+        <div class="flex gap-3 mt-6">
+          <button id="prev4" class="w-12 h-12 rounded-full border border-white/10 hover:bg-gold hover:text-bg transition"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="next4" class="w-12 h-12 rounded-full border border-white/10 hover:bg-gold hover:text-bg transition"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-[#0c0a0a] py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1fr_.9fr] gap-8">
+        <div class="reveal">
+          <p class="uppercase tracking-[0.4em] text-xs text-gold mb-4">Contact</p>
+          <h2 class="font-serif text-6xl leading-none">Let’s create something memorable.</h2>
+        </div>
+        <div class="reveal space-y-4">
+          <a href="mailto:hello@maisonvaleur.com" class="flex justify-between rounded-2xl border border-white/10 p-5 hover:bg-white/5 transition"><span>Email</span><span class="text-paper/60">hello@maisonvaleur.com</span></a>
+          <a href="#" class="flex justify-between rounded-2xl border border-white/10 p-5 hover:bg-white/5 transition"><span>Instagram</span><span class="text-paper/60">@maisonvaleur</span></a>
+          <a href="#" class="flex justify-between rounded-2xl border border-white/10 p-5 hover:bg-white/5 transition"><span>LinkedIn</span><span class="text-paper/60">/in/maisonvaleur</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menuBtn4').addEventListener('click', () => document.getElementById('mobileMenu4').classList.toggle('hidden'));
+    const observer4 = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer4.observe(el));
+    const testimonials4 = [
+      { text: "The design feels expensive immediately. It gives the right kind of confidence and polish.", name: "Elena V.", role: "Luxury Founder" },
+      { text: "Refined, cinematic, and very controlled. It’s elegant without losing usability.", name: "Omar K.", role: "Consultant" },
+      { text: "This is the kind of site that makes a personal brand feel truly premium.", name: "Claire M.", role: "Executive Coach" }
+    ];
+    let i4 = 0;
+    function render4(){ document.getElementById('testimonial4').innerHTML = `<p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonials4[i4].text}"</p><p class="font-bold">${testimonials4[i4].name}</p><p class="text-paper/55">${testimonials4[i4].role}</p>`; }
+    document.getElementById('prev4').onclick = () => { i4 = (i4 - 1 + testimonials4.length) % testimonials4.length; render4(); };
+    document.getElementById('next4').onclick = () => { i4 = (i4 + 1) % testimonials4.length; render4(); };
+    render4();
+    setInterval(() => { i4 = (i4 + 1) % testimonials4.length; render4(); }, 5200);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

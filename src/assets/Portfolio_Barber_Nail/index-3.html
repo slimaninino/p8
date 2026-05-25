@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Agency Portfolio</title>
+  <meta name="description" content="Creative agency portfolio theme with gradients and interactive cards." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F6F7FB',
+            text: '#111827',
+            purple: '#6D5EF7',
+            pink: '#FF5FA2',
+            cyan: '#21C7FF',
+            ink: '#0F172A'
+          },
+          fontFamily: {
+            display: ['"Poppins"', 'sans-serif'],
+            serif: ['"DM Serif Display"', 'serif']
+          },
+          keyframes: {
+            blob: {
+              '0%,100%': { transform: 'translate(0,0) scale(1)' },
+              '33%': { transform: 'translate(24px,-20px) scale(1.08)' },
+              '66%': { transform: 'translate(-18px,18px) scale(.96)' }
+            }
+          },
+          animation: {
+            blob: 'blob 10s infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #F6F7FB; color: #111827; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .glow-card { box-shadow: 0 20px 60px rgba(79,70,229,.10); }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-bg/85 backdrop-blur border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <div class="font-bold text-2xl tracking-tight">STUDIO NOVA</div>
+      <button id="menuBtn3" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#work" class="hover:text-purple transition">Work</a>
+        <a href="#services" class="hover:text-purple transition">Services</a>
+        <a href="#testimonials" class="hover:text-purple transition">Testimonials</a>
+        <a href="#contact" class="hover:text-purple transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileMenu3" class="hidden md:hidden px-5 pb-5">
+      <div class="grid gap-3 text-sm font-semibold">
+        <a href="#work" class="py-2">Work</a>
+        <a href="#services" class="py-2">Services</a>
+        <a href="#testimonials" class="py-2">Testimonials</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute -top-24 left-10 w-96 h-96 bg-purple/20 blur-3xl rounded-full animate-blob"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-pink/20 blur-3xl rounded-full animate-blob" style="animation-delay:1.7s"></div>
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[1.05fr_.95fr] gap-12 items-center relative z-10">
+        <div class="reveal">
+          <span class="inline-block px-4 py-2 rounded-full bg-white shadow-sm text-sm font-semibold text-purple mb-6">Creative agency / 2026</span>
+          <h1 class="font-serif text-6xl md:text-8xl leading-[0.92] mb-6">Designing brands that move like startups.</h1>
+          <p class="max-w-xl text-lg text-slate-600 mb-8">We build premium digital identities, product experiences, and launch campaigns for ambitious companies that need results and style.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="px-7 py-4 rounded-full bg-ink text-white font-semibold hover:-translate-y-1 transition shadow-lg">Start a Project</a>
+            <a href="#work" class="px-7 py-4 rounded-full border border-black/10 font-semibold hover:bg-white transition">View Case Studies</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="relative">
+            <div class="absolute inset-4 bg-gradient-to-br from-purple/20 to-pink/20 rounded-[2rem] blur-2xl"></div>
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="Creative team" class="relative rounded-[2rem] w-full h-[540px] object-cover shadow-2xl">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="bg-white border-y border-black/5">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="reveal"><p class="text-3xl font-black text-purple">120+</p><p class="text-sm text-slate-500 uppercase tracking-[0.16em]">Projects</p></div>
+        <div class="reveal"><p class="text-3xl font-black text-pink">48</p><p class="text-sm text-slate-500 uppercase tracking-[0.16em]">Brands</p></div>
+        <div class="reveal"><p class="text-3xl font-black text-cyan">22</p><p class="text-sm text-slate-500 uppercase tracking-[0.16em]">Awards</p></div>
+        <div class="reveal"><p class="text-3xl font-black text-ink">99%</p><p class="text-sm text-slate-500 uppercase tracking-[0.16em]">Satisfaction</p></div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+      <div class="reveal flex justify-between items-end mb-10">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-purple font-bold mb-3">Services</p>
+          <h2 class="font-serif text-4xl md:text-5xl">What we build.</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <article class="reveal glow-card bg-white rounded-[2rem] p-7 hover:-translate-y-2 transition">
+          <div class="w-14 h-14 rounded-2xl bg-purple/10 text-purple flex items-center justify-center mb-5"><i class="fa-solid fa-palette"></i></div>
+          <h3 class="text-2xl font-bold mb-3">Brand Identity</h3>
+          <p class="text-slate-600">Positioning, visual systems, logos, and launch-ready brand kits.</p>
+        </article>
+        <article class="reveal glow-card bg-white rounded-[2rem] p-7 hover:-translate-y-2 transition">
+          <div class="w-14 h-14 rounded-2xl bg-pink/10 text-pink flex items-center justify-center mb-5"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 class="text-2xl font-bold mb-3">Web Design</h3>
+          <p class="text-slate-600">High-conversion websites with custom motion and premium detail.</p>
+        </article>
+        <article class="reveal glow-card bg-white rounded-[2rem] p-7 hover:-translate-y-2 transition">
+          <div class="w-14 h-14 rounded-2xl bg-cyan/10 text-cyan flex items-center justify-center mb-5"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="text-2xl font-bold mb-3">Growth UX</h3>
+          <p class="text-slate-600">Funnels, landing pages, and conversion-focused product flows.</p>
+        </article>
+        <article class="reveal glow-card bg-white rounded-[2rem] p-7 hover:-translate-y-2 transition">
+          <div class="w-14 h-14 rounded-2xl bg-ink/10 text-ink flex items-center justify-center mb-5"><i class="fa-solid fa-layer-group"></i></div>
+          <h3 class="text-2xl font-bold mb-3">Case Studies</h3>
+          <p class="text-slate-600">Narrative portfolios that communicate results with clarity.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="bg-slate-50 py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal mb-10">
+          <p class="uppercase tracking-[0.3em] text-xs text-purple font-bold mb-3">Case studies</p>
+          <h2 class="font-serif text-4xl md:text-5xl">Selected work.</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <article class="reveal bg-white rounded-[2rem] overflow-hidden glow-card group">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Case study one" class="w-full h-80 object-cover group-hover:scale-105 transition duration-700">
+            <div class="p-7">
+              <h3 class="text-2xl font-bold">Fintech Rebrand</h3>
+              <p class="text-slate-600 mt-2">Brand strategy, UI, and launch campaign.</p>
+            </div>
+          </article>
+          <article class="reveal bg-white rounded-[2rem] overflow-hidden glow-card group lg:mt-16">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Case study two" class="w-full h-80 object-cover group-hover:scale-105 transition duration-700">
+            <div class="p-7">
+              <h3 class="text-2xl font-bold">SaaS Growth Site</h3>
+              <p class="text-slate-600 mt-2">Conversion architecture and product storytelling.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+      <div class="reveal bg-ink text-white rounded-[2rem] p-8 md:p-10">
+        <p class="uppercase tracking-[0.3em] text-xs text-white/50 font-bold mb-4">Testimonials</p>
+        <div id="testimonial3" class="min-h-[150px]"></div>
+        <div class="flex gap-3 mt-6">
+          <button id="prev3" class="w-12 h-12 rounded-full border border-white/10 hover:bg-white hover:text-ink transition"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="next3" class="w-12 h-12 rounded-full border border-white/10 hover:bg-white hover:text-ink transition"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1fr_.9fr] gap-8 items-start">
+        <div class="reveal">
+          <p class="uppercase tracking-[0.3em] text-xs text-purple font-bold mb-3">Contact</p>
+          <h2 class="font-serif text-5xl md:text-6xl leading-none">Let’s build your next launch.</h2>
+        </div>
+        <div class="reveal space-y-4">
+          <a href="mailto:hello@studionova.com" class="bg-white rounded-2xl px-5 py-4 flex justify-between shadow-sm hover:-translate-y-1 transition"><span>Email</span><span class="text-slate-500">hello@studionova.com</span></a>
+          <a href="#" class="bg-white rounded-2xl px-5 py-4 flex justify-between shadow-sm hover:-translate-y-1 transition"><span>Instagram</span><span class="text-slate-500">@studionova</span></a>
+          <a href="#" class="bg-white rounded-2xl px-5 py-4 flex justify-between shadow-sm hover:-translate-y-1 transition"><span>Dribbble</span><span class="text-slate-500">/studionova</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menuBtn3').addEventListener('click', () => document.getElementById('mobileMenu3').classList.toggle('hidden'));
+    const observer3 = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer3.observe(el));
+    const testimonials3 = [
+      { text: "The agency knows how to make a homepage feel like a pitch deck and a brand statement at the same time.", name: "Lina V.", role: "Founder" },
+      { text: "The gradient system and card layout feel premium and current without losing clarity.", name: "Mark T.", role: "CMO" },
+      { text: "Great storytelling through design. It sells before the conversation even starts.", name: "Sara B.", role: "Operations Lead" }
+    ];
+    let i3 = 0;
+    function render3(){ document.getElementById('testimonial3').innerHTML = `<p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonials3[i3].text}"</p><p class="font-bold">${testimonials3[i3].name}</p><p class="text-white/55">${testimonials3[i3].role}</p>`; }
+    document.getElementById('prev3').onclick = () => { i3 = (i3 - 1 + testimonials3.length) % testimonials3.length; render3(); };
+    document.getElementById('next3').onclick = () => { i3 = (i3 + 1) % testimonials3.length; render3(); };
+    render3();
+    setInterval(() => { i3 = (i3 + 1) % testimonials3.length; render3(); }, 5200);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

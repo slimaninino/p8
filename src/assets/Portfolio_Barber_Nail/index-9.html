@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Green Room Barber Spa</title>
+  <meta name="description" content="Editorial barber spa website theme with sage and ivory palette." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F7F4EE',
+            sage: '#A9B9A5',
+            forest: '#31433A',
+            bronze: '#A77952',
+            mist: '#E7ECE3',
+            text: '#2B342F'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Sora"', 'sans-serif']
+          },
+          boxShadow: {
+            cloud: '0 18px 50px rgba(49,67,58,.10)'
+          },
+          borderRadius: {
+            arch: '2rem'
+          },
+          keyframes: {
+            drift: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' }
+            }
+          },
+          animation: {
+            drift: 'drift 7s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Sora', sans-serif; background: #F7F4EE; color: #2B342F; }
+    .reveal15 { opacity: 0; transform: translateY(26px); transition: all .8s ease; }
+    .reveal15.visible { opacity: 1; transform: translateY(0); }
+    .arch-top { border-radius: 999px 999px 2rem 2rem / 70% 70% 2rem 2rem; }
+    .soft-ring { box-shadow: inset 0 0 0 1px rgba(49,67,58,.08), 0 20px 60px rgba(49,67,58,.08); }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-ivory/90 backdrop-blur border-b border-forest/10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-forest text-white flex items-center justify-center shadow-cloud">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div>
+          <p class="font-serif text-2xl leading-none">The Green Room</p>
+          <p class="text-xs uppercase tracking-[0.3em] text-forest/55">Barber Spa</p>
+        </div>
+      </a>
+
+      <button id="menuBtn15" class="md:hidden text-2xl text-forest">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#services" class="hover:text-bronze transition">Services</a>
+        <a href="#pricing" class="hover:text-bronze transition">Pricing</a>
+        <a href="#team" class="hover:text-bronze transition">Team</a>
+        <a href="#gallery" class="hover:text-bronze transition">Gallery</a>
+        <a href="#contact15" class="hover:text-bronze transition">Contact</a>
+        <a href="#booking" class="px-5 py-3 rounded-full bg-forest text-white hover:bg-bronze transition">Book Ritual</a>
+      </nav>
+    </div>
+
+    <div id="mobileMenu15" class="hidden md:hidden px-5 pb-5">
+      <div class="grid gap-3 text-sm font-medium">
+        <a href="#services" class="py-2">Services</a>
+        <a href="#pricing" class="py-2">Pricing</a>
+        <a href="#team" class="py-2">Team</a>
+        <a href="#gallery" class="py-2">Gallery</a>
+        <a href="#contact15" class="py-2">Contact</a>
+        <a href="#booking" class="py-3 text-center rounded-full bg-forest text-white">Book Ritual</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-10 left-10 w-72 h-72 rounded-full bg-sage/20 blur-3xl animate-drift"></div>
+        <div class="absolute bottom-10 right-0 w-80 h-80 rounded-full bg-bronze/10 blur-3xl animate-drift" style="animation-delay:1.5s;"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-[.95fr_1.05fr] gap-10 items-center">
+        <div class="reveal15">
+          <span class="inline-block px-4 py-2 rounded-full bg-forest/5 border border-forest/10 text-sm text-forest/70 mb-6">
+            Barbering, reimagined through wellness
+          </span>
+          <h1 class="font-serif text-5xl md:text-7xl leading-[0.95] mb-6">
+            A quieter kind of premium grooming.
+          </h1>
+          <p class="text-lg text-text/70 max-w-xl mb-8">
+            The Green Room Barber Spa pairs precise cuts with thoughtful rituals, warm towels, and a restorative studio atmosphere.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="#booking" class="group px-7 py-4 rounded-full bg-forest text-white font-semibold hover:bg-bronze transition shadow-cloud">
+              Book Your Ritual
+              <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
+            <a href="#services" class="px-7 py-4 rounded-full border border-forest/10 bg-white/60 hover:border-bronze hover:text-bronze transition shadow-cloud">
+              View Services
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-white/70 rounded-3xl p-4 soft-ring">
+              <p class="text-2xl font-bold">15+</p>
+              <p class="text-xs text-text/55">Years craft</p>
+            </div>
+            <div class="bg-white/70 rounded-3xl p-4 soft-ring">
+              <p class="text-2xl font-bold">100%</p>
+              <p class="text-xs text-text/55">Premium products</p>
+            </div>
+            <div class="bg-white/70 rounded-3xl p-4 soft-ring">
+              <p class="text-2xl font-bold">7/7</p>
+              <p class="text-xs text-text/55">Online booking</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal15">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-3 rounded-[2rem] shadow-cloud soft-ring">
+              <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80" alt="Luxury barber lounge" class="w-full h-[460px] object-cover arch-top">
+            </div>
+            <div class="space-y-4">
+              <div class="bg-mist p-3 rounded-[2rem] shadow-cloud soft-ring">
+                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1000&q=80" alt="Barber portrait" class="w-full h-56 object-cover arch-top">
+              </div>
+              <div class="bg-white rounded-[2rem] p-6 shadow-cloud soft-ring">
+                <p class="uppercase tracking-[0.3em] text-xs text-forest/45 mb-3">Most loved ritual</p>
+                <h3 class="font-serif text-3xl mb-2">The Green Room Signature</h3>
+                <p class="text-text/65">Cut, beard design, warm towel, scalp massage, and calm finish styling.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal15 text-center mb-12">
+          <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Services</p>
+          <h2 class="font-serif text-4xl md:text-5xl">Rituals designed around care and precision.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <article class="reveal15 bg-white rounded-[2rem] p-7 shadow-cloud soft-ring hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-sage/20 text-forest flex items-center justify-center mb-5"><i class="fa-solid fa-scissors"></i></div>
+            <h3 class="text-xl font-semibold mb-3">Tailored Cut</h3>
+            <p class="text-text/65">Personalized haircut with wash, finish, and maintenance advice.</p>
+          </article>
+
+          <article class="reveal15 bg-white rounded-[2rem] p-7 shadow-cloud soft-ring hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-bronze/15 text-bronze flex items-center justify-center mb-5"><i class="fa-solid fa-feather-pointed"></i></div>
+            <h3 class="text-xl font-semibold mb-3">Beard Sculpt</h3>
+            <p class="text-text/65">Balanced beard shaping with contour work and nourishing oil.</p>
+          </article>
+
+          <article class="reveal15 bg-white rounded-[2rem] p-7 shadow-cloud soft-ring hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-sage/20 text-forest flex items-center justify-center mb-5"><i class="fa-solid fa-water"></i></div>
+            <h3 class="text-xl font-semibold mb-3">Warm Towel Reset</h3>
+            <p class="text-text/65">Relaxing steam towel and skin refresh to calm the senses.</p>
+          </article>
+
+          <article class="reveal15 bg-white rounded-[2rem] p-7 shadow-cloud soft-ring hover:-translate-y-2 transition">
+            <div class="w-14 h-14 rounded-full bg-bronze/15 text-bronze flex items-center justify-center mb-5"><i class="fa-solid fa-spa"></i></div>
+            <h3 class="text-xl font-semibold mb-3">Signature Ritual</h3>
+            <p class="text-text/65">Our full-service grooming experience for complete polish.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-mist/70">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="reveal15 text-center mb-12">
+          <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Pricing</p>
+          <h2 class="font-serif text-4xl md:text-5xl">Choose the ritual that fits your pace.</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="reveal15 bg-white rounded-[2rem] p-8 shadow-cloud soft-ring">
+            <h3 class="font-serif text-3xl mb-3">Classic</h3>
+            <p class="text-5xl font-bold mb-6">$30</p>
+            <ul class="space-y-3 text-text/70 mb-8">
+              <li><i class="fa-solid fa-check text-bronze mr-2"></i>Tailored cut</li>
+              <li><i class="fa-solid fa-check text-bronze mr-2"></i>Wash & finish</li>
+              <li><i class="fa-solid fa-check text-bronze mr-2"></i>Style guidance</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-forest text-white hover:bg-bronze transition">Book Classic</a>
+          </div>
+
+          <div class="reveal15 bg-forest text-white rounded-[2rem] p-8 shadow-cloud scale-[1.02]">
+            <div class="inline-block px-3 py-1 rounded-full bg-white/10 text-xs uppercase tracking-[0.25em] mb-4">Recommended</div>
+            <h3 class="font-serif text-3xl mb-3">Signature</h3>
+            <p class="text-5xl font-bold mb-6">$56</p>
+            <ul class="space-y-3 text-white/80 mb-8">
+              <li><i class="fa-solid fa-check text-sage mr-2"></i>Cut + beard sculpt</li>
+              <li><i class="fa-solid fa-check text-sage mr-2"></i>Warm towel ritual</li>
+              <li><i class="fa-solid fa-check text-sage mr-2"></i>Premium finish products</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-bronze text-white hover:bg-sage hover:text-forest transition">Book Signature</a>
+          </div>
+
+          <div class="reveal15 bg-white rounded-[2rem] p-8 shadow-cloud soft-ring">
+            <h3 class="font-serif text-3xl mb-3">Green Room Spa</h3>
+            <p class="text-5xl font-bold mb-6">$78</p>
+            <ul class="space-y-3 text-text/70 mb-8">
+              <li><i class="fa-solid fa-check text-bronze mr-2"></i>Signature ritual</li>
+              <li><i class="fa-solid fa-check text-bronze mr-2"></i>Scalp massage</li>
+              <li><i class="fa-solid fa-check text-bronze mr-2"></i>Express skin refresh</li>
+            </ul>
+            <a href="#booking" class="block text-center py-4 rounded-full bg-forest text-white hover:bg-bronze transition">Book Spa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal15 mb-12">
+          <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Team</p>
+          <h2 class="font-serif text-4xl md:text-5xl">Barbers with a refined, human approach.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="reveal15 bg-white rounded-[2rem] p-4 shadow-cloud soft-ring">
+            <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=900&q=80" alt="Barber Oliver" class="w-full h-80 object-cover arch-top">
+            <div class="p-4">
+              <h3 class="text-2xl font-semibold">Oliver Hart</h3>
+              <p class="text-bronze font-medium mb-3">Founder / Editorial Cuts</p>
+              <p class="text-text/65">Classic structure with a modern softness and excellent finish work.</p>
+            </div>
+          </article>
+
+          <article class="reveal15 bg-white rounded-[2rem] p-4 shadow-cloud soft-ring">
+            <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=900&q=80" alt="Barber Sami" class="w-full h-80 object-cover arch-top">
+            <div class="p-4">
+              <h3 class="text-2xl font-semibold">Sami Noor</h3>
+              <p class="text-bronze font-medium mb-3">Beard Care Specialist</p>
+              <p class="text-text/65">Exceptional beard shaping, contour definition, and skincare balance.</p>
+            </div>
+          </article>
+
+          <article class="reveal15 bg-white rounded-[2rem] p-4 shadow-cloud soft-ring">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Barber Luca" class="w-full h-80 object-cover arch-top">
+            <div class="p-4">
+              <h3 class="text-2xl font-semibold">Luca Reed</h3>
+              <p class="text-bronze font-medium mb-3">Texture & Finish Stylist</p>
+              <p class="text-text/65">Ideal for textured crops, movement, and natural premium styling.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 bg-mist/50">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="reveal15 text-center mb-12">
+          <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Gallery</p>
+          <h2 class="font-serif text-4xl md:text-5xl">A space designed to slow the pace.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-4">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80" alt="Relaxed barber interior" class="reveal15 md:col-span-5 rounded-[2rem] h-72 md:h-[500px] w-full object-cover shadow-cloud">
+          <div class="md:col-span-7 grid sm:grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1512690459411-b0fd1c86b8c8?auto=format&fit=crop&w=900&q=80" alt="Barber tools on table" class="reveal15 rounded-[2rem] h-56 object-cover w-full shadow-cloud">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80" alt="Fresh haircut result" class="reveal15 rounded-[2rem] h-56 object-cover w-full shadow-cloud">
+            <img src="https://images.unsplash.com/photo-1593702288056-f5836f0ad321?auto=format&fit=crop&w=900&q=80" alt="Client profile haircut" class="reveal15 rounded-[2rem] h-56 object-cover w-full shadow-cloud sm:col-span-2">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-5 md:px-8">
+        <div class="reveal15 bg-white rounded-[2rem] p-8 md:p-12 shadow-cloud soft-ring">
+          <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Testimonials</p>
+          <h2 class="font-serif text-4xl md:text-5xl mb-6">The experience matters as much as the result.</h2>
+          <div id="testimonial15" class="min-h-[160px]"></div>
+          <div class="flex gap-3 mt-6">
+            <button id="prev15" class="w-12 h-12 rounded-full border border-forest/10 hover:bg-forest hover:text-white transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="next15" class="w-12 h-12 rounded-full border border-forest/10 hover:bg-forest hover:text-white transition"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking + Hours + Contact -->
+    <section id="booking" class="pb-20">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1.1fr_.9fr] gap-6">
+        <div class="reveal15 bg-white rounded-[2rem] p-8 md:p-10 shadow-cloud soft-ring">
+          <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Appointment booking</p>
+          <h2 class="font-serif text-4xl md:text-5xl mb-6">Reserve your next ritual.</h2>
+          <form class="grid md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Full name" class="px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze">
+            <input type="email" placeholder="Email address" class="px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze">
+            <input type="tel" placeholder="Phone number" class="px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze">
+            <select class="px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze text-text">
+              <option>Select service</option>
+              <option>Tailored Cut</option>
+              <option>Beard Sculpt</option>
+              <option>Warm Towel Reset</option>
+              <option>Signature Ritual</option>
+            </select>
+            <input type="date" class="px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze">
+            <input type="time" class="px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze">
+            <textarea rows="5" placeholder="Preferences or notes" class="md:col-span-2 px-5 py-4 rounded-2xl bg-ivory border border-forest/10 outline-none focus:border-bronze"></textarea>
+            <button type="submit" class="md:col-span-2 py-4 rounded-full bg-forest text-white font-semibold hover:bg-bronze transition">
+              Confirm Booking
+            </button>
+          </form>
+        </div>
+
+        <div class="space-y-6">
+          <div class="reveal15 bg-white rounded-[2rem] p-8 shadow-cloud soft-ring">
+            <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Opening hours</p>
+            <ul class="space-y-4 text-text/75">
+              <li class="flex justify-between border-b border-forest/10 pb-3"><span>Monday - Wednesday</span><span>10:00 - 19:00</span></li>
+              <li class="flex justify-between border-b border-forest/10 pb-3"><span>Thursday - Friday</span><span>10:00 - 20:00</span></li>
+              <li class="flex justify-between border-b border-forest/10 pb-3"><span>Saturday</span><span>09:00 - 18:00</span></li>
+              <li class="flex justify-between"><span>Sunday</span><span>11:00 - 16:00</span></li>
+            </ul>
+          </div>
+
+          <div id="contact15" class="reveal15 bg-white rounded-[2rem] p-8 shadow-cloud soft-ring">
+            <p class="uppercase tracking-[0.3em] text-xs text-bronze font-semibold mb-3">Location / contact</p>
+            <div class="space-y-4 text-text/75">
+              <p><i class="fa-solid fa-location-dot text-bronze mr-3"></i>84 Olive Street, Garden Quarter</p>
+              <p><i class="fa-solid fa-phone text-bronze mr-3"></i>+1 (555) 880-7781</p>
+              <p><i class="fa-solid fa-envelope text-bronze mr-3"></i>care@thegreenroombarber.com</p>
+            </div>
+            <div class="flex gap-3 mt-6">
+              <a href="#" class="w-11 h-11 rounded-full bg-ivory flex items-center justify-center hover:bg-forest hover:text-white transition"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="w-11 h-11 rounded-full bg-ivory flex items-center justify-center hover:bg-forest hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="w-11 h-11 rounded-full bg-ivory flex items-center justify-center hover:bg-forest hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 border-t border-forest/10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-text/60">
+      <p>&copy; 2026 The Green Room Barber Spa</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-bronze transition">Instagram</a>
+        <a href="#" class="hover:text-bronze transition">Book</a>
+        <a href="#" class="hover:text-bronze transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menuBtn15').addEventListener('click', () => {
+      document.getElementById('mobileMenu15').classList.toggle('hidden');
+    });
+
+    const observer15 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal15').forEach(el => observer15.observe(el));
+
+    const testimonials15 = [
+      {
+        text: "Beautifully calm atmosphere and genuinely premium service. It feels more like a private grooming club than a busy shop.",
+        name: "Nathan E.",
+        role: "Signature Ritual client"
+      },
+      {
+        text: "I went in for a haircut and left feeling reset. The warm towel detail makes a real difference.",
+        name: "Samir H.",
+        role: "Regular client"
+      },
+      {
+        text: "Elegant branding, excellent staff, and one of the cleanest beard shapes I’ve had.",
+        name: "Victor L.",
+        role: "Beard Sculpt client"
+      }
+    ];
+
+    let idx15 = 0;
+    const container15 = document.getElementById('testimonial15');
+
+    function render15(i) {
+      container15.innerHTML = `
+        <p class="text-xl md:text-2xl leading-relaxed mb-6">"${testimonials15[i].text}"</p>
+        <p class="font-semibold text-lg">${testimonials15[i].name}</p>
+        <p class="text-text/50">${testimonials15[i].role}</p>
+      `;
+    }
+
+    document.getElementById('prev15').addEventListener('click', () => {
+      idx15 = (idx15 - 1 + testimonials15.length) % testimonials15.length;
+      render15(idx15);
+    });
+
+    document.getElementById('next15').addEventListener('click', () => {
+      idx15 = (idx15 + 1) % testimonials15.length;
+      render15(idx15);
+    });
+
+    render15(idx15);
+    setInterval(() => {
+      idx15 = (idx15 + 1) % testimonials15.length;
+      render15(idx15);
+    }, 5200);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

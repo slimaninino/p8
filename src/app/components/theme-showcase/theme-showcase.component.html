@@ -1,17 +1,18 @@
-<section id="themes" class="themes section">
+<section
+  [id]="config.sectionId"
+  class="themes section"
+  [class.themes--portfolio]="config.sectionId === 'portfolio'"
+>
   <div class="section-inner">
     <header class="section-head section-head--themes">
       <div>
-        <p class="eyebrow">Portfolio</p>
-        <h2 class="section-title">Theme Showcase</h2>
-        <p class="section-lead themes-intro">
-          Explore homepage concepts crafted for karaoke venues and restaurants.
-          Browse one full demo at a time, then open the live preview in a new tab.
-        </p>
+        <p class="eyebrow">{{ config.eyebrow }}</p>
+        <h2 class="section-title">{{ config.title }}</h2>
+        <p class="section-lead themes-intro">{{ config.intro }}</p>
       </div>
       <div class="themes-meta">
         <span class="themes-count">{{ demos.length }} concepts</span>
-        <span class="themes-count themes-count--alt">Karaoke &amp; hospitality</span>
+        <span class="themes-count themes-count--alt">{{ config.metaAlt }}</span>
       </div>
     </header>
 
@@ -44,7 +45,7 @@
               <button
                 type="button"
                 class="showcase-arrow showcase-arrow--prev"
-                aria-label="Previous theme"
+                [attr.aria-label]="'Previous ' + config.eyebrow + ' theme'"
                 (click)="prevDemo()"
               >
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -79,7 +80,7 @@
               <button
                 type="button"
                 class="showcase-arrow showcase-arrow--next"
-                aria-label="Next theme"
+                [attr.aria-label]="'Next ' + config.eyebrow + ' theme'"
                 (click)="nextDemo()"
               >
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -116,7 +117,7 @@
       <aside class="showcase-sidebar" aria-label="Theme list">
         <p class="sidebar-label">All themes</p>
         <div class="theme-list">
-          @for (demo of demos; track demo.id; let i = $index) {
+          @for (demo of demos; track demo.path; let i = $index) {
             <button
               type="button"
               class="theme-item"

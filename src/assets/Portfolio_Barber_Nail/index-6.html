@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI / Tech Resume</title>
+  <meta name="description" content="Futuristic AI and tech resume portfolio with dashboard aesthetic." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#07111F',
+            panel: '#0D1728',
+            line: '#1A2A43',
+            cyan: '#4DE7FF',
+            violet: '#8B7CFF',
+            mint: '#49E4A6',
+            text: '#DDE7F7'
+          },
+          fontFamily: {
+            display: ['"Inter"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          },
+          boxShadow: {
+            glow: '0 20px 50px rgba(77,231,255,.12)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #07111F; color: #DDE7F7; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .glass {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <header class="sticky top-0 z-50 bg-bg/85 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+      <div>
+        <p class="font-mono text-xs tracking-[0.35em] text-cyan">AI.RESUME</p>
+        <p class="text-sm text-text/55">Technical profile / dashboard UI</p>
+      </div>
+      <button id="menuBtn6" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-mono uppercase tracking-[0.18em]">
+        <a href="#about" class="hover:text-cyan transition">About</a>
+        <a href="#skills" class="hover:text-cyan transition">Skills</a>
+        <a href="#experience" class="hover:text-cyan transition">Experience</a>
+        <a href="#projects" class="hover:text-cyan transition">Projects</a>
+        <a href="#contact" class="hover:text-cyan transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileMenu6" class="hidden md:hidden px-5 pb-5">
+      <div class="grid gap-3 text-sm font-mono uppercase tracking-[0.18em]">
+        <a href="#about" class="py-2">About</a>
+        <a href="#skills" class="py-2">Skills</a>
+        <a href="#experience" class="py-2">Experience</a>
+        <a href="#projects" class="py-2">Projects</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-16">
+    <section class="grid lg:grid-cols-[.9fr_1.1fr] gap-6 items-start">
+      <div class="reveal glass rounded-[2rem] p-7 md:p-8 shadow-glow sticky top-24">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="AI professional" class="w-28 h-28 rounded-3xl object-cover mb-6 border border-white/10">
+        <p class="font-mono text-xs tracking-[0.3em] text-cyan mb-3">SYSTEM STATUS</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">AI Engineer & Technical Builder</h1>
+        <p class="text-text/65 leading-relaxed">I build product interfaces, data-driven tools, and AI systems with a clean SaaS aesthetic and strong engineering logic.</p>
+        <div class="grid grid-cols-3 gap-3 mt-8">
+          <div class="glass rounded-2xl p-4 text-center"><p class="text-2xl font-bold text-cyan">7+</p><p class="text-xs text-text/50 uppercase">Years</p></div>
+          <div class="glass rounded-2xl p-4 text-center"><p class="text-2xl font-bold text-violet">24</p><p class="text-xs text-text/50 uppercase">Launches</p></div>
+          <div class="glass rounded-2xl p-4 text-center"><p class="text-2xl font-bold text-mint">16</p><p class="text-xs text-text/50 uppercase">Systems</p></div>
+        </div>
+        <div class="flex gap-3 mt-8 text-xl">
+          <a href="#" class="w-11 h-11 rounded-xl glass flex items-center justify-center hover:text-cyan transition"><i class="fab fa-github"></i></a>
+          <a href="#" class="w-11 h-11 rounded-xl glass flex items-center justify-center hover:text-cyan transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="w-11 h-11 rounded-xl glass flex items-center justify-center hover:text-cyan transition"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <section class="reveal glass rounded-[2rem] p-7 md:p-8">
+          <p class="font-mono text-xs tracking-[0.35em] text-cyan mb-4">ABOUT</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-3">A dashboard-style resume for technical professionals.</h2>
+          <p class="text-text/65 leading-relaxed">This layout feels like a modern product console: crisp, modular, and highly scannable. It works especially well for developers, AI researchers, and SaaS creators.</p>
+        </section>
+
+        <section id="skills" class="reveal grid md:grid-cols-2 gap-4">
+          <div class="glass rounded-[2rem] p-6">
+            <div class="flex justify-between mb-3"><span class="font-bold">Python / AI</span><span class="text-cyan">95%</span></div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[95%] bg-cyan"></div></div>
+          </div>
+          <div class="glass rounded-[2rem] p-6">
+            <div class="flex justify-between mb-3"><span class="font-bold">Frontend</span><span class="text-violet">90%</span></div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[90%] bg-violet"></div></div>
+          </div>
+          <div class="glass rounded-[2rem] p-6">
+            <div class="flex justify-between mb-3"><span class="font-bold">Cloud / DevOps</span><span class="text-mint">84%</span></div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[84%] bg-mint"></div></div>
+          </div>
+          <div class="glass rounded-[2rem] p-6">
+            <div class="flex justify-between mb-3"><span class="font-bold">Data / Analytics</span><span class="text-cyan">88%</span></div>
+            <div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[88%] bg-cyan"></div></div>
+          </div>
+        </section>
+
+        <section id="experience" class="reveal glass rounded-[2rem] p-7 md:p-8">
+          <p class="font-mono text-xs tracking-[0.35em] text-cyan mb-4">EXPERIENCE</p>
+          <div class="space-y-4">
+            <div class="flex justify-between gap-4 border-b border-white/8 pb-3"><div><p class="font-bold">Senior AI Engineer</p><p class="text-text/55 text-sm">Research Lab</p></div><span class="text-text/50">2023 — Present</span></div>
+            <div class="flex justify-between gap-4 border-b border-white/8 pb-3"><div><p class="font-bold">Frontend Developer</p><p class="text-text/55 text-sm">SaaS Studio</p></div><span class="text-text/50">2020 — 2023</span></div>
+            <div class="flex justify-between gap-4"><div><p class="font-bold">Systems Analyst</p><p class="text-text/55 text-sm">Enterprise IT</p></div><span class="text-text/50">2016 — 2020</span></div>
+          </div>
+        </section>
+
+        <section id="projects" class="reveal grid md:grid-cols-2 gap-4">
+          <article class="glass rounded-[2rem] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Project one" class="w-full h-52 object-cover">
+            <div class="p-5">
+              <h3 class="text-xl font-bold">AI Research Dashboard</h3>
+              <p class="text-text/60">Interactive metrics and model monitoring.</p>
+            </div>
+          </article>
+          <article class="glass rounded-[2rem] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Project two" class="w-full h-52 object-cover">
+            <div class="p-5">
+              <h3 class="text-xl font-bold">SaaS Admin Console</h3>
+              <p class="text-text/60">Clean workflow systems and analytics UI.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="reveal glass rounded-[2rem] p-7 md:p-8">
+          <p class="font-mono text-xs tracking-[0.35em] text-cyan mb-4">TESTIMONIALS</p>
+          <div id="testimonial6" class="min-h-[130px]"></div>
+          <div class="flex gap-3 mt-6">
+            <button id="prev6" class="w-12 h-12 rounded-2xl glass hover:text-cyan transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="next6" class="w-12 h-12 rounded-2xl glass hover:text-cyan transition"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </section>
+
+        <section id="contact" class="reveal glass rounded-[2rem] p-7 md:p-8">
+          <p class="font-mono text-xs tracking-[0.35em] text-cyan mb-4">CONTACT</p>
+          <div class="grid gap-4">
+            <a href="mailto:hello@aitech.dev" class="flex justify-between rounded-2xl bg-white/5 p-4 hover:bg-white/8 transition"><span>Email</span><span class="text-text/55">hello@aitech.dev</span></a>
+            <a href="#" class="flex justify-between rounded-2xl bg-white/5 p-4 hover:bg-white/8 transition"><span>LinkedIn</span><span class="text-text/55">/in/aitech</span></a>
+            <a href="#" class="flex justify-between rounded-2xl bg-white/5 p-4 hover:bg-white/8 transition"><span>GitHub</span><span class="text-text/55">/aitech</span></a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menuBtn6').addEventListener('click', () => document.getElementById('mobileMenu6').classList.toggle('hidden'));
+    const observer6 = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer6.observe(el));
+    const testimonials6 = [
+      { text: "The dashboard-style presentation makes technical experience feel modern and credible.", name: "Rami K.", role: "CTO" },
+      { text: "Very clean, very readable, and tailored to AI and product roles.", name: "Nora F.", role: "Hiring Manager" },
+      { text: "The interface feels like a polished SaaS product instead of a standard resume.", name: "Adam P.", role: "Founder" }
+    ];
+    let i6 = 0;
+    function render6(){ document.getElementById('testimonial6').innerHTML = `<p class="text-lg md:text-xl leading-relaxed mb-5">"${testimonials6[i6].text}"</p><p class="font-bold">${testimonials6[i6].name}</p><p class="text-text/55">${testimonials6[i6].role}</p>`; }
+    document.getElementById('prev6').onclick = () => { i6 = (i6 - 1 + testimonials6.length) % testimonials6.length; render6(); };
+    document.getElementById('next6').onclick = () => { i6 = (i6 + 1) % testimonials6.length; render6(); };
+    render6();
+    setInterval(() => { i6 = (i6 + 1) % testimonials6.length; render6(); }, 5200);
+  </script>
+<div id="noahswitch-credit" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:.45rem .75rem;background:rgba(18,65,145,.92);color:#fff;font:600 11px/1.4 system-ui,sans-serif;text-align:center;pointer-events:none">Homepage concept by <strong style="font-weight:800">NoahSwitch</strong></div></body>
+</html>

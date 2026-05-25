@@ -7,6 +7,12 @@ import { ThemeShowcaseComponent } from './components/theme-showcase/theme-showca
 import { ContactComponent } from './components/contact/contact.component';
 import { SiteFooterComponent } from './components/site-footer/site-footer.component';
 import { NavigationService } from './services/navigation.service';
+import {
+  BEAUTY_PORTFOLIO_DEMOS,
+  BEAUTY_PORTFOLIO_SHOWCASE,
+  HOSPITALITY_DEMOS,
+  HOSPITALITY_SHOWCASE
+} from './data/site-content';
 
 @Component({
   selector: 'app-root',
@@ -27,8 +33,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   private readonly nav = inject(NavigationService);
   private observer?: IntersectionObserver;
 
+  readonly hospitalityShowcase = HOSPITALITY_SHOWCASE;
+  readonly hospitalityDemos = HOSPITALITY_DEMOS;
+  readonly beautyPortfolioShowcase = BEAUTY_PORTFOLIO_SHOWCASE;
+  readonly beautyPortfolioDemos = BEAUTY_PORTFOLIO_DEMOS;
+
   ngAfterViewInit(): void {
-    const sectionIds = ['top', 'about', 'services', 'themes', 'contact'];
+    const sectionIds = ['top', 'about', 'services', 'themes', 'portfolio', 'contact'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);
