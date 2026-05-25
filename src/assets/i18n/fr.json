@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "about": "À propos",
+    "services": "Services",
+    "themes": "Thèmes",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "getStarted": "Commencer"
+  },
+  "hero": {
+    "eyebrow": "Formation en technologie et services",
+    "title": "Innover dans la technologie",
+    "subtitle": "Une marque dynamique et visionnaire dédiée à établir de nouvelles normes et à repousser les frontières de la formation technologique et des services",
+    "buttons": {
+      "getStarted": "Commencer",
+      "hospitalityThemes": "Thèmes Hospitalité",
+      "beautyThemes": "Thèmes Barbier & Ongles"
+    },
+    "expertise": "Expertise",
+    "expertiseDesc": "Spécialistes en marque, digital et formation",
+    "forwardThinking": "Avant-gardiste",
+    "forwardThinkingDesc": "Concepts conçus pour les audiences et plateformes modernes",
+    "inclusivity": "Inclusivité",
+    "inclusivityDesc": "Solutions conçues pour autonomiser les équipes et les individus"
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "À propos de NoahSwitch",
+    "paragraph1": "NoahSwitch n'est pas seulement un fournisseur de formation technologique et de services ; c'est un mouvement qui aspire à un impact durable. Au cœur se trouve une équipe d'experts passionnés par leur métier et engagés envers l'excellence.",
+    "paragraph2": "Avec un engagement envers la transparence et une volonté de s'adapter, NoahSwitch évolue constamment, embrassant de nouveaux concepts alignés avec ses valeurs fondamentales d'expertise, de dédication, d'avant-gardisme et d'inclusivité."
+  },
+  "services": {
+    "eyebrow": "Ce que nous proposons",
+    "title": "Nos services",
+    "items": {
+      "strategy": {
+        "title": "Stratégie de marque",
+        "description": "Développer des stratégies de marque cohérentes qui résonnent avec votre audience cible"
+      },
+      "identity": {
+        "title": "Systèmes d'identité de marque",
+        "description": "Créer des identités de marque captivantes qui vous démarquent de la concurrence"
+      },
+      "content": {
+        "title": "Contenu de marque",
+        "description": "Créer du contenu captivant qui engage et inspire votre audience"
+      },
+      "concepts": {
+        "title": "Concepts créatifs",
+        "description": "Conceptualiser des solutions numériques innovantes pour les défis modernes"
+      },
+      "digital": {
+        "title": "Expertise numérique",
+        "description": "Développement de sites web, marketing et excellence en marketing international"
+      },
+      "training": {
+        "title": "Formation technologique",
+        "description": "Programmes de formation avant-gardiste pour autonomiser les individus et les organisations"
+      }
+    }
+  },
+  "themes": {
+    "eyebrow": "Hospitalité",
+    "title": "Thèmes Karaoke et restaurant",
+    "intro": "Explorez des concepts de pages d'accueil conçus pour les salles de karaoké et les restaurants. Parcourez une démo complète à la fois, puis ouvrez l'aperçu en direct dans un nouvel onglet."
+  },
+  "portfolio": {
+    "eyebrow": "Beauté et portfolio",
+    "title": "Thèmes Barbier, Ongles et Portfolio",
+    "intro": "Concepts de pages d'accueil pour barbiers, salons d'ongles et portfolios personnels ou d'agences. Même expérience de galerie — prévisualisez un thème à la fois ou ouvrez la page complète."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Nous contacter",
+    "info": {
+      "title": "Informations de contact",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "address": "Adresse",
+      "addressPlaceholder": "Votre adresse",
+      "phone": "Numéro de téléphone",
+      "phonePlaceholder": "+33 6 00 00 00 00",
+      "comments": "Commentaires",
+      "commentsPlaceholder": "Votre message...",
+      "submit": "Envoyer le message",
+      "sending": "Envoi…",
+      "successMessage": "Message envoyé avec succès. Merci !",
+      "note": "Vos informations sont envoyées de manière sécurisée via notre formulaire de contact.",
+      "errors": {
+        "nameRequired": "Le nom est requis.",
+        "emailRequired": "Entrez une adresse e-mail valide.",
+        "addressRequired": "L'adresse est requise."
+      },
+      "rateLimitError": "Vous pouvez envoyer un seul message tous les 3 minutes. Veuillez réessayer plus tard.",
+      "serverError": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} NoahSwitch. Tous droits réservés.",
+    "tagline": "Autonomiser les individus et les organisations pour libérer tout leur potentiel"
+  }
+}

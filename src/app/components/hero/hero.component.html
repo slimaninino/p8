@@ -2,37 +2,36 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="section-inner hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow">Technology Training &amp; Services</p>
+      <p class="eyebrow">{{ i18n.t('hero.eyebrow', 'Technology Training & Services') }}</p>
       <img [src]="logoHero" alt="NoahSwitch" class="hero-logo" />
-      <h1 class="hero-title">Driving Innovation in Technology</h1>
+      <h1 class="hero-title">{{ i18n.t('hero.title', 'Driving Innovation in Technology') }}</h1>
       <p class="hero-subtitle">
-        A dynamic and forward-thinking brand dedicated to setting new standards
-        and pushing boundaries in technology training and services
+        {{ i18n.t('hero.subtitle', 'A dynamic and forward-thinking brand dedicated to setting new standards and pushing boundaries in technology training and services') }}
       </p>
       <div class="hero-actions">
         <button type="button" class="btn btn-primary" (click)="nav.scrollToContact()">
-          Get Started
+          {{ i18n.t('hero.buttons.getStarted', 'Get Started') }}
         </button>
         <button type="button" class="btn btn-secondary" (click)="nav.scrollToSection('themes')">
-          Hospitality Themes
+          {{ i18n.t('hero.buttons.hospitalityThemes', 'Hospitality Themes') }}
         </button>
         <button type="button" class="btn btn-secondary" (click)="nav.scrollToSection('portfolio')">
-          Barber &amp; Nail Themes
+          {{ i18n.t('hero.buttons.beautyThemes', 'Barber & Nail Themes') }}
         </button>
       </div>
     </div>
     <aside class="hero-panel" aria-label="Core values">
       <div class="hero-stat">
-        <strong>Expertise</strong>
-        <span>Specialists across brand, digital, and training</span>
+        <strong>{{ i18n.t('hero.expertise', 'Expertise') }}</strong>
+        <span>{{ i18n.t('hero.expertiseDesc', 'Specialists across brand, digital, and training') }}</span>
       </div>
       <div class="hero-stat">
-        <strong>Forward-thinking</strong>
-        <span>Concepts built for modern audiences and platforms</span>
+        <strong>{{ i18n.t('hero.forwardThinking', 'Forward-thinking') }}</strong>
+        <span>{{ i18n.t('hero.forwardThinkingDesc', 'Concepts built for modern audiences and platforms') }}</span>
       </div>
       <div class="hero-stat">
-        <strong>Inclusivity</strong>
-        <span>Solutions designed to empower teams and individuals</span>
+        <strong>{{ i18n.t('hero.inclusivity', 'Inclusivity') }}</strong>
+        <span>{{ i18n.t('hero.inclusivityDesc', 'Solutions designed to empower teams and individuals') }}</span>
       </div>
     </aside>
   </div>

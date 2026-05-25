@@ -6,9 +6,9 @@
   <div class="section-inner">
     <header class="section-head section-head--themes">
       <div>
-        <p class="eyebrow">{{ config.eyebrow }}</p>
-        <h2 class="section-title">{{ config.title }}</h2>
-        <p class="section-lead themes-intro">{{ config.intro }}</p>
+        <p class="eyebrow">{{ i18n.t(config.sectionId === 'themes' ? 'themes.eyebrow' : 'portfolio.eyebrow', config.eyebrow) }}</p>
+        <h2 class="section-title">{{ i18n.t(config.sectionId === 'themes' ? 'themes.title' : 'portfolio.title', config.title) }}</h2>
+        <p class="section-lead themes-intro">{{ i18n.t(config.sectionId === 'themes' ? 'themes.intro' : 'portfolio.intro', config.intro) }}</p>
       </div>
       <div class="themes-meta">
         <span class="themes-count">{{ demos.length }} concepts</span>

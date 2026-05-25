@@ -1,8 +1,8 @@
 <section id="services" class="services section">
   <div class="section-inner">
     <header class="section-head">
-      <p class="eyebrow">What we offer</p>
-      <h2 class="section-title">Our Services</h2>
+      <p class="eyebrow">{{ i18n.t('services.eyebrow', 'What we offer') }}</p>
+      <h2 class="section-title">{{ i18n.t('services.title', 'Our Services') }}</h2>
     </header>
     <div class="services-grid">
       @for (service of services; track service.title) {
@@ -48,8 +48,8 @@
               }
             }
           </div>
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
+          <h3>{{ i18n.t('services.items.' + service.icon + '.title', service.title) }}</h3>
+          <p>{{ i18n.t('services.items.' + service.icon + '.description', service.description) }}</p>
         </article>
       }
     </div>

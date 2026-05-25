@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ThemeDemo, ThemeShowcaseConfig } from '../../data/site-content';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-theme-showcase',
@@ -17,6 +18,7 @@ import { ThemeDemo, ThemeShowcaseConfig } from '../../data/site-content';
 })
 export class ThemeShowcaseComponent implements OnInit, OnChanges {
   private readonly sanitizer = inject(DomSanitizer);
+  readonly i18n = inject(I18nService);
 
   @Input({ required: true }) config!: ThemeShowcaseConfig;
   @Input({ required: true }) demos: ThemeDemo[] = [];

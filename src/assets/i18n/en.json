@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "themes": "Themes",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "eyebrow": "Technology Training & Services",
+    "title": "Driving Innovation in Technology",
+    "subtitle": "A dynamic and forward-thinking brand dedicated to setting new standards and pushing boundaries in technology training and services",
+    "buttons": {
+      "getStarted": "Get Started",
+      "hospitalityThemes": "Hospitality Themes",
+      "beautyThemes": "Barber & Nail Themes"
+    },
+    "expertise": "Expertise",
+    "expertiseDesc": "Specialists across brand, digital, and training",
+    "forwardThinking": "Forward-thinking",
+    "forwardThinkingDesc": "Concepts built for modern audiences and platforms",
+    "inclusivity": "Inclusivity",
+    "inclusivityDesc": "Solutions designed to empower teams and individuals"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "About NoahSwitch",
+    "paragraph1": "NoahSwitch is more than just a provider of technology training and services; it is a movement that aspires to make a lasting impact. At the core lies a team of experts who are passionate about their craft and committed to excellence.",
+    "paragraph2": "With a commitment to transparency and a willingness to adapt, NoahSwitch is constantly evolving, embracing new concepts that align with its core values of expertise, dedication, forward-thinking, and inclusivity."
+  },
+  "services": {
+    "eyebrow": "What we offer",
+    "title": "Our Services",
+    "items": {
+      "strategy": {
+        "title": "Brand Strategy",
+        "description": "Developing cohesive branding strategies that resonate with your target audience"
+      },
+      "identity": {
+        "title": "Brand ID Systems",
+        "description": "Crafting compelling brand identities that set you apart from the competition"
+      },
+      "content": {
+        "title": "Brand Content",
+        "description": "Creating captivating content that engages and inspires your audience"
+      },
+      "concepts": {
+        "title": "Creative Concepts",
+        "description": "Conceptualizing innovative digital solutions for modern challenges"
+      },
+      "digital": {
+        "title": "Digital Expertise",
+        "description": "Website development, marketing, and international marketing excellence"
+      },
+      "training": {
+        "title": "Technology Training",
+        "description": "Cutting-edge training programs to empower individuals and organizations"
+      }
+    }
+  },
+  "themes": {
+    "eyebrow": "Hospitality",
+    "title": "Karaoke & Restaurant Themes",
+    "intro": "Explore homepage concepts crafted for karaoke venues and restaurants. Browse one full demo at a time, then open the live preview in a new tab."
+  },
+  "portfolio": {
+    "eyebrow": "Beauty & Portfolio",
+    "title": "Barber, Nail & Portfolio Themes",
+    "intro": "Homepage concepts for barbershops, nail salons, and personal or agency portfolios. Same showcase experience — preview one theme at a time or open the full page."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get In Touch",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "name": "Name",
+      "namePlaceholder": "Your Name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "address": "Address",
+      "addressPlaceholder": "Your address",
+      "phone": "Phone number",
+      "phonePlaceholder": "+33 6 00 00 00 00",
+      "comments": "Comments",
+      "commentsPlaceholder": "Your message...",
+      "submit": "Send Message",
+      "sending": "Sending…",
+      "successMessage": "Message sent successfully. Thank you!",
+      "note": "Your details are sent securely via our contact form.",
+      "errors": {
+        "nameRequired": "Name is required.",
+        "emailRequired": "Enter a valid email address.",
+        "addressRequired": "Address is required."
+      },
+      "rateLimitError": "You can send only one message every 3 minutes. Please try again later.",
+      "serverError": "An error occurred. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} NoahSwitch. All rights reserved.",
+    "tagline": "Empowering individuals and organizations to unlock their full potential"
+  }
+}

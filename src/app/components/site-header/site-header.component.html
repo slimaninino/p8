@@ -26,12 +26,14 @@
         [href]="'#' + section"
         [class.active]="nav.isActive(section)"
         (click)="nav.scrollToSection(section); $event.preventDefault()"
-      >{{ section | titlecase }}</a>
+      >{{ i18n.t('nav.' + section, section | titlecase) }}</a>
     }
     <a
       class="nav-cta"
       href="#contact"
       (click)="nav.scrollToContact(); $event.preventDefault()"
-    >Get Started</a>
+    >{{ i18n.t('nav.getStarted', 'Get Started') }}</a>
   </nav>
+
+  <app-language-switcher />
 </header>

@@ -1,0 +1,37 @@
+<div class="language-switcher">
+  <button
+    type="button"
+    class="language-button"
+    [attr.aria-expanded]="dropdownOpen"
+    aria-controls="language-menu"
+    aria-label="Select language"
+    (click)="toggleDropdown()"
+  >
+    <span class="language-label">{{ currentLanguage() | uppercase }}</span>
+    <svg class="language-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+
+  @if (dropdownOpen) {
+    <div
+      id="language-menu"
+      class="language-menu"
+      role="menu"
+      (click)="closeDropdown()"
+    >
+      @for (lang of supportedLanguages; track lang) {
+        <button
+          type="button"
+          class="language-option"
+          [class.active]="currentLanguage() === lang"
+          [attr.aria-selected]="currentLanguage() === lang"
+          role="menuitem"
+          (click)="setLanguage(lang); $event.stopPropagation()"
+        >
+          {{ getLanguageLabel(lang) }}
+        </button>
+      }
+    </div>
+  }
+</div>

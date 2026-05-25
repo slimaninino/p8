@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "about": "Rólunk",
+    "services": "Szolgáltatások",
+    "themes": "Témák",
+    "portfolio": "Portfólió",
+    "contact": "Kapcsolat",
+    "getStarted": "Kezdés"
+  },
+  "hero": {
+    "eyebrow": "Technológiai képzés és szolgáltatások",
+    "title": "Innováció a technológiában",
+    "subtitle": "Egy dinamikus és előrelátó márka, amely új szabványok felállítására és a technológiai képzés és szolgáltatások határainak kiterjesztésére törekszik",
+    "buttons": {
+      "getStarted": "Kezdés",
+      "hospitalityThemes": "Vendéglátási témák",
+      "beautyThemes": "Borbély és köröm témák"
+    },
+    "expertise": "Szakértelem",
+    "expertiseDesc": "Szakértők márkázás, digitális és képzés területén",
+    "forwardThinking": "Előrelátó",
+    "forwardThinkingDesc": "Koncepciók a modern közönség és platformok számára",
+    "inclusivity": "Inkluzivitás",
+    "inclusivityDesc": "Megoldások, amelyek erősítik a csapatokat és egyéneket"
+  },
+  "about": {
+    "eyebrow": "Rólunk",
+    "title": "A NoahSwitch-ről",
+    "paragraph1": "A NoahSwitch nem csupán egy technológiai képzési és szolgáltatási szolgáltató; ez egy mozgalom, amely egy maradandó hatást célez. A magja egy olyan csapat, akik szenvedéllyel művelik az их szakmájukat és elkötelezetten törekednek a kiválóságra.",
+    "paragraph2": "Az átláthatóság iránti elkötelezettség és az alkalmazkodás iránti hajlandóság mellett a NoahSwitch folyamatosan fejlődik, új koncepciók elfogadásával, amelyek összhangban vannak alapvető értékeivel: szakértelem, dedikáció, előrelátás és inkluzivitás."
+  },
+  "services": {
+    "eyebrow": "Mit kínálunk",
+    "title": "Szolgáltatásaink",
+    "items": {
+      "strategy": {
+        "title": "Márkastratégia",
+        "description": "Koherens márkastratégiák fejlesztése, amely rezonál a célközönségével"
+      },
+      "identity": {
+        "title": "Márkaazonosság rendszerek",
+        "description": "Lenyűgöző márkaazonosságok létrehozása, amely megkülönbözteti Önt a konkurenciától"
+      },
+      "content": {
+        "title": "Márkatalalom",
+        "description": "Lenyűgöző tartalom létrehozása, amely bevonzza és inspirálja közönségét"
+      },
+      "concepts": {
+        "title": "Kreatív koncepciók",
+        "description": "Innovatív digitális megoldások koncepcionálása a modern kihívásokra"
+      },
+      "digital": {
+        "title": "Digitális szakértelem",
+        "description": "Weboldalfejlesztés, marketing és nemzetközi marketing kiválóság"
+      },
+      "training": {
+        "title": "Technológiai képzés",
+        "description": "Korszerű képzési programok az egyének és szervezetek erősítésére"
+      }
+    }
+  },
+  "themes": {
+    "eyebrow": "Vendéglátás",
+    "title": "Karaoke és étterem témák",
+    "intro": "Fedezze fel a karaokebárokhoz és étteremhez tervezett kezdőlap koncepciók. Egyszerre böngésszen egy teljes demó között, majd nyissa meg az élő előnézetet egy új lapfülön."
+  },
+  "portfolio": {
+    "eyebrow": "Szépség és portfólió",
+    "title": "Borbély, köröm és portfólió témák",
+    "intro": "Kezdőlap koncepciók borbélyokhoz, köröm szalonokhoz és személyes vagy ügynökség portfóliókhoz. Ugyanez a galéria élmény — tekintsen meg egy téma egy időben, vagy nyissa meg a teljes oldalt."
+  },
+  "contact": {
+    "eyebrow": "Kapcsolat",
+    "title": "Lépjen kapcsolatba velünk",
+    "info": {
+      "title": "Kapcsolattartási információ",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    },
+    "form": {
+      "title": "Küldjön nekünk üzenetet",
+      "name": "Név",
+      "namePlaceholder": "Az Ön neve",
+      "email": "Email",
+      "emailPlaceholder": "az@ön.email",
+      "address": "Cím",
+      "addressPlaceholder": "Az Ön címe",
+      "phone": "Telefonszám",
+      "phonePlaceholder": "+33 6 00 00 00 00",
+      "comments": "Megjegyzések",
+      "commentsPlaceholder": "Az Ön üzenete...",
+      "submit": "Üzenet küldése",
+      "sending": "Küldés…",
+      "successMessage": "Üzenet sikeresen elküldve. Köszönjük!",
+      "note": "Adatai biztonságosan kerülnek elküldésre kapcsolati formunkon keresztül.",
+      "errors": {
+        "nameRequired": "A név megadása kötelező.",
+        "emailRequired": "Adjon meg egy érvényes e-mail címet.",
+        "addressRequired": "A cím megadása kötelező."
+      },
+      "rateLimitError": "Csak egy üzenetet küldhet 3 percenként. Kérjük, próbálkozzon később.",
+      "serverError": "Hiba történt. Kérjük, próbálkozzon később."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} NoahSwitch. Minden jog fenntartva.",
+    "tagline": "Az egyének és szervezetek teljes potenciáljának felszabadítása"
+  }
+}

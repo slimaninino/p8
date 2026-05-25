@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SERVICES } from '../../data/site-content';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-services',
@@ -8,4 +9,5 @@ import { SERVICES } from '../../data/site-content';
 })
 export class ServicesComponent {
   readonly services = SERVICES;
+  readonly i18n = inject(I18nService);
 }

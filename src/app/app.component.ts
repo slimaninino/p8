@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, inject, OnDestroy, effect } from '@angular/core';
 import { SiteHeaderComponent } from './components/site-header/site-header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
@@ -7,6 +7,7 @@ import { ThemeShowcaseComponent } from './components/theme-showcase/theme-showca
 import { ContactComponent } from './components/contact/contact.component';
 import { SiteFooterComponent } from './components/site-footer/site-footer.component';
 import { NavigationService } from './services/navigation.service';
+import { I18nService } from './services/i18n.service';
 import {
   BEAUTY_PORTFOLIO_DEMOS,
   BEAUTY_PORTFOLIO_SHOWCASE,
@@ -31,12 +32,18 @@ import {
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
   private readonly nav = inject(NavigationService);
+  private readonly i18n = inject(I18nService);
   private observer?: IntersectionObserver;
 
   readonly hospitalityShowcase = HOSPITALITY_SHOWCASE;
   readonly hospitalityDemos = HOSPITALITY_DEMOS;
   readonly beautyPortfolioShowcase = BEAUTY_PORTFOLIO_SHOWCASE;
   readonly beautyPortfolioDemos = BEAUTY_PORTFOLIO_DEMOS;
+
+  constructor() {
+    // Initialize i18n service
+    this.i18n.init().catch(error => console.error('Failed to initialize i18n:', error));
+  }
 
   ngAfterViewInit(): void {
     const sectionIds = ['top', 'about', 'services', 'themes', 'portfolio', 'contact'];
