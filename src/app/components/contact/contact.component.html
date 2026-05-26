@@ -73,8 +73,12 @@
         </h3>
 
         <form
+          #contactForm
           class="contact-form"
           [formGroup]="form"
+          [action]="googleFormAction"
+          method="POST"
+          target="hidden_iframe"
           (ngSubmit)="onSubmit()"
           novalidate
         >
@@ -89,6 +93,7 @@
               id="contact-name"
               type="text"
               formControlName="name"
+              name="entry.2005620554"
               [placeholder]="i18n.t('contact.form.namePlaceholder', 'Your Name')"
               autocomplete="name"
             />
@@ -111,6 +116,7 @@
               id="contact-email"
               type="email"
               formControlName="email"
+              name="entry.1045781291"
               [placeholder]="i18n.t('contact.form.emailPlaceholder', 'your@email.com')"
               autocomplete="email"
             />
@@ -133,6 +139,7 @@
               id="contact-address"
               rows="3"
               formControlName="address"
+              name="entry.1065046570"
               [placeholder]="i18n.t('contact.form.addressPlaceholder', 'Your address')"
               autocomplete="street-address"
             ></textarea>
@@ -155,6 +162,7 @@
               id="contact-phone"
               type="tel"
               formControlName="phone"
+              name="entry.1166974658"
               [placeholder]="i18n.t('contact.form.phonePlaceholder', '+33 6 00 00 00 00')"
               autocomplete="tel"
             />
@@ -171,6 +179,7 @@
               id="contact-comments"
               rows="5"
               formControlName="comments"
+              name="entry.839337160"
               [placeholder]="i18n.t('contact.form.commentsPlaceholder', 'Your message...')"
             ></textarea>
 
@@ -199,12 +208,6 @@
             </p>
           }
 
-          @if (errorMessage) {
-            <p class="form-error" role="alert">
-              {{ errorMessage }}
-            </p>
-          }
-
           <p class="form-note">
             {{
               i18n.t(
@@ -215,6 +218,15 @@
           </p>
 
         </form>
+
+        <iframe
+          name="hidden_iframe"
+          class="hidden-iframe"
+          title="Form submission"
+          tabindex="-1"
+          aria-hidden="true"
+        ></iframe>
+
       </div>
     </div>
   </div>
