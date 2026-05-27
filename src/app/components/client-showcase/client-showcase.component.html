@@ -1,4 +1,3 @@
-<!-- src/app/components/client-showcase/client-showcase.component.html -->
 <section id="clients" class="themes section themes--clients">
   <div class="section-inner">
 
@@ -28,26 +27,20 @@
             </div>
             <div class="showcase-actions">
               <span class="showcase-badge">{{ activeDemo.category }}</span>
-              
-                class="btn btn-ghost"
-                [href]="activeDemo.url"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open live site ↗
-              </a>
+              <a class="btn btn-ghost"
+                 [href]="activeDemo.url"
+                 target="_blank"
+                 rel="noopener noreferrer">Open live site &#8599;</a>
             </div>
           </div>
 
           <div class="showcase-stage-wrap">
             <div class="showcase-stage">
 
-              <button
-                type="button"
-                class="showcase-arrow showcase-arrow--prev"
-                aria-label="Previous client site"
-                (click)="prevDemo()"
-              >
+              <button type="button"
+                      class="showcase-arrow showcase-arrow--prev"
+                      aria-label="Previous client site"
+                      (click)="prevDemo()">
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
                   <path d="M14 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -60,27 +53,23 @@
                 </div>
                 <div class="showcase-viewport">
                   @if (isDemoLoaded(activeDemoIndex)) {
-                    <iframe
-                      [src]="demoUrls[activeDemoIndex]"
-                      [title]="activeDemo.title + ' live website preview'"
-                      loading="lazy"
-                      referrerpolicy="no-referrer"
-                    ></iframe>
+                    <iframe [src]="demoUrls[activeDemoIndex]"
+                            [title]="activeDemo.title + ' live website preview'"
+                            loading="lazy"
+                            referrerpolicy="no-referrer"></iframe>
                   } @else {
                     <div class="showcase-loading" role="status">
                       <span class="showcase-loading-spinner"></span>
-                      Loading preview…
+                      Loading preview...
                     </div>
                   }
                 </div>
               </div>
 
-              <button
-                type="button"
-                class="showcase-arrow showcase-arrow--next"
-                aria-label="Next client site"
-                (click)="nextDemo()"
-              >
+              <button type="button"
+                      class="showcase-arrow showcase-arrow--next"
+                      aria-label="Next client site"
+                      (click)="nextDemo()">
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
                   <path d="M10 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -90,26 +79,25 @@
 
             <div class="showcase-footer">
               <button type="button" class="showcase-nav-btn" (click)="prevDemo()">
-                ← Previous
+                &larr; Previous
               </button>
               <div class="showcase-progress-wrap" aria-label="Client progress">
                 <div class="showcase-progress-track">
-                  <div
-                    class="showcase-progress-fill"
-                    [style.width.%]="progressPercent"
-                    [style.background]="'linear-gradient(90deg, ' + activeDemo.accent + ', var(--brand-accent))'"
-                  ></div>
+                  <div class="showcase-progress-fill"
+                       [style.width.%]="progressPercent"
+                       [style.background]="'linear-gradient(90deg, ' + activeDemo.accent + ', var(--brand-accent))'">
+                  </div>
                 </div>
                 <span class="showcase-progress-text">
                   {{ activeDemoIndex + 1 }} / {{ demos.length }}
                 </span>
               </div>
               <button type="button" class="showcase-nav-btn" (click)="nextDemo()">
-                Next →
+                Next &rarr;
               </button>
             </div>
 
-            <p class="showcase-hint">Tip: use ← → arrow keys to browse clients</p>
+            <p class="showcase-hint">Tip: use &larr; &rarr; arrow keys to browse clients</p>
           </div>
 
         </article>
@@ -119,18 +107,14 @@
         <p class="sidebar-label">All clients</p>
         <div class="theme-list">
           @for (demo of demos; track demo.url; let i = $index) {
-            <button
-              type="button"
-              class="theme-item"
-              [class.active]="i === activeDemoIndex"
-              [style.--item-accent]="demo.accent"
-              (click)="selectDemo(i)"
-            >
-              <span
-                class="theme-thumb"
-                [style.background]="'linear-gradient(145deg, ' + demo.accent + ' 0%, rgba(255,255,255,.94) 72%)'"
-                aria-hidden="true"
-              >
+            <button type="button"
+                    class="theme-item"
+                    [class.active]="i === activeDemoIndex"
+                    [style.--item-accent]="demo.accent"
+                    (click)="selectDemo(i)">
+              <span class="theme-thumb"
+                    [style.background]="'linear-gradient(145deg, ' + demo.accent + ' 0%, rgba(255,255,255,.94) 72%)'"
+                    aria-hidden="true">
                 <span class="theme-thumb-label">{{ demo.id }}</span>
               </span>
               <span class="theme-item-copy">
