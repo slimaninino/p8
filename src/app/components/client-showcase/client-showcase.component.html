@@ -45,7 +45,7 @@
               <button
                 type="button"
                 class="showcase-arrow showcase-arrow--prev"
-                [attr.aria-label]="'Previous client site'"
+                aria-label="Previous client site"
                 (click)="prevDemo()"
               >
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -66,13 +66,6 @@
                       loading="lazy"
                       referrerpolicy="no-referrer"
                     ></iframe>
-                    <!-- Fallback overlay — shown if the site blocks iframes via X-Frame-Options -->
-                    <div class="iframe-blocked-overlay">
-                      <p>Preview blocked by the site's security policy.</p>
-                      <a [href]="activeDemo.url" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-                        Open {{ activeDemo.title }} ↗
-                      </a>
-                    </div>
                   } @else {
                     <div class="showcase-loading" role="status">
                       <span class="showcase-loading-spinner"></span>
@@ -85,17 +78,20 @@
               <button
                 type="button"
                 class="showcase-arrow showcase-arrow--next"
-                [attr.aria-label]="'Next client site'"
+                aria-label="Next client site"
                 (click)="nextDemo()"
               >
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
                   <path d="M10 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
+
             </div>
 
             <div class="showcase-footer">
-              <button type="button" class="showcase-nav-btn" (click)="prevDemo()">← Previous</button>
+              <button type="button" class="showcase-nav-btn" (click)="prevDemo()">
+                ← Previous
+              </button>
               <div class="showcase-progress-wrap" aria-label="Client progress">
                 <div class="showcase-progress-track">
                   <div
@@ -104,17 +100,21 @@
                     [style.background]="'linear-gradient(90deg, ' + activeDemo.accent + ', var(--brand-accent))'"
                   ></div>
                 </div>
-                <span class="showcase-progress-text">{{ activeDemoIndex + 1 }} / {{ demos.length }}</span>
+                <span class="showcase-progress-text">
+                  {{ activeDemoIndex + 1 }} / {{ demos.length }}
+                </span>
               </div>
-              <button type="button" class="showcase-nav-btn" (click)="nextDemo()">Next →</button>
+              <button type="button" class="showcase-nav-btn" (click)="nextDemo()">
+                Next →
+              </button>
             </div>
+
             <p class="showcase-hint">Tip: use ← → arrow keys to browse clients</p>
           </div>
 
         </article>
       </div>
 
-      <!-- Sidebar -->
       <aside class="showcase-sidebar" aria-label="Client list">
         <p class="sidebar-label">All clients</p>
         <div class="theme-list">
@@ -141,7 +141,7 @@
           }
         </div>
       </aside>
-    </div>
 
+    </div>
   </div>
 </section>
