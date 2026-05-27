@@ -69,6 +69,44 @@
     "title": "Thèmes Barbier, Ongles et Portfolio",
     "intro": "Concepts de pages d'accueil pour barbiers, salons d'ongles et portfolios personnels ou d'agences. Même expérience de galerie — prévisualisez un thème à la fois ou ouvrez la page complète."
   },
+  "pricing": {
+    "eyebrow": "Tarifs",
+    "title": "Des tarifs simples et transparents",
+    "intro": "Lancez votre présence en ligne professionnelle dès aujourd'hui. Choisissez la formule adaptée à vos besoins — ou contactez-nous pour une solution sur mesure.",
+    "nichesNote": "Idéal pour les barbiers, salons d'ongles, restaurants, marques personnelles et portfolios.",
+    "basic": {
+      "badge": "Le plus populaire",
+      "title": "Site Web Essentiel",
+      "subtitle": "Un site vitrine performant et soigné — tout ce qu'il faut pour paraître professionnel en ligne.",
+      "priceSuffix": "prix fixe / paiement unique",
+      "features": {
+        "businessDetails": "Informations, horaires & localisation",
+        "contactForm": "Formulaire de contact fonctionnel",
+        "sections": "Toutes les sections standard (hero, à propos, services, contact)",
+        "responsive": "100 % responsive — mobile, tablette & bureau",
+        "seo": "Structure SEO & balises meta optimisées",
+        "layout": "Design propre, moderne et personnalisé",
+        "domain": "Nom de domaine offert — cadeau de notre part !"
+      },
+      "emailNote": "Remarque : La configuration d'un fournisseur d'e-mail n'est pas incluse dans ce tarif. Le coût dépend de votre registraire de domaine et des fonctionnalités e-mail souhaitées (boîtes personnalisées, alias, redirection…).",
+      "cta": "Commencer — Lancez votre site"
+    },
+    "custom": {
+      "title": "Site Web Sur Mesure",
+      "subtitle": "Des ambitions plus grandes ? Nous créons des solutions complexes adaptées à vos besoins précis.",
+      "priceLabel": "Sur devis",
+      "features": {
+        "extraFeatures": "Fonctionnalités avancées et personnalisées",
+        "integrations": "Intégrations API & outils tiers",
+        "automation": "Réservation, paiements & automatisation",
+        "thirdParty": "CRM, analytics & marketing",
+        "advanced": "Multi-langues, multi-pages, e-commerce",
+        "dedicated": "Suivi de projet dédié & support"
+      },
+      "note": "Pour des fonctionnalités avancées, des intégrations et des besoins spécifiques, nous établissons un devis personnalisé.",
+      "cta": "Contactez-nous pour un devis"
+    }
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "Nous contacter",

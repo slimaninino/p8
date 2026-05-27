@@ -1,0 +1,81 @@
+<!-- src/app/components/pricing/pricing.component.html -->
+<section id="pricing" class="pricing-section">
+
+  <div class="pricing-inner">
+    <!-- Eyebrow + heading -->
+    <p class="eyebrow">{{ i18n.t('pricing.eyebrow') }}</p>
+    <h2 class="section-title">{{ i18n.t('pricing.title') }}</h2>
+    <p class="section-intro">{{ i18n.t('pricing.intro') }}</p>
+
+    <div class="cards">
+
+      <!-- ── BASIC CARD ─────────────────────────────────────── -->
+      <div class="card card--basic">
+        <div class="card-badge">{{ i18n.t('pricing.basic.badge') }}</div>
+
+        <div class="card-head">
+          <span class="card-icon">������</span>
+          <h3 class="card-title">{{ i18n.t('pricing.basic.title') }}</h3>
+          <p class="card-subtitle">{{ i18n.t('pricing.basic.subtitle') }}</p>
+        </div>
+
+        <div class="card-price">
+          <span class="price-amount">{{ price }}</span>
+          <span class="price-label">{{ i18n.t('pricing.basic.priceSuffix') }}</span>
+        </div>
+
+        <ul class="feature-list">
+          <li>✓ {{ i18n.t('pricing.basic.features.businessDetails') }}</li>
+          <li>✓ {{ i18n.t('pricing.basic.features.contactForm') }}</li>
+          <li>✓ {{ i18n.t('pricing.basic.features.sections') }}</li>
+          <li>✓ {{ i18n.t('pricing.basic.features.responsive') }}</li>
+          <li>✓ {{ i18n.t('pricing.basic.features.seo') }}</li>
+          <li>✓ {{ i18n.t('pricing.basic.features.layout') }}</li>
+          <li class="feature-gift">������ {{ i18n.t('pricing.basic.features.domain') }}</li>
+        </ul>
+
+        <p class="email-note">
+          <span class="note-icon">ℹ️</span>
+          {{ i18n.t('pricing.basic.emailNote') }}
+        </p>
+
+        <button class="btn btn--primary" (click)="goToContact()">
+          {{ i18n.t('pricing.basic.cta') }}
+        </button>
+      </div>
+
+      <!-- ── CUSTOM CARD ────────────────────────────────────── -->
+      <div class="card card--custom">
+        <div class="card-head">
+          <span class="card-icon">⚡</span>
+          <h3 class="card-title">{{ i18n.t('pricing.custom.title') }}</h3>
+          <p class="card-subtitle">{{ i18n.t('pricing.custom.subtitle') }}</p>
+        </div>
+
+        <div class="card-price">
+          <span class="price-amount price-amount--custom">{{ i18n.t('pricing.custom.priceLabel') }}</span>
+        </div>
+
+        <ul class="feature-list">
+          <li>✓ {{ i18n.t('pricing.custom.features.extraFeatures') }}</li>
+          <li>✓ {{ i18n.t('pricing.custom.features.integrations') }}</li>
+          <li>✓ {{ i18n.t('pricing.custom.features.automation') }}</li>
+          <li>✓ {{ i18n.t('pricing.custom.features.thirdParty') }}</li>
+          <li>✓ {{ i18n.t('pricing.custom.features.advanced') }}</li>
+          <li>✓ {{ i18n.t('pricing.custom.features.dedicated') }}</li>
+        </ul>
+
+        <p class="custom-note">{{ i18n.t('pricing.custom.note') }}</p>
+
+        <button class="btn btn--outline" (click)="goToContact()">
+          {{ i18n.t('pricing.custom.cta') }}
+        </button>
+      </div>
+
+    </div><!-- /cards -->
+
+    <!-- Barber / Nail / Restaurant / Portfolio mention -->
+    <p class="niches-note">{{ i18n.t('pricing.nichesNote') }}</p>
+
+  </div>
+</section>

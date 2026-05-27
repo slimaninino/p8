@@ -69,6 +69,44 @@
     "title": "Borbély, köröm és portfólió témák",
     "intro": "Kezdőlap koncepciók borbélyokhoz, köröm szalonokhoz és személyes vagy ügynökség portfóliókhoz. Ugyanez a galéria élmény — tekintsen meg egy téma egy időben, vagy nyissa meg a teljes oldalt."
   },
+  "pricing": {
+    "eyebrow": "Árak",
+    "title": "Egyszerű, átlátható árazás",
+    "intro": "Indítsa el professzionális online jelenlétét még ma. Válassza az igényeinek megfelelő csomagot — vagy keressen minket egyedi megoldásért.",
+    "nichesNote": "Tökéletes borbélyoknak, körömszalonoknak, éttermeknek, személyes márkáknak és portfólió oldalaknak.",
+    "basic": {
+      "badge": "Legnépszerűbb",
+      "title": "Alap Weboldal",
+      "subtitle": "Igényes, gyors statikus üzleti weboldal — minden, ami kell a professzionális online megjelenéshez.",
+      "priceSuffix": "fix ár / egyszeri díj",
+      "features": {
+        "businessDetails": "Céginformáció, nyitvatartás és elérhetőség",
+        "contactForm": "Működő kapcsolatfelvételi űrlap",
+        "sections": "Összes alap szekció (hero, rólunk, szolgáltatások, kapcsolat)",
+        "responsive": "Teljesen reszponzív — mobil, tablet és asztali",
+        "seo": "SEO-barát struktúra és meta tagek",
+        "layout": "Letisztult, modern és egyedi dizájn",
+        "domain": "Ingyenes domainév — ajándék tőlünk!"
+      },
+      "emailNote": "Megjegyzés: Az e-mail szolgáltató beállítása nem szerepel az árban. A költség a domain regisztrátortól és a kért e-mail funkcióktól függ (pl. egyéni postaládák, alias, továbbítás).",
+      "cta": "Kezdés — Igénylje weboldálát"
+    },
+    "custom": {
+      "title": "Egyedi Weboldal",
+      "subtitle": "Nagyobb céljai vannak? Komplex megoldásokat építünk pontosan az Ön igényei szerint.",
+      "priceLabel": "Árajánlat alapján",
+      "features": {
+        "extraFeatures": "Speciális, egyedi funkciók",
+        "integrations": "Harmadik féltől származó API és eszközintegrációk",
+        "automation": "Foglalási rendszer, fizetés és automatizálás",
+        "thirdParty": "CRM, analitika és marketing platformok",
+        "advanced": "Többnyelvű, többoldalas, e-kereskedelmi megoldások",
+        "dedicated": "Dedikált projektmenedzsment és támogatás"
+      },
+      "note": "Speciális funkciókhoz, integrációkhoz és egyedi igényekhez személyre szabott árajánlatot adunk.",
+      "cta": "Egyedi árajánlatot kérek"
+    }
+  },
   "contact": {
     "eyebrow": "Kapcsolat",
     "title": "Lépjen kapcsolatba velünk",

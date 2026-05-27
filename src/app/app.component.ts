@@ -4,6 +4,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ThemeShowcaseComponent } from './components/theme-showcase/theme-showcase.component';
+import { PricingComponent } from './components/pricing/pricing.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SiteFooterComponent } from './components/site-footer/site-footer.component';
 import { NavigationService } from './services/navigation.service';
@@ -24,6 +25,7 @@ import {
     AboutComponent,
     ServicesComponent,
     ThemeShowcaseComponent,
+    PricingComponent,
     ContactComponent,
     SiteFooterComponent
   ],
@@ -46,7 +48,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    const sectionIds = ['top', 'about', 'services', 'themes', 'portfolio', 'contact'];
+    const sectionIds = ['top', 'about', 'services', 'themes', 'portfolio', 'pricing', 'contact'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);

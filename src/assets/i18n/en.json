@@ -69,6 +69,44 @@
     "title": "Barber, Nail & Portfolio Themes",
     "intro": "Homepage concepts for barbershops, nail salons, and personal or agency portfolios. Same showcase experience — preview one theme at a time or open the full page."
   },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Simple, Transparent Pricing",
+    "intro": "Launch your professional online presence today. Choose the package that fits your needs — or reach out for something fully tailored.",
+    "nichesNote": "Perfect for barber shops, nail salons, restaurants, personal brands, and portfolio sites.",
+    "basic": {
+      "badge": "Most Popular",
+      "title": "Basic Website",
+      "subtitle": "A polished, high-performance static business site — everything you need to look professional online.",
+      "priceSuffix": "fixed price / one-time",
+      "features": {
+        "businessDetails": "Business info, hours & location",
+        "contactForm": "Working contact form",
+        "sections": "All standard sections (hero, about, services, contact)",
+        "responsive": "Fully responsive — mobile, tablet & desktop",
+        "seo": "SEO-friendly structure & meta tags",
+        "layout": "Clean, modern & custom design",
+        "domain": "Free domain name included — a gift from us!"
+      },
+      "emailNote": "Note: Email provider setup is not included in this price. Cost depends on your domain registrar and the email features you need (e.g. custom inboxes, aliases, forwarding).",
+      "cta": "Get Started — Claim Your Site"
+    },
+    "custom": {
+      "title": "Custom Website",
+      "subtitle": "Got bigger ambitions? We build complex solutions tailored to your exact needs.",
+      "priceLabel": "Let's talk",
+      "features": {
+        "extraFeatures": "Advanced custom features & functionality",
+        "integrations": "Third-party API & tool integrations",
+        "automation": "Booking systems, payments & automation",
+        "thirdParty": "CRM, analytics & marketing platform setup",
+        "advanced": "Multi-language, multi-page, e-commerce",
+        "dedicated": "Dedicated project planning & support"
+      },
+      "note": "For advanced features, integrations, and special requirements, we provide a tailored quote.",
+      "cta": "Contact Us for a Custom Quote"
+    }
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "Get In Touch",
