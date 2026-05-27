@@ -69,6 +69,11 @@
     "title": "Borbély, köröm és portfólió témák",
     "intro": "Kezdőlap koncepciók borbélyokhoz, köröm szalonokhoz és személyes vagy ügynökség portfóliókhoz. Ugyanez a galéria élmény — tekintsen meg egy téma egy időben, vagy nyissa meg a teljes oldalt."
   },
+  "clients": {
+    "eyebrow": "Munkáink",
+    "title": "Élő ügyféloldalak",
+    "intro": "Általunk tervezett és fejlesztett valós weboldalak — böngésszen az előnézetben, majd nyissa meg a teljes oldalt egy új lapon."
+  },
   "pricing": {
     "eyebrow": "Árak",
     "title": "Egyszerű, átlátható árazás",

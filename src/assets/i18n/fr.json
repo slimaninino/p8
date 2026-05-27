@@ -69,6 +69,11 @@
     "title": "Thèmes Barbier, Ongles et Portfolio",
     "intro": "Concepts de pages d'accueil pour barbiers, salons d'ongles et portfolios personnels ou d'agences. Même expérience de galerie — prévisualisez un thème à la fois ou ouvrez la page complète."
   },
+  "clients": {
+    "eyebrow": "Nos réalisations",
+    "title": "Sites clients en ligne",
+    "intro": "Des sites web que nous avons conçus et développés — parcourez l'aperçu, puis ouvrez le site complet dans un nouvel onglet."
+  },
   "pricing": {
     "eyebrow": "Tarifs",
     "title": "Des tarifs simples et transparents",

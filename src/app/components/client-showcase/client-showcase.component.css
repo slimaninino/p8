@@ -1,0 +1,49 @@
+/* src/app/components/client-showcase/client-showcase.component.css */
+
+:host {
+  display: block;
+}
+
+/*
+  All layout, card, sidebar, arrow, progress, and browser-chrome styles
+  are inherited from site.css (.themes, .showcase, .showcase-card, etc.)
+  — the same classes used by ThemeShowcaseComponent.
+
+  This file only adds the iframe-blocked fallback overlay and the
+  clients-specific teal accent variant.
+*/
+
+.themes--clients .showcase-badge {
+  border-color: rgba(72, 191, 217, 0.4);
+  color: var(--brand-blue-deep);
+}
+
+/* Fallback shown when a live site blocks iframe embedding */
+.iframe-blocked-overlay {
+  display: none; /* visible only via JS if needed — or always shown behind iframe */
+  position: absolute;
+  inset: 0;
+  background: var(--card-bg, rgba(20, 20, 20, 0.97));
+  z-index: 2;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: inherit;
+}
+
+.iframe-blocked-overlay p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/*
+  To auto-detect iframe blocking, the ThemeShowcase iframe uses a load event.
+  Since this is a CSS-only file, the overlay is hidden by default.
+  The TS component can add `.iframe-blocked` to `.showcase-viewport` to show it:
+
+  .showcase-viewport.iframe-blocked iframe { display: none; }
+  .showcase-viewport.iframe-blocked .iframe-blocked-overlay { display: flex; }
+*/

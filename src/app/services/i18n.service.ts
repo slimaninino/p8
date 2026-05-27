@@ -1,3 +1,4 @@
+// src/app/services/i18n.service.ts
 import { Injectable, signal, effect } from '@angular/core';
 
 export type Language = 'en' | 'fr' | 'hu' | 'ar';
@@ -6,16 +7,11 @@ const SUPPORTED_LANGUAGES: Language[] = ['en', 'fr', 'hu', 'ar'];
 const DEFAULT_LANGUAGE: Language = 'en';
 const STORAGE_KEY = 'app-language';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class I18nService {
   private currentLanguage = signal<Language>(DEFAULT_LANGUAGE);
   private translations: Record<Language, Record<string, any>> = {
-    en: {},
-    fr: {},
-    hu: {},
-    ar: {}
+    en: {}, fr: {}, hu: {}, ar: {}
   };
 
   currentLanguage$ = this.currentLanguage.asReadonly();
@@ -30,11 +26,16 @@ export class I18nService {
   }
 
   async init(): Promise<void> {
-    // Load saved language or use default
     const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
-    const lang = saved && SUPPORTED_LANGUAGES.includes(saved) ? saved : DEFAULT_LANGUAGE;
 
-    // Load all translation files
+    // Priority 1: user's saved preference
+    // Priority 2: browser language
+    // Priority 3: English default
+    const lang: Language =
+      (saved && SUPPORTED_LANGUAGES.includes(saved) ? saved : null) ??
+      this.detectBrowserLanguage() ??
+      DEFAULT_LANGUAGE;
+
     for (const supportedLang of SUPPORTED_LANGUAGES) {
       try {
         const response = await fetch(`/assets/i18n/${supportedLang}.json`);
@@ -48,6 +49,22 @@ export class I18nService {
     }
 
     this.setLanguage(lang);
+  }
+
+  /** Reads navigator.languages and returns the first supported match, or null. */
+  private detectBrowserLanguage(): Language | null {
+    const browserLangs = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language];
+
+    for (const browserLang of browserLangs) {
+      // Match full tag first (e.g. "fr-FR" → "fr"), then bare tag
+      const code = browserLang.toLowerCase().split('-')[0] as Language;
+      if (SUPPORTED_LANGUAGES.includes(code)) {
+        return code;
+      }
+    }
+    return null;
   }
 
   setLanguage(lang: Language): void {
@@ -64,11 +81,9 @@ export class I18nService {
     const lang = this.currentLanguage();
     const keys = key.split('.');
     let value: any = this.translations[lang];
-
     for (const k of keys) {
       value = value?.[k];
     }
-
     return typeof value === 'string' ? value : defaultValue || key;
   }
 

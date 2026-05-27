@@ -69,6 +69,11 @@
     "title": "Barber, Nail & Portfolio Themes",
     "intro": "Homepage concepts for barbershops, nail salons, and personal or agency portfolios. Same showcase experience — preview one theme at a time or open the full page."
   },
+  "clients": {
+    "eyebrow": "Our Work",
+    "title": "Live Client Websites",
+    "intro": "Real websites we have designed and built — browse the live preview, then open the full site in a new tab."
+  },
   "pricing": {
     "eyebrow": "Pricing",
     "title": "Simple, Transparent Pricing",

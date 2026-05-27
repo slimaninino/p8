@@ -25,6 +25,7 @@ import {
     AboutComponent,
     ServicesComponent,
     ThemeShowcaseComponent,
+    ClientShowcaseComponent,
     PricingComponent,
     ContactComponent,
     SiteFooterComponent
@@ -48,7 +49,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    const sectionIds = ['top', 'about', 'services', 'themes', 'portfolio', 'pricing', 'contact'];
+    const sectionIds = ['top', 'about', 'services', 'themes', 'portfolio', 'clients', 'pricing', 'contact'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);

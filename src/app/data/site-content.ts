@@ -292,3 +292,56 @@ export const BEAUTY_PORTFOLIO_DEMOS: ThemeDemo[] = [
 
 /** @deprecated Use HOSPITALITY_DEMOS */
 export const THEME_DEMOS = HOSPITALITY_DEMOS;
+
+// ── CLIENT SHOWCASE ───────────────────────────────────────
+
+export interface ClientDemo {
+  id: number;
+  title: string;
+  category: string;
+  url: string;          // full external URL — opened in new tab AND loaded in iframe
+  accent: string;
+  summary: string;
+}
+
+export interface ClientShowcaseConfig {
+  sectionId: string;
+  eyebrow: string;
+  title: string;
+  intro: string;
+}
+
+export const CLIENT_SHOWCASE: ClientShowcaseConfig = {
+  sectionId: 'clients',
+  eyebrow: 'Our Work',
+  title: 'Live Client Websites',
+  intro:
+    'Real websites we have designed and built — browse the live preview, then open the full site in a new tab.'
+};
+
+export const CLIENT_DEMOS: ClientDemo[] = [
+  {
+    id: 1,
+    title: 'NoahSwitch',
+    category: 'Tech & Training',
+    url: 'https://noahswitch.github.io',
+    accent: '#48bfd9',
+    summary: 'Our own brand — technology training & services platform showcasing brand identity and digital expertise.'
+  },
+  {
+    id: 2,
+    title: 'Madame Architects',
+    category: 'Architecture',
+    url: 'https://madamearchitects.com',
+    accent: '#c8a46d',
+    summary: 'Elegant portfolio for an architecture studio — refined layout, project gallery, and studio identity.'
+  },
+  {
+    id: 3,
+    title: 'By Maroua',
+    category: 'Beauty & Personal Brand',
+    url: 'https://bymaroua.com',
+    accent: '#c98fa2',
+    summary: 'Personal brand site for a beauty professional — warm aesthetics, service showcase, and booking-ready UX.'
+  }
+];
