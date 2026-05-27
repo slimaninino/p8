@@ -14,7 +14,9 @@
     "buttons": {
       "getStarted": "Commencer",
       "hospitalityThemes": "Thèmes Hospitalité",
-      "beautyThemes": "Thèmes Barbier & Ongles"
+      "beautyThemes": "Thèmes Barbier & Ongles",
+      "clients": "Nos clients",
+      "pricing": "Tarifs"
     },
     "expertise": "Expertise",
     "expertiseDesc": "Spécialistes en marque, digital et formation",

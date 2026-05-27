@@ -14,7 +14,9 @@
     "buttons": {
       "getStarted": "Kezdés",
       "hospitalityThemes": "Vendéglátási témák",
-      "beautyThemes": "Borbély és köröm témák"
+      "beautyThemes": "Borbély és köröm témák",
+      "clients": "Ügyfeleink",
+      "pricing": "Árak"
     },
     "expertise": "Szakértelem",
     "expertiseDesc": "Szakértők márkázás, digitális és képzés területén",

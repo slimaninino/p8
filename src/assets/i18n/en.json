@@ -14,7 +14,9 @@
     "buttons": {
       "getStarted": "Get Started",
       "hospitalityThemes": "Hospitality Themes",
-      "beautyThemes": "Barber & Nail Themes"
+      "beautyThemes": "Barber & Nail Themes",
+      "clients": "Our Clients",
+      "pricing": "Pricing"
     },
     "expertise": "Expertise",
     "expertiseDesc": "Specialists across brand, digital, and training",
