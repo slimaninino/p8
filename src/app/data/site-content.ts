@@ -322,14 +322,6 @@ export const CLIENT_SHOWCASE: ClientShowcaseConfig = {
 export const CLIENT_DEMOS: ClientDemo[] = [
   {
     id: 1,
-    title: 'NoahSwitch',
-    category: 'Tech & Training',
-    url: 'https://noahswitch.github.io',
-    accent: '#48bfd9',
-    summary: 'Our own brand — technology training & services platform showcasing brand identity and digital expertise.'
-  },
-  {
-    id: 2,
     title: 'Madame Architects',
     category: 'Architecture',
     url: 'https://madamearchitects.com',
@@ -337,11 +329,19 @@ export const CLIENT_DEMOS: ClientDemo[] = [
     summary: 'Elegant portfolio for an architecture studio — refined layout, project gallery, and studio identity.'
   },
   {
-    id: 3,
+    id: 2,
     title: 'By Maroua',
     category: 'Beauty & Personal Brand',
     url: 'https://bymaroua.com',
     accent: '#c98fa2',
     summary: 'Personal brand site for a beauty professional — warm aesthetics, service showcase, and booking-ready UX.'
-  }
+  },  
+  {
+    id: 3,
+    title: 'NoahSwitch',
+    category: 'Professional Portfolio',
+    url: 'https://noahswitch.github.io',
+    accent: '#48bfd9',
+    summary: 'Results-driven Digital Expert with a proven track record of designing scalable online strategies.'
+  },
 ];
