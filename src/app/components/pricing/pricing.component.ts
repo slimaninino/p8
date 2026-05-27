@@ -21,7 +21,7 @@ export class PricingComponent {
     const lang = this.i18n.getCurrentLanguage();
     switch (lang) {
       case 'hu': return '50 000 HUF';
-      case 'fr': return '150 €';
+      case 'fr': return '150 â‚¬';
       default:   return '$200 USD';
     }
   }
