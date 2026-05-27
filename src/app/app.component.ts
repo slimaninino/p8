@@ -15,6 +15,7 @@ import {
   HOSPITALITY_DEMOS,
   HOSPITALITY_SHOWCASE
 } from './data/site-content';
+import { ClientShowcaseComponent } from './components/client-showcase/client-showcase.component';
 
 @Component({
   selector: 'app-root',
