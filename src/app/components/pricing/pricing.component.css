@@ -1,58 +1,51 @@
 /* src/app/components/pricing/pricing.component.css */
 
-.pricing-section {
-  padding: 6rem 1.5rem;
-  background: var(--color-bg, #0a0a0a);
-  position: relative;
-  overflow: hidden;
+:host {
+  display: block;
 }
 
-/* subtle grid texture */
-.pricing-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+/* ── SECTION ─────────────────────────────────────────────── */
+
+.pricing-section {
+  padding: 5rem 1.5rem 6rem;
+  background: var(--color-bg, var(--bg));
 }
 
 .pricing-inner {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
+/* ── HEADER ─────────────────────────────────────────────── */
+
 .eyebrow {
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: .18em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-accent, #9557ff);
-  margin-bottom: .75rem;
+  color: var(--brand-blue-deep);
+  margin-bottom: 0.6rem;
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
   font-weight: 800;
-  color: var(--color-text, #f0f0f0);
-  margin-bottom: 1rem;
+  color: var(--heading);
+  margin-bottom: 0.9rem;
   line-height: 1.15;
 }
 
 .section-intro {
-  color: var(--color-text-muted, #aaa);
+  color: var(--text-muted);
   max-width: 560px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 3rem;
   line-height: 1.7;
-  font-size: .97rem;
+  font-size: 0.95rem;
 }
 
-/* -- CARDS ------------------------------------------------- */
+/* ── CARDS GRID ─────────────────────────────────────────── */
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -60,187 +53,204 @@
   text-align: left;
 }
 
-@media (max-width: 700px) {
-  .cards { grid-template-columns: 1fr; }
+@media (max-width: 680px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 
+/* ── CARD BASE ──────────────────────────────────────────── */
+
 .card {
-  border-radius: 1.25rem;
-  padding: 2.25rem 2rem;
+  border-radius: var(--radius, 1rem);
+  padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.2rem;
   position: relative;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
-/* Basic card */
+/* Basic — teal brand accent, matches contact info block style */
 .card--basic {
-  background: var(--color-surface, #141414);
-  border: 1px solid rgba(149,87,255,.35);
-  box-shadow: 0 0 40px rgba(149,87,255,.08);
+  background: var(--card-bg, rgba(72, 191, 217, 0.06));
+  border: 1px solid rgba(72, 191, 217, 0.3);
 }
 
 .card--basic:hover {
-  box-shadow: 0 8px 60px rgba(149,87,255,.18);
+  box-shadow: 0 6px 32px rgba(72, 191, 217, 0.12);
 }
 
-/* Custom card */
+/* Custom — neutral surface, matches contact form block style */
 .card--custom {
-  background: var(--color-surface, #141414);
-  border: 1px solid rgba(255,255,255,.1);
+  background: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card--custom:hover {
-  box-shadow: 0 8px 40px rgba(255,255,255,.06);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Badge */
+/* ── BADGE ──────────────────────────────────────────────── */
+
 .card-badge {
   position: absolute;
   top: -1px;
-  right: 1.5rem;
-  background: var(--color-accent, #9557ff);
+  right: 1.25rem;
+  background: var(--brand-blue-deep);
   color: #fff;
-  font-size: .68rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: .3rem .75rem;
-  border-radius: 0 0 .6rem .6rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 0 0 var(--radius-sm, 0.5rem) var(--radius-sm, 0.5rem);
 }
 
-/* Card head */
+/* ── CARD HEAD ──────────────────────────────────────────── */
+
 .card-icon {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   line-height: 1;
 }
 
 .card-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-text, #f0f0f0);
-  margin: .4rem 0 .2rem;
+  color: var(--heading);
+  margin: 0.35rem 0 0.15rem;
 }
 
 .card-subtitle {
-  color: var(--color-text-muted, #aaa);
-  font-size: .87rem;
-  line-height: 1.5;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
-/* Price */
+/* ── PRICE ──────────────────────────────────────────────── */
+
 .card-price {
   display: flex;
   align-items: baseline;
-  gap: .5rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .price-amount {
-  font-size: 2.4rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  color: var(--color-accent, #9557ff);
+  color: var(--brand-blue-deep);
   line-height: 1;
 }
 
 .price-amount--custom {
-  font-size: 1.5rem;
-  color: var(--color-text, #f0f0f0);
+  font-size: 1.4rem;
+  color: var(--heading);
 }
 
 .price-label {
-  font-size: .82rem;
-  color: var(--color-text-muted, #aaa);
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
-/* Feature list */
+/* ── FEATURE LIST ───────────────────────────────────────── */
+
 .feature-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: .6rem;
+  gap: 0.55rem;
   flex: 1;
 }
 
 .feature-list li {
-  font-size: .9rem;
-  color: var(--color-text-muted, #bbb);
+  font-size: 0.875rem;
+  color: var(--text-muted);
   line-height: 1.45;
 }
 
 .feature-list li.feature-gift {
-  color: var(--color-accent, #9557ff);
+  color: var(--brand-blue-deep);
   font-weight: 600;
 }
 
-/* Notes */
+/* ── NOTES ──────────────────────────────────────────────── */
+
 .email-note {
-  font-size: .8rem;
-  color: var(--color-text-muted, #888);
-  background: rgba(255,255,255,.04);
-  border-radius: .6rem;
-  padding: .75rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(72, 191, 217, 0.06);
+  border: 1px solid rgba(72, 191, 217, 0.18);
+  border-radius: var(--radius-sm, 0.5rem);
+  padding: 0.7rem 0.9rem;
   line-height: 1.55;
   display: flex;
-  gap: .5rem;
+  gap: 0.45rem;
   align-items: flex-start;
 }
 
-.note-icon { flex-shrink: 0; }
+.note-icon {
+  flex-shrink: 0;
+}
 
 .custom-note {
-  font-size: .85rem;
-  color: var(--color-text-muted, #999);
+  font-size: 0.82rem;
+  color: var(--text-muted);
   font-style: italic;
   line-height: 1.55;
 }
 
-/* Buttons */
+/* ── BUTTONS ────────────────────────────────────────────── */
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: .85rem 1.75rem;
-  border-radius: .75rem;
-  font-size: .9rem;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-sm, 0.5rem);
+  font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all .2s ease;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   border: none;
-  width: 100%;
-  letter-spacing: .04em;
 }
 
 .btn--primary {
-  background: var(--color-accent, #9557ff);
+  background: var(--brand-blue-deep);
   color: #fff;
 }
+
 .btn--primary:hover {
-  background: var(--color-accent-hover, #7a3de0);
+  opacity: 0.88;
   transform: scale(1.02);
 }
 
 .btn--outline {
   background: transparent;
-  color: var(--color-text, #f0f0f0);
-  border: 2px solid rgba(255,255,255,.2);
-}
-.btn--outline:hover {
-  border-color: rgba(255,255,255,.5);
-  background: rgba(255,255,255,.05);
+  color: var(--heading);
+  border: 1.5px solid rgba(72, 191, 217, 0.35);
+  color: var(--brand-blue-deep);
 }
 
-/* Niches note */
+.btn--outline:hover {
+  border-color: rgba(72, 191, 217, 0.7);
+  background: rgba(72, 191, 217, 0.06);
+}
+
+/* ── NICHES NOTE ────────────────────────────────────────── */
+
 .niches-note {
-  margin-top: 2.5rem;
-  font-size: .85rem;
-  color: var(--color-text-muted, #777);
+  margin-top: 2.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
   line-height: 1.6;
+  opacity: 0.75;
 }
