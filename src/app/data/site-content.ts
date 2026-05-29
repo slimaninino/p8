@@ -343,8 +343,7 @@ export const CLIENT_DEMOS: ClientDemo[] = [
     url: 'https://noahswitch.github.io',
     accent: '#48bfd9',
     summary: 'Results-driven Digital Expert with a proven track record of designing scalable online strategies.'
-  },
-  ,  
+  }, 
   {
     id: 4,
     title: 'I Want To Date You',
