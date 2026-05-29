@@ -335,15 +335,15 @@ export const CLIENT_DEMOS: ClientDemo[] = [
     url: 'https://bymaroua.com',
     accent: '#c98fa2',
     summary: 'Personal brand site for a beauty professional — warm aesthetics, service showcase, and booking-ready UX.'
-  },  
+  },
   {
     id: 3,
-    title: 'NoahSwitch',
-    category: 'Professional Portfolio',
-    url: 'https://noahswitch.github.io',
-    accent: '#48bfd9',
-    summary: 'Results-driven Digital Expert with a proven track record of designing scalable online strategies.'
-  }, 
+    title: 'Barber Budapest',
+    category: 'Barbershop / Local Business',
+    url: 'https://www.rabah-barbershop.fr/',
+    accent: '#c9a84c',
+    summary: 'Premium multilingual barbershop in Budapest, Hungary. Serves clients in Hungarian, English, French and Arabic. Appointment-only, located at Murányi u. 17, 1078 Budapest.'
+  },  
   {
     id: 4,
     title: 'I Want To Date You',
@@ -352,4 +352,12 @@ export const CLIENT_DEMOS: ClientDemo[] = [
     accent: '#e91e8c',
     summary: 'A playful romantic prank page that asks "Do you want to date me?" — featuring a runaway NO button, confetti, cute quiz questions, and a Google Form submission. Built with vanilla HTML/CSS/JS.'
   },
+  {
+    id: 5,
+    title: 'NoahSwitch',
+    category: 'Professional Portfolio',
+    url: 'https://noahswitch.github.io',
+    accent: '#48bfd9',
+    summary: 'Results-driven Digital Expert with a proven track record of designing scalable online strategies.'
+  }, 
 ];
