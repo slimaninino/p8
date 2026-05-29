@@ -344,4 +344,13 @@ export const CLIENT_DEMOS: ClientDemo[] = [
     accent: '#48bfd9',
     summary: 'Results-driven Digital Expert with a proven track record of designing scalable online strategies.'
   },
+  ,  
+  {
+    id: 4,
+    title: 'I Want To Date You',
+    category: 'Fun & Interactive',
+    url: 'https://p.iwanttodateyou.fr/',
+    accent: '#e91e8c',
+    summary: 'A playful romantic prank page that asks "Do you want to date me?" — featuring a runaway NO button, confetti, cute quiz questions, and a Google Form submission. Built with vanilla HTML/CSS/JS.'
+  },
 ];
